@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageSquare, Phone, QrCode, X, Copy, Check, Clock, Shield, CheckCircle2 } from 'lucide-react';
+import { MessageSquare, Phone, QrCode, X, Copy, Check, Clock, Shield, CheckCircle2, Sparkles } from 'lucide-react';
 
 interface WeComDockProps {
   isOpenModal: boolean;
@@ -28,189 +28,192 @@ export const WeComDock: React.FC<WeComDockProps> = ({
       {/* 1. Desktop Floating Quick Dock (Bottom Right) */}
       <div className="hidden md:flex fixed bottom-6 right-6 z-40 flex-col items-end gap-2">
         {desktopExpanded && (
-          <div className="bg-[#FFFFFF] border academic-hairline shadow-xl rounded-sm p-4 w-72 mb-1 animate-in fade-in slide-in-from-bottom-2 duration-200">
-            <div className="flex items-center justify-between pb-2 mb-2 border-b academic-hairline">
-              <span className="text-xs font-semibold text-[#1C1917] flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-                值班学术顾问在线 (15分钟SLA)
+          <div className="bg-white border border-slate-200 shadow-2xl rounded-2xl p-5 w-80 mb-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+              <span className="text-xs font-bold text-slate-900 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                值班顾问在线 (15分钟内答复)
               </span>
               <button 
                 onClick={() => setDesktopExpanded(false)}
-                className="text-[#A8A29E] hover:text-[#1C1917] text-xs"
+                className="text-slate-400 hover:text-slate-700 text-xs cursor-pointer p-1"
               >
-                收起
+                <X className="w-4 h-4" />
               </button>
             </div>
             
-            <p className="text-[12px] text-[#57534E] leading-relaxed mb-3">
-              支持即时添加企业微信，获取《2026 最新大学名单 List 比对表》及 1 对 1 初步学术背景筛查。
+            <p className="text-xs text-slate-600 leading-relaxed mb-3">
+              添加专属企业微信，免费获取《2026 最新名校录取名单完整版》及 1对1 选校诊断。
             </p>
 
-            <div className="bg-[#FBF9F5] border academic-hairline p-2.5 rounded-sm flex items-center justify-between mb-3">
+            <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between mb-3">
               <div className="text-xs">
-                <span className="text-[#A8A29E] text-[10px] block">官方学术顾问微信号</span>
-                <span className="font-mono font-medium text-[#1C1917] select-all">{wechatId}</span>
+                <span className="text-slate-400 text-[10px] block font-medium">官方顾问微信号</span>
+                <span className="font-mono font-bold text-slate-800 select-all">{wechatId}</span>
               </div>
               <button
                 onClick={handleCopy}
-                className="px-2 py-1 text-[11px] font-medium text-[#78350F] bg-[#EDE7DC] hover:bg-[#D6CEBF] rounded-xs flex items-center gap-1 transition-colors"
+                className="px-2.5 py-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg flex items-center gap-1 transition-colors cursor-pointer"
               >
-                {copied ? <Check className="w-3 h-3 text-[#10B981]" /> : <Copy className="w-3 h-3" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copied ? '已复制' : '复制'}</span>
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="flex gap-2">
               <button
                 onClick={() => {
-                  onCloseModal();
+                  setDesktopExpanded(false);
                   onOpenBooking();
                 }}
-                className="py-1.5 px-2 bg-[#1C1917] hover:bg-[#78350F] text-white font-medium text-center rounded-xs transition-colors"
+                className="flex-1 py-2 text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-center transition-colors cursor-pointer shadow-xs"
               >
-                填表预约初诊
+                预约 1对1 规划
               </button>
-              <a
-                href={`tel:${hotlineNumber}`}
-                className="py-1.5 px-2 bg-[#F5F2EB] hover:bg-[#EBE5D8] text-[#44403C] font-medium text-center rounded-xs flex items-center justify-center gap-1 border academic-hairline"
+              <button
+                onClick={() => {
+                  setDesktopExpanded(false);
+                  window.location.href = `tel:${hotlineNumber.replace(/-/g, '')}`;
+                }}
+                className="px-3 py-2 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors flex items-center justify-center gap-1 cursor-pointer"
               >
-                <Phone className="w-3 h-3 text-[#B45309]" />
-                <span>电话咨询</span>
-              </a>
+                <Phone className="w-3.5 h-3.5 text-blue-600" />
+                <span>电话</span>
+              </button>
             </div>
           </div>
         )}
 
-        <button
-          onClick={() => setDesktopExpanded(!desktopExpanded)}
-          className="flex items-center gap-2.5 px-4 py-3 bg-[#1C1917] hover:bg-[#78350F] text-[#FBF9F5] shadow-lg rounded-full border border-[#D6CEBF]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer group"
-          aria-label="企业微信即时咨询"
-        >
-          <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-          <MessageSquare className="w-4 h-4 text-[#34D399]" />
-          <span className="text-xs font-semibold tracking-wide">企微学术初诊</span>
-          <span className="text-[11px] bg-[#292524] text-[#EDE7DC] px-1.5 py-0.5 rounded-full font-mono">15m响应</span>
-        </button>
+        <div className="flex items-center gap-2">
+          {!desktopExpanded && (
+            <button
+              onClick={() => setDesktopExpanded(true)}
+              className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 shadow-lg px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-bold transition-all hover:shadow-xl cursor-pointer"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>微信在线咨询</span>
+              <MessageSquare className="w-4 h-4 text-emerald-600" />
+            </button>
+          )}
+
+          <button
+            onClick={() => onOpenBooking()}
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-bold transition-all hover:shadow-xl cursor-pointer"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <span>免费测算录取率</span>
+          </button>
+        </div>
       </div>
 
-      {/* 2. Mobile Fixed Bottom Navigation Dock (Principle #2 & #9, <=15% viewport height) */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FFFFFF] border-t academic-hairline shadow-lg px-3 py-2 flex items-center justify-between gap-2 safe-area-bottom">
-        <a
-          href={`tel:${hotlineNumber}`}
-          className="flex-1 py-2 px-1 text-center bg-[#F5F2EB] text-[#292524] rounded-sm text-xs font-medium flex items-center justify-center gap-1.5 border academic-hairline"
+      {/* 2. Mobile Bottom Sticky Conversion Bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 flex items-center justify-between gap-3 shadow-lg">
+        <a 
+          href={`tel:${hotlineNumber.replace(/-/g, '')}`}
+          className="flex-1 py-2.5 px-3 bg-slate-100 text-slate-800 border border-slate-200 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5"
         >
-          <Phone className="w-3.5 h-3.5 text-[#B45309]" />
+          <Phone className="w-3.5 h-3.5 text-blue-600" />
           <span>电话咨询</span>
         </a>
 
         <button
-          onClick={onCloseModal}
-          className="flex-1 py-2 px-1 text-center bg-[#ECFDF5] text-[#065F46] rounded-sm text-xs font-medium flex items-center justify-center gap-1.5 border border-[#A7F3D0]"
+          onClick={() => {
+            // Open modal to show QR code & copy button
+            const event = new CustomEvent('open-wecom');
+            window.dispatchEvent(event);
+            handleCopy();
+          }}
+          className="flex-1 py-2.5 px-3 bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs"
         >
-          <MessageSquare className="w-3.5 h-3.5 text-[#059669]" />
-          <span>企微二维码</span>
+          <MessageSquare className="w-3.5 h-3.5" />
+          <span>微信咨询</span>
         </button>
 
         <button
           onClick={onOpenBooking}
-          className="flex-1.5 py-2 px-2 text-center bg-[#1C1917] text-[#FFFFFF] rounded-sm text-xs font-semibold shadow-xs"
+          className="flex-1 py-2.5 px-3 bg-blue-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1 shadow-xs"
         >
-          预约学术评估
+          <span>免费测算</span>
         </button>
       </div>
 
-      {/* 3. Modal Popup: Enterprise WeChat QR Code & Contact Card */}
+      {/* 3. Global Modal for WeChat Direct Connect */}
       {isOpenModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-[#FFFFFF] border academic-hairline rounded-sm shadow-2xl max-w-sm w-full p-6 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="bg-white border border-slate-200 shadow-2xl rounded-2xl max-w-sm w-full p-6 text-center relative overflow-hidden animate-in zoom-in-95 duration-150">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
+            
             <button
               onClick={onCloseModal}
-              className="absolute top-4 right-4 text-[#A8A29E] hover:text-[#1C1917] p-1"
-              aria-label="关闭弹窗"
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-1 rounded-lg transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="text-center mb-4">
-              <div className="w-10 h-10 rounded-full bg-[#ECFDF5] text-[#059669] flex items-center justify-center mx-auto mb-2 border border-[#A7F3D0]">
-                <QrCode className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-serif-title font-bold text-[#1C1917]">
-                添加青藤国际官方企业微信
-              </h3>
-              <p className="text-xs text-[#78716C] mt-1">
-                认证学术规划顾问直连 · 工作时间承诺 15 分钟内响应
-              </p>
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 shadow-xs">
+              <MessageSquare className="w-6 h-6" />
             </div>
 
-            {/* Simulated High-Res QR Code Card with academic heraldic seal */}
-            <div className="bg-[#FBF9F5] border academic-hairline p-4 rounded-sm flex flex-col items-center justify-center mb-4">
-              <div className="w-44 h-44 bg-white border border-[#D6CEBF] p-2 rounded-xs shadow-inner flex flex-col items-center justify-center relative">
-                {/* SVG QR Code Pattern Mock */}
-                <svg className="w-full h-full text-[#1C1917]" viewBox="0 0 100 100" fill="currentColor">
-                  {/* Position squares */}
-                  <rect x="5" y="5" width="28" height="28" fill="#1C1917" />
-                  <rect x="9" y="9" width="20" height="20" fill="white" />
-                  <rect x="13" y="13" width="12" height="12" fill="#78350F" />
-                  
-                  <rect x="67" y="5" width="28" height="28" fill="#1C1917" />
-                  <rect x="71" y="9" width="20" height="20" fill="white" />
-                  <rect x="75" y="13" width="12" height="12" fill="#78350F" />
+            <h3 className="text-lg font-bold text-slate-900 mb-1">
+              添加青藤国际官方企业微信
+            </h3>
+            <p className="text-xs text-slate-500 mb-5 leading-relaxed">
+              海外名校资深导师在线为您一对一解答，免费出具选校建议与录取概率分析
+            </p>
 
-                  <rect x="5" y="67" width="28" height="28" fill="#1C1917" />
-                  <rect x="9" y="71" width="20" height="20" fill="white" />
-                  <rect x="13" y="75" width="12" height="12" fill="#78350F" />
-
-                  {/* Matrix dots simulation */}
-                  <rect x="38" y="10" width="6" height="6" />
-                  <rect x="48" y="10" width="8" height="6" />
-                  <rect x="38" y="22" width="10" height="6" />
-                  <rect x="52" y="22" width="6" height="6" />
-                  <rect x="10" y="38" width="6" height="8" />
+            {/* WeChat QR Simulation */}
+            <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl mb-4 inline-block shadow-inner">
+              <div className="w-40 h-40 bg-white border border-slate-200 rounded-lg flex flex-col items-center justify-center p-2 relative shadow-xs">
+                {/* SVG mock QR code */}
+                <svg viewBox="0 0 100 100" className="w-full h-full text-slate-900" fill="currentColor">
+                  <rect x="10" y="10" width="24" height="24" />
+                  <rect x="14" y="14" width="16" height="16" fill="white" />
+                  <rect x="18" y="18" width="8" height="8" />
+                  <rect x="66" y="10" width="24" height="24" />
+                  <rect x="70" y="14" width="16" height="16" fill="white" />
+                  <rect x="74" y="18" width="8" height="8" />
+                  <rect x="10" y="66" width="24" height="24" />
+                  <rect x="14" y="70" width="16" height="16" fill="white" />
+                  <rect x="18" y="74" width="8" height="8" />
+                  <rect x="42" y="14" width="16" height="8" />
+                  <rect x="42" y="26" width="8" height="16" />
                   <rect x="22" y="38" width="8" height="6" />
-                  <rect x="38" y="38" width="24" height="24" fill="#1C1917" />
+                  <rect x="38" y="38" width="24" height="24" fill="#0F172A" />
                   <circle cx="50" cy="50" r="8" fill="white" />
-                  <text x="50" y="54" fontSize="10" textAnchor="middle" fill="#78350F" fontWeight="bold">青</text>
+                  <text x="50" y="54" fontSize="10" textAnchor="middle" fill="#2563EB" fontWeight="bold">青</text>
                   <rect x="68" y="38" width="10" height="6" />
                   <rect x="82" y="38" width="8" height="6" />
                   <rect x="38" y="68" width="6" height="12" />
-                  <rect x="48" y="68" width="12" height="6" />
-                  <rect x="48" y="80" width="6" height="10" />
-                  <rect x="68" y="68" width="10" height="10" />
-                  <rect x="82" y="82" width="8" height="8" />
+                  <rect x="52" y="68" width="12" height="6" />
+                  <rect x="72" y="68" width="16" height="16" />
                 </svg>
               </div>
-              <span className="text-[11px] text-[#A8A29E] mt-2 flex items-center gap-1">
-                <Clock className="w-3 h-3 text-[#10B981]" />
-                扫码即刻对接值班学术督导
+              <span className="text-[11px] text-slate-500 block mt-2">
+                长按保存二维码 或 使用微信扫一扫
               </span>
             </div>
 
-            {/* Quick Copy WeChat Option */}
-            <div className="bg-[#F5F2EB] p-3 rounded-xs flex items-center justify-between mb-4 text-xs">
-              <div>
-                <span className="text-[#78716C] block text-[11px]">手动添加官方微信号</span>
-                <span className="font-mono font-semibold text-[#1C1917]">{wechatId}</span>
+            {/* Wechat ID Manual Copy Option */}
+            <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between mb-4 text-xs">
+              <div className="text-left">
+                <span className="text-slate-400 text-[10px] block">微信号（长按复制）</span>
+                <span className="font-mono font-bold text-slate-800 select-all">{wechatId}</span>
               </div>
               <button
                 onClick={handleCopy}
-                className="px-2.5 py-1 text-xs font-medium text-[#78350F] bg-[#FFFFFF] border academic-hairline rounded-xs hover:bg-[#EDE7DC] transition-colors flex items-center gap-1"
+                className="px-3 py-1.5 font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg flex items-center gap-1 transition-colors cursor-pointer"
               >
-                {copied ? <Check className="w-3 h-3 text-[#10B981]" /> : <Copy className="w-3 h-3" />}
-                <span>{copied ? '已复制' : '复制微信号'}</span>
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? '已复制' : '复制微信'}</span>
               </button>
             </div>
 
-            {/* Trust commitments */}
-            <div className="space-y-1.5 text-[11px] text-[#78716C] pt-2 border-t academic-hairline">
-              <div className="flex items-center gap-1.5">
-                <Shield className="w-3 h-3 text-[#D97706]" />
-                <span>信息严格保密，绝不向任何第三方转售线索</span>
+            <div className="text-xs text-slate-500 space-y-1">
+              <div className="flex items-center justify-center gap-1 text-emerald-600 font-medium">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>工作日 15 分钟内专业答疑</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3 h-3 text-[#15803D]" />
-                <span>非骚扰式服务，提供客观的学术背景初筛建议</span>
-              </div>
+              <div>咨询专线：{hotlineNumber} (09:00 - 21:00)</div>
             </div>
           </div>
         </div>

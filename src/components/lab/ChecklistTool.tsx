@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckSquare, Square, Download, RotateCcw, ShieldCheck, AlertCircle } from 'lucide-react';
+import { CheckSquare, Square, RotateCcw, ShieldCheck, AlertCircle } from 'lucide-react';
 
 interface ChecklistItem {
   id: string;
@@ -25,7 +25,7 @@ export const ChecklistTool: React.FC = () => {
 
   const [checkedIds, setCheckedIds] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('boyan_checklist_state');
+      const saved = localStorage.getItem('ivyglobal_checklist_state');
       return saved ? JSON.parse(saved) : ['c1', 'c4'];
     } catch {
       return ['c1', 'c4'];
@@ -36,7 +36,7 @@ export const ChecklistTool: React.FC = () => {
 
   useEffect(() => {
     try {
-      localStorage.setItem('boyan_checklist_state', JSON.stringify(checkedIds));
+      localStorage.setItem('ivyglobal_checklist_state', JSON.stringify(checkedIds));
     } catch (e) {
       console.error(e);
     }
@@ -64,15 +64,17 @@ export const ChecklistTool: React.FC = () => {
   const progressPercent = Math.round((completedCount / totalCount) * 100);
 
   return (
-    <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b academic-hairline gap-3">
-        <div className="flex items-center gap-2">
-          <CheckSquare className="w-5 h-5 text-[#92400E]" />
+    <div className="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-slate-100 gap-3">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <CheckSquare className="w-5 h-5" />
+          </div>
           <div>
-            <h3 className="text-lg sm:text-xl font-serif-title font-bold text-[#1C1917]">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               留学硬核申请材料自检清单 (Checklist Matrix)
             </h3>
-            <p className="text-xs text-[#78716C]">
+            <p className="text-xs text-slate-500 mt-0.5">
               本地实时持久化保存 · 彻底杜绝因公章、格式或邮箱纰漏遭院校退件
             </p>
           </div>
@@ -81,43 +83,43 @@ export const ChecklistTool: React.FC = () => {
         <div className="flex items-center gap-2 self-start sm:self-auto text-xs">
           <button
             onClick={handleReset}
-            className="px-2.5 py-1 text-[#78716C] hover:text-[#1C1917] bg-[#F5F2EB] border academic-hairline rounded-xs flex items-center gap-1"
+            className="px-3 py-1.5 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer"
           >
-            <RotateCcw className="w-3 h-3" />
+            <RotateCcw className="w-3.5 h-3.5" />
             <span>重置</span>
           </button>
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="bg-[#FBF9F5] border academic-hairline p-4 rounded-sm mb-6">
-        <div className="flex items-center justify-between text-xs mb-2">
-          <span className="font-semibold text-[#1C1917]">材料完备度：{completedCount} / {totalCount} 项</span>
-          <span className="font-mono text-[#92400E] font-bold">{progressPercent}% 就绪</span>
+      <div className="bg-slate-50 border border-slate-200 p-5 rounded-xl mb-6">
+        <div className="flex items-center justify-between text-xs mb-2.5">
+          <span className="font-bold text-slate-900">材料完备度：{completedCount} / {totalCount} 项</span>
+          <span className="font-mono text-blue-600 font-extrabold">{progressPercent}% 就绪</span>
         </div>
-        <div className="w-full h-2 bg-[#EDE7DC] rounded-full overflow-hidden">
+        <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-[#92400E] transition-all duration-300 rounded-full" 
+            className="h-full bg-blue-600 transition-all duration-300 rounded-full" 
             style={{ width: `${progressPercent}%` }}
           />
         </div>
         {progressPercent < 100 && (
-          <p className="text-[11px] text-[#A8A29E] mt-2">
+          <p className="text-xs text-slate-400 mt-2.5">
             提示：带星号项目为海外大学网申系统 mandatory 必填项，未全部勾选前请勿贸然提交网申缴费。
           </p>
         )}
       </div>
 
       {/* Category Tabs */}
-      <div className="flex flex-wrap gap-1.5 mb-5 text-xs">
+      <div className="flex flex-wrap gap-2 mb-5 text-xs">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-3 py-1.5 rounded-xs transition-colors ${
+            className={`px-3.5 py-1.5 rounded-xl transition-all cursor-pointer ${
               activeCategory === cat
-                ? 'bg-[#1C1917] text-white font-medium'
-                : 'bg-[#F5F2EB] text-[#57534E] hover:bg-[#EDE7DC]'
+                ? 'bg-blue-600 text-white font-semibold shadow-xs'
+                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
             {cat}
@@ -133,33 +135,33 @@ export const ChecklistTool: React.FC = () => {
             <div
               key={item.id}
               onClick={() => toggleCheck(item.id)}
-              className={`p-3.5 border rounded-xs cursor-pointer transition-all flex items-start gap-3 select-none ${
+              className={`p-4 border rounded-xl cursor-pointer transition-all flex items-start gap-3.5 select-none ${
                 isChecked
-                  ? 'bg-[#F0FDF4]/50 border-[#86EFAC]/60'
-                  : 'bg-[#FFFFFF] border-stone-200 hover:border-[#D6CEBF]'
+                  ? 'bg-emerald-50/50 border-emerald-300'
+                  : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
               }`}
             >
-              <div className="mt-0.5 shrink-0 text-[#92400E]">
+              <div className="mt-0.5 shrink-0">
                 {isChecked ? (
-                  <CheckSquare className="w-4 h-4 text-[#059669]" />
+                  <CheckSquare className="w-5 h-5 text-emerald-600" />
                 ) : (
-                  <Square className="w-4 h-4 text-[#A8A29E]" />
+                  <Square className="w-5 h-5 text-slate-300" />
                 )}
               </div>
 
               <div className="flex-1 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className={`font-semibold ${isChecked ? 'text-[#166534] line-through' : 'text-[#1C1917]'}`}>
+                  <span className={`font-semibold text-sm ${isChecked ? 'text-emerald-900 line-through opacity-80' : 'text-slate-900'}`}>
                     {item.title}
                   </span>
                   {item.required && (
-                    <span className="text-[10px] text-[#DC2626] font-mono">*必填</span>
+                    <span className="text-xs text-rose-600 font-semibold">*必填</span>
                   )}
-                  <span className="text-[10px] text-[#A8A29E] bg-[#F5F2EB] px-1.5 py-0.2 rounded-xs">
+                  <span className="text-[11px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
                     {item.category}
                   </span>
                 </div>
-                <p className="text-[11px] text-[#78716C] mt-0.5 leading-relaxed">
+                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                   {item.detail}
                 </p>
               </div>

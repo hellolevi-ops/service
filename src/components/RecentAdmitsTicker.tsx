@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Award, TrendingUp, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Award, ChevronRight, Sparkles } from 'lucide-react';
 
 interface AdmitNotification {
   id: string;
@@ -92,34 +92,33 @@ export const RecentAdmitsTicker: React.FC<RecentAdmitsTickerProps> = ({ onSelect
   const current = RECENT_ADMITS[currentIndex];
 
   return (
-    <div className="bg-[#1C1917] text-[#EDE7DC] border-y border-[#3E3A36] py-2 px-4 sm:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+    <div className="bg-slate-900 text-slate-200 border border-slate-800 rounded-xl py-2.5 px-4 sm:px-6 shadow-sm overflow-hidden">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
         {/* Left Badge */}
-        <div className="flex items-center gap-2 shrink-0">
-          <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-          <span className="font-semibold text-[#F59E0B] tracking-wide flex items-center gap-1 font-mono uppercase text-[11px]">
-            <Award className="w-3.5 h-3.5" />
-            2026/2027 实时录取放榜播报
+        <div className="flex items-center gap-2.5 shrink-0">
+          <span className="text-amber-400 font-bold text-xs tracking-wider flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block" />
+            2026/2027 官方录取喜报
           </span>
-          <span className="text-[#57534E]">|</span>
+          <span className="text-slate-700">|</span>
         </div>
 
         {/* Center Animated Notification */}
         <div className="flex-1 flex items-center gap-2 overflow-hidden text-center sm:text-left justify-center sm:justify-start">
-          <span className="text-[11px] text-[#A8A29E] shrink-0 font-mono">[{current.timeAgo}]</span>
-          <span className="font-medium text-[#FBF9F5] truncate">
-            恭喜 <strong className="text-[#D97706]">{current.student}</strong>（{current.undergrad} · {current.gpa}）
-            斩获 <strong className="text-white underline decoration-[#92400E] underline-offset-2">{current.school}</strong> {current.program}！
+          <span className="text-[11px] text-slate-400 shrink-0 font-mono">[{current.timeAgo}]</span>
+          <span className="font-medium text-white truncate">
+            恭喜 <strong className="text-amber-400 font-bold">{current.student}</strong>（{current.undergrad} · {current.gpa}）
+            斩获 <strong className="text-blue-400 font-bold">{current.school}</strong> {current.program}！
           </span>
         </div>
 
         {/* Right CTA */}
         <button
           onClick={onSelectCase}
-          className="shrink-0 text-[11px] text-[#EDE7DC] hover:text-[#F59E0B] transition-colors flex items-center gap-1 font-medium group cursor-pointer"
+          className="shrink-0 text-xs text-slate-300 hover:text-white transition-colors flex items-center gap-1 font-semibold group cursor-pointer"
         >
-          <span>查看全部实证案卷</span>
-          <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+          <span>查看全部录取案例</span>
+          <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-amber-400" />
         </button>
       </div>
     </div>

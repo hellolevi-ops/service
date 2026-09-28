@@ -92,12 +92,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FBF9F5] text-[#1C1917] font-sans selection:bg-[#B45309]/15 selection:text-[#78350F]">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-blue-600/15 selection:text-blue-700">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 bg-[#1C1917] text-white text-xs px-4 py-3 rounded-xs shadow-xl border border-[#D97706]/40 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#15803D]" />
-          <span>{toastMessage}</span>
+        <div className="fixed top-20 right-6 z-50 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-xl border border-blue-500/40 flex items-center gap-2.5 animate-in fade-in slide-in-from-top-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="font-medium">{toastMessage}</span>
         </div>
       )}
 
@@ -132,7 +132,6 @@ export default function App() {
           <UniversitiesView
             onOpenBooking={handleOpenBooking}
             onOpenWeCom={() => setIsWeComOpen(true)}
-            onNavigateToTools={(toolId) => handleNavigate('lab', toolId)}
           />
         )}
 

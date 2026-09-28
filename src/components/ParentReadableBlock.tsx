@@ -24,19 +24,19 @@ export const ParentReadableBlock: React.FC<ParentReadableBlockProps> = ({
   syncMethodDesc = "我们深知出国留学是全家庭的重要投资决策。专设微信协同沟通群，定期同步学业与申请进展，关键选校定选节点召开线上/线下家庭决策会，确保父母随时知晓进度，踏实放心。"
 }) => {
   return (
-    <div className="bg-[#FAF8F5] border academic-hairline p-6 sm:p-8 rounded-sm my-8 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-[#92400E]/5 rounded-bl-full pointer-events-none" />
+    <div className="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs my-8 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full pointer-events-none" />
 
       {/* Header */}
-      <div className="flex items-center gap-3 pb-4 mb-6 border-b academic-hairline">
-        <div className="w-8 h-8 rounded-xs bg-[#78350F] text-[#FBF9F5] flex items-center justify-center">
-          <Users2 className="w-4 h-4" />
+      <div className="flex items-center gap-3.5 pb-5 mb-6 border-b border-slate-100">
+        <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+          <Users2 className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="text-base sm:text-lg font-serif-title font-bold text-[#1C1917]">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900">
             致家长：理性、透明与安全决策三件套
           </h3>
-          <p className="text-xs text-[#78716C]">
+          <p className="text-xs text-slate-500 mt-0.5">
             针对中国大陆家庭共同决策特点定制的权责明细与协同公约
           </p>
         </div>
@@ -45,26 +45,26 @@ export const ParentReadableBlock: React.FC<ParentReadableBlockProps> = ({
       {/* 3 Columns / Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* 1. Fee Logic */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#92400E]">
-            <FileText className="w-4 h-4" />
+        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <div className="flex items-center gap-2 text-xs font-bold text-blue-700">
+            <FileText className="w-4 h-4 text-blue-600" />
             <span>{feeLogicTitle}</span>
           </div>
-          <p className="text-xs text-[#57534E] leading-relaxed">
+          <p className="text-xs text-slate-600 leading-relaxed">
             {feeLogicDesc}
           </p>
         </div>
 
         {/* 2. Boundary */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#92400E]">
-            <ShieldCheck className="w-4 h-4" />
+        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <div className="flex items-center gap-2 text-xs font-bold text-blue-700">
+            <ShieldCheck className="w-4 h-4 text-blue-600" />
             <span>{boundaryTitle}</span>
           </div>
-          <ul className="space-y-1.5 text-xs text-[#57534E]">
+          <ul className="space-y-2 text-xs text-slate-600">
             {boundaryPoints.map((pt, i) => (
               <li key={i} className="flex items-start gap-1.5 leading-snug">
-                <Check className="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                 <span>{pt}</span>
               </li>
             ))}
@@ -72,12 +72,12 @@ export const ParentReadableBlock: React.FC<ParentReadableBlockProps> = ({
         </div>
 
         {/* 3. Sync Method */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#92400E]">
-            <Clock className="w-4 h-4" />
+        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <div className="flex items-center gap-2 text-xs font-bold text-blue-700">
+            <Clock className="w-4 h-4 text-blue-600" />
             <span>{syncMethodTitle}</span>
           </div>
-          <p className="text-xs text-[#57534E] leading-relaxed">
+          <p className="text-xs text-slate-600 leading-relaxed">
             {syncMethodDesc}
           </p>
         </div>

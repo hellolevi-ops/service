@@ -18,10 +18,10 @@ export const NextStops: React.FC<NextStopsProps> = ({ items, onNavigate }) => {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="bg-[#F5F2EB]/70 border academic-hairline p-5 rounded-sm my-6">
+    <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl my-6">
       <div className="flex items-center gap-2 mb-3">
-        <Compass className="w-4 h-4 text-[#92400E]" />
-        <h4 className="text-xs font-semibold uppercase tracking-wider text-[#44403C]">
+        <Compass className="w-4 h-4 text-blue-600" />
+        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">
           下一步深度探索推荐 (Next Stops)
         </h4>
       </div>
@@ -38,15 +38,15 @@ export const NextStops: React.FC<NextStopsProps> = ({ items, onNavigate }) => {
                 onNavigate(parts[0] || 'home', parts[1]);
               }
             }}
-            className="bg-[#FFFFFF] border academic-hairline p-3.5 rounded-sm hover:border-[#92400E] cursor-pointer group transition-all shadow-2xs hover:shadow-xs"
+            className="bg-white border border-slate-200 p-4 rounded-xl hover:border-blue-300 hover:shadow-sm cursor-pointer group transition-all"
           >
             <div className="flex items-start justify-between gap-2">
-              <span className="text-xs sm:text-sm font-medium text-[#1C1917] group-hover:text-[#92400E] transition-colors leading-snug">
+              <span className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
                 {item.title}
               </span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#A8A29E] group-hover:text-[#92400E] group-hover:translate-x-0.5 transition-all shrink-0 mt-0.5" />
+              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all shrink-0 mt-0.5" />
             </div>
-            <p className="text-[11px] text-[#78716C] mt-1.5 leading-relaxed">
+            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
               理由：{item.reason}
             </p>
           </div>

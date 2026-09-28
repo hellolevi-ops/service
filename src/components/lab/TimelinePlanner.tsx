@@ -62,22 +62,24 @@ export const TimelinePlanner: React.FC = () => {
       tasks: [
         '提交本科全 8 学期完整成绩单与毕业证学位证，换取无条件录用通知书',
         '办理银行大额资金证明存期锁定，递交使领馆电子签证申请',
-        '预约海外大学学生公寓住宿，参加博研行前学术写作防剽窃工作坊'
+        '预约海外大学学生公寓住宿，参加青藤行前学术写作防剽窃工作坊'
       ],
       deliverable: '入境签注与抵校注册包'
     }
   ];
 
   return (
-    <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b academic-hairline gap-3">
-        <div className="flex items-center gap-2">
-          <Calendar className="w-5 h-5 text-[#92400E]" />
+    <div className="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-slate-100 gap-3">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <Calendar className="w-5 h-5" />
+          </div>
           <div>
-            <h3 className="text-lg sm:text-xl font-serif-title font-bold text-[#1C1917]">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               申请时间轴倒推生成器 (Timeline Planner)
             </h3>
-            <p className="text-xs text-[#78716C]">
+            <p className="text-xs text-slate-500 mt-0.5">
               18–24 个月全周期里程碑倒排 · 锁定关键轮次与黄金投递窗口
             </p>
           </div>
@@ -88,7 +90,7 @@ export const TimelinePlanner: React.FC = () => {
           <select
             value={targetIntake}
             onChange={(e) => setTargetIntake(e.target.value)}
-            className="p-2 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] font-medium"
+            className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:bg-white focus:border-blue-500 focus:outline-none transition-all"
           >
             <option value="2026-fall">2026 年秋季入学 (当前黄金周期)</option>
             <option value="2027-fall">2027 年秋季入学 (长线规划期)</option>
@@ -96,7 +98,7 @@ export const TimelinePlanner: React.FC = () => {
           <select
             value={region}
             onChange={(e) => setRegion(e.target.value)}
-            className="p-2 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] font-medium"
+            className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:bg-white focus:border-blue-500 focus:outline-none transition-all"
           >
             <option value="uk">英国 G5 / 罗素集团</option>
             <option value="us">美国 Top 30 / 常春藤</option>
@@ -110,35 +112,35 @@ export const TimelinePlanner: React.FC = () => {
         {timelineData.map((item, idx) => (
           <div 
             key={idx}
-            className="border academic-hairline rounded-sm p-4 hover:border-[#92400E] bg-[#FBF9F5]/40 transition-colors"
+            className="border border-slate-200 rounded-xl p-5 hover:border-blue-300 bg-white transition-all shadow-xs"
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 mb-2 border-b academic-hairline gap-1">
-              <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#1C1917] text-white text-[10px] font-mono flex items-center justify-center shrink-0">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-3 border-b border-slate-100 gap-2">
+              <div className="flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">
                   {idx + 1}
                 </span>
-                <span className="font-serif-title font-bold text-[#1C1917] text-sm sm:text-base">
+                <span className="font-bold text-slate-900 text-sm sm:text-base">
                   {item.period}
                 </span>
               </div>
-              <span className="text-xs font-semibold text-[#92400E] bg-[#F5F2EB] px-2 py-0.5 rounded-xs self-start sm:self-auto">
+              <span className="text-xs font-semibold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200 self-start sm:self-auto">
                 核心焦点：{item.focus}
               </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
-              <div className="md:col-span-2 space-y-1.5 text-[#57534E]">
+              <div className="md:col-span-2 space-y-2 text-slate-600">
                 {item.tasks.map((task, tIdx) => (
-                  <div key={tIdx} className="flex items-start gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" />
-                    <span>{task}</span>
+                  <div key={tIdx} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{task}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-[#FFFFFF] p-2.5 rounded-xs border academic-hairline text-xs flex flex-col justify-between">
-                <span className="text-[11px] text-[#A8A29E] block">阶段里程碑交付物</span>
-                <span className="font-medium text-[#1C1917] mt-1">{item.deliverable}</span>
+              <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs flex flex-col justify-between">
+                <span className="text-[11px] text-slate-400 block font-medium">阶段里程碑交付物</span>
+                <span className="font-bold text-slate-800 mt-1">{item.deliverable}</span>
               </div>
             </div>
           </div>

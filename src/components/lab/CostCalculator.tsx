@@ -77,14 +77,16 @@ export const CostCalculator: React.FC = () => {
   const grandTotalRMB = totalRMB + bufferRMB;
 
   return (
-    <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs">
-      <div className="flex items-center gap-2 pb-4 mb-6 border-b academic-hairline">
-        <Calculator className="w-5 h-5 text-[#92400E]" />
+    <div className="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-slate-100">
+        <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+          <Calculator className="w-5 h-5" />
+        </div>
         <div>
-          <h3 className="text-lg sm:text-xl font-serif-title font-bold text-[#1C1917]">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900">
             留学全成本与投资回报粗算器 (Cost & Budget Estimator)
           </h3>
-          <p className="text-xs text-[#78716C]">
+          <p className="text-xs text-slate-500 mt-0.5">
             依据 2026/2027 官方最新学费表、留学生公寓指数与当前汇率精确测算
           </p>
         </div>
@@ -93,11 +95,11 @@ export const CostCalculator: React.FC = () => {
       {/* Control selectors */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 text-xs">
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">目标国家与地区档次</label>
+          <label className="block font-semibold text-slate-700 mb-1.5">目标国家与地区档次</label>
           <select
             value={regionKey}
             onChange={(e) => setRegionKey(e.target.value as any)}
-            className="w-full p-2.5 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] font-medium"
+            className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:bg-white focus:border-blue-500 focus:outline-none transition-all"
           >
             <option value="uk-lon">英国 · 伦敦地区 (IC / UCL / LSE)</option>
             <option value="uk-other">英国 · 非伦敦地区 (爱丁堡 / 曼大 / 布大)</option>
@@ -109,17 +111,17 @@ export const CostCalculator: React.FC = () => {
         </div>
 
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">攻读学段</label>
-          <div className="grid grid-cols-2 gap-1.5">
+          <label className="block font-semibold text-slate-700 mb-1.5">攻读学段</label>
+          <div className="grid grid-cols-2 gap-2">
             <button
               onClick={() => setDegreeLevel('master')}
-              className={`py-2 text-center rounded-xs transition-colors ${degreeLevel === 'master' ? 'bg-[#1C1917] text-white font-medium' : 'bg-[#FBF9F5] border academic-hairline text-[#57534E]'}`}
+              className={`py-2 text-center rounded-xl transition-all cursor-pointer ${degreeLevel === 'master' ? 'bg-blue-600 text-white font-semibold shadow-xs' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               硕士研究生 (1-2年)
             </button>
             <button
               onClick={() => setDegreeLevel('bachelor')}
-              className={`py-2 text-center rounded-xs transition-colors ${degreeLevel === 'bachelor' ? 'bg-[#1C1917] text-white font-medium' : 'bg-[#FBF9F5] border academic-hairline text-[#57534E]'}`}
+              className={`py-2 text-center rounded-xl transition-all cursor-pointer ${degreeLevel === 'bachelor' ? 'bg-blue-600 text-white font-semibold shadow-xs' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               本科直申 (3-4年)
             </button>
@@ -127,23 +129,23 @@ export const CostCalculator: React.FC = () => {
         </div>
 
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">住宿与生活风格标准</label>
-          <div className="grid grid-cols-3 gap-1">
+          <label className="block font-semibold text-slate-700 mb-1.5">住宿与生活风格标准</label>
+          <div className="grid grid-cols-3 gap-1.5">
             <button
               onClick={() => setLivingStyle('economy')}
-              className={`py-2 text-center rounded-xs transition-colors ${livingStyle === 'economy' ? 'bg-[#92400E] text-white font-medium' : 'bg-[#FBF9F5] border academic-hairline text-[#57534E]'}`}
+              className={`py-2 text-center rounded-xl transition-all cursor-pointer ${livingStyle === 'economy' ? 'bg-blue-600 text-white font-semibold shadow-xs' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               适度精简
             </button>
             <button
               onClick={() => setLivingStyle('standard')}
-              className={`py-2 text-center rounded-xs transition-colors ${livingStyle === 'standard' ? 'bg-[#92400E] text-white font-medium' : 'bg-[#FBF9F5] border academic-hairline text-[#57534E]'}`}
+              className={`py-2 text-center rounded-xl transition-all cursor-pointer ${livingStyle === 'standard' ? 'bg-blue-600 text-white font-semibold shadow-xs' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               标配标准
             </button>
             <button
               onClick={() => setLivingStyle('comfort')}
-              className={`py-2 text-center rounded-xs transition-colors ${livingStyle === 'comfort' ? 'bg-[#92400E] text-white font-medium' : 'bg-[#FBF9F5] border academic-hairline text-[#57534E]'}`}
+              className={`py-2 text-center rounded-xl transition-all cursor-pointer ${livingStyle === 'comfort' ? 'bg-blue-600 text-white font-semibold shadow-xs' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               宽裕独立
             </button>
@@ -152,66 +154,66 @@ export const CostCalculator: React.FC = () => {
       </div>
 
       {/* Calculated Breakdown Display */}
-      <div className="bg-[#FAF8F5] border academic-hairline p-6 rounded-sm">
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 mb-5 border-b academic-hairline gap-2">
+      <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 border-b border-slate-200 gap-2">
           <div>
-            <span className="text-[11px] font-mono text-[#A8A29E] uppercase tracking-wider block">
+            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
               TOTAL ESTIMATED ANNUAL BUDGET (CNY)
             </span>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-3xl sm:text-4xl font-serif-title font-bold text-[#92400E]">
+              <span className="text-3xl sm:text-4xl font-extrabold text-blue-600">
                 ¥ {grandTotalRMB.toLocaleString()}
               </span>
-              <span className="text-xs text-[#78716C]">
+              <span className="text-xs text-slate-500 font-medium">
                 元人民币 / 年 (折合 {current.curr} {totalLocal.toLocaleString()})
               </span>
             </div>
           </div>
-          <span className="text-xs text-[#059669] bg-[#ECFDF5] border border-[#A7F3D0] px-2.5 py-1 rounded-xs font-medium self-start sm:self-auto">
+          <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full font-semibold self-start sm:self-auto">
             包含 6% 汇率与突发冗余安全池
           </span>
         </div>
 
         {/* Breakdown Items Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs mb-4">
-          <div className="bg-white p-3 rounded-xs border academic-hairline">
-            <span className="text-[#A8A29E] block text-[11px]">官方基础学费</span>
-            <span className="text-sm font-semibold font-mono text-[#1C1917] block mt-0.5">
+          <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <span className="text-slate-400 block text-[11px] font-medium">官方基础学费</span>
+            <span className="text-sm font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.tuition.toLocaleString()}
             </span>
-            <span className="text-[10px] text-[#78716C]">约 ¥{Math.round(current.tuition * current.rate).toLocaleString()}</span>
+            <span className="text-[11px] text-slate-500 mt-0.5 block">约 ¥{Math.round(current.tuition * current.rate).toLocaleString()}</span>
           </div>
 
-          <div className="bg-white p-3 rounded-xs border academic-hairline">
-            <span className="text-[#A8A29E] block text-[11px]">学生公寓/校外租房</span>
-            <span className="text-sm font-semibold font-mono text-[#1C1917] block mt-0.5">
+          <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <span className="text-slate-400 block text-[11px] font-medium">学生公寓/校外租房</span>
+            <span className="text-sm font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.rentYear.toLocaleString()}
             </span>
-            <span className="text-[10px] text-[#78716C]">约 ¥{Math.round(current.rentYear * current.rate).toLocaleString()}</span>
+            <span className="text-[11px] text-slate-500 mt-0.5 block">约 ¥{Math.round(current.rentYear * current.rate).toLocaleString()}</span>
           </div>
 
-          <div className="bg-white p-3 rounded-xs border academic-hairline">
-            <span className="text-[#A8A29E] block text-[11px]">日常饮食与交通</span>
-            <span className="text-sm font-semibold font-mono text-[#1C1917] block mt-0.5">
+          <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <span className="text-slate-400 block text-[11px] font-medium">日常饮食与交通</span>
+            <span className="text-sm font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.livingYear.toLocaleString()}
             </span>
-            <span className="text-[10px] text-[#78716C]">约 ¥{Math.round(current.livingYear * current.rate).toLocaleString()}</span>
+            <span className="text-[11px] text-slate-500 mt-0.5 block">约 ¥{Math.round(current.livingYear * current.rate).toLocaleString()}</span>
           </div>
 
-          <div className="bg-white p-3 rounded-xs border academic-hairline">
-            <span className="text-[#A8A29E] block text-[11px]">签证/IHS医疗等硬性规费</span>
-            <span className="text-sm font-semibold font-mono text-[#1C1917] block mt-0.5">
+          <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <span className="text-slate-400 block text-[11px] font-medium">签证/IHS医疗等硬性规费</span>
+            <span className="text-sm font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.officialFees.toLocaleString()}
             </span>
-            <span className="text-[10px] text-[#78716C]">约 ¥{Math.round(current.officialFees * current.rate).toLocaleString()}</span>
+            <span className="text-[11px] text-slate-500 mt-0.5 block">约 ¥{Math.round(current.officialFees * current.rate).toLocaleString()}</span>
           </div>
         </div>
 
         {/* Region specific guidance note */}
-        <div className="text-xs text-[#57534E] flex items-start gap-2 bg-white/70 p-3 rounded-xs border academic-hairline">
-          <Info className="w-4 h-4 text-[#92400E] shrink-0 mt-0.5" />
+        <div className="text-xs text-slate-600 flex items-start gap-2.5 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+          <Info className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
           <span>
-            <strong className="text-[#1C1917]">学术研判顾问备注：</strong>
+            <strong className="text-slate-900">学术研判顾问备注：</strong>
             {current.notes}
           </span>
         </div>

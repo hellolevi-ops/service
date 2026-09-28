@@ -59,14 +59,16 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
   const result = calculateResult();
 
   return (
-    <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs">
-      <div className="flex items-center gap-2 pb-4 mb-6 border-b academic-hairline">
-        <Compass className="w-5 h-5 text-[#92400E]" />
+    <div className="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+      <div className="flex items-center gap-3 pb-5 mb-6 border-b border-slate-100">
+        <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+          <Compass className="w-5 h-5" />
+        </div>
         <div>
-          <h3 className="text-lg sm:text-xl font-serif-title font-bold text-[#1C1917]">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900">
             学术背景竞争力雷达自测模型 (Profile Match & Risk Radar)
           </h3>
-          <p className="text-xs text-[#78716C]">
+          <p className="text-xs text-slate-500 mt-0.5">
             公开透明规则 · 基于英美港新官方最新 2026/2027 录取门槛与名单标准量化研判
           </p>
         </div>
@@ -75,11 +77,11 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
       {/* Input Matrix */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 text-xs">
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">本科 / 当前学业院校档次</label>
+          <label className="block font-semibold text-slate-700 mb-1.5">本科 / 当前学业院校档次</label>
           <select
             value={bgType}
             onChange={(e) => setBgType(e.target.value)}
-            className="w-full p-2.5 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] focus:border-[#92400E] focus:outline-none"
+            className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none transition-all font-medium"
           >
             <option value="985/211重点院校">985 / 211 重点高校</option>
             <option value="双非一本重点高校">国内双非重点高校 (软科前100-200)</option>
@@ -90,11 +92,11 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
         </div>
 
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">当前均分 / GPA 真实区间</label>
+          <label className="block font-semibold text-slate-700 mb-1.5">当前均分 / GPA 真实区间</label>
           <select
             value={gpa}
             onChange={(e) => setGpa(e.target.value)}
-            className="w-full p-2.5 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] focus:border-[#92400E] focus:outline-none"
+            className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none transition-all font-medium"
           >
             <option value="90分以上 (或GPA 3.85+) (专业排名前5%)">90分以上 (GPA 3.85+) · 前 5%</option>
             <option value="86–89分 (或GPA 3.6-3.8)">86–89 分 (GPA 3.6–3.8)</option>
@@ -104,11 +106,11 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
         </div>
 
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">托福 / 雅思标化进展</label>
+          <label className="block font-semibold text-slate-700 mb-1.5">托福 / 雅思标化进展</label>
           <select
             value={langScore}
             onChange={(e) => setLangScore(e.target.value)}
-            className="w-full p-2.5 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] focus:border-[#92400E] focus:outline-none"
+            className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none transition-all font-medium"
           >
             <option value="雅思7.5+ / 托福110+ (高分出分)">雅思 7.5+ / 托福 110+ (高分就绪)</option>
             <option value="雅思7.0 / 托福100左右">雅思 7.0 / 托福 100 左右</option>
@@ -118,11 +120,11 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
         </div>
 
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">核心目标赛道</label>
+          <label className="block font-semibold text-slate-700 mb-1.5">核心目标赛道</label>
           <select
             value={targetTrack}
             onChange={(e) => setTargetTrack(e.target.value)}
-            className="w-full p-2.5 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] focus:border-[#92400E] focus:outline-none"
+            className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none transition-all font-medium"
           >
             <option value="uk-pg">英国 G5 与罗素集团研博深耕</option>
             <option value="us-ug">美本常春藤与 Top 30 战略研判</option>
@@ -133,11 +135,11 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
         </div>
 
         <div>
-          <label className="block font-semibold text-[#44403C] mb-1.5">GRE / GMAT / 竞赛学术科研</label>
+          <label className="block font-semibold text-slate-700 mb-1.5">GRE / GMAT / 竞赛学术科研</label>
           <select
             value={greGmat}
             onChange={(e) => setGreGmat(e.target.value)}
-            className="w-full p-2.5 bg-[#FBF9F5] border academic-hairline rounded-xs text-[#1C1917] focus:border-[#92400E] focus:outline-none"
+            className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:bg-white focus:border-blue-500 focus:outline-none transition-all font-medium"
           >
             <option value="已有GRE 325+ 或 GMAT 680+">已有 GRE 325+ / GMAT 680+</option>
             <option value="有高含金量科研论文 / 竞赛奖项">有省部级以上科研论文 / 竞赛奖项</option>
@@ -148,7 +150,7 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
         <div className="flex items-end">
           <button
             onClick={() => setSubmitted(true)}
-            className="w-full py-2.5 bg-[#1C1917] hover:bg-[#78350F] text-[#FBF9F5] font-semibold text-xs rounded-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+            className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>生成四维学术研判雷达</span>
@@ -156,46 +158,46 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
         </div>
       </div>
 
-      {/* Result Section (Four-part standard structure as required by Lab specification) */}
+      {/* Result Section */}
       {submitted && (
-        <div className="bg-[#FAF8F5] border academic-hairline p-6 rounded-sm animate-in fade-in duration-300">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b academic-hairline gap-2">
+        <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl animate-in fade-in duration-300 space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 gap-2">
             <div>
-              <span className="text-[10px] font-mono text-[#059669] font-bold uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-emerald-600 uppercase tracking-wider block">
                 ANALYSIS COMPLETE · ACADEMIC TIER RATING
               </span>
-              <h4 className="text-base sm:text-lg font-serif-title font-bold text-[#1C1917]">
+              <h4 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
                 研判评级：{result.tier}
               </h4>
             </div>
-            <div className="text-xs text-[#78350F] bg-[#EDE7DC] px-2.5 py-1 rounded-xs">
+            <div className="text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-100 self-start sm:self-auto">
               名校准入胜算：{result.g5Odds}
             </div>
           </div>
 
           {/* 4 Standard Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             {/* Block 1: Assumptions & Calibration */}
-            <div className="bg-[#FFFFFF] p-4 rounded-xs border academic-hairline">
-              <span className="font-semibold text-[#1C1917] block mb-2 flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#92400E]" />
+            <div className="bg-white p-4 rounded-xl border border-slate-200">
+              <span className="font-bold text-slate-900 block mb-2 flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-blue-600" />
                 1. 测算基准口径与底层假设
               </span>
-              <p className="text-[#57534E] leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 本测算基于 2026/2027 海外名校最新公开招生报告及近三年真实全奖/免语言案例沉淀。测评剔除商业营销注水，假定所有成绩单均由正规教务处出具并附官方加权说明。
               </p>
             </div>
 
             {/* Block 2: DIY Next Steps */}
-            <div className="bg-[#FFFFFF] p-4 rounded-xs border academic-hairline">
-              <span className="font-semibold text-[#059669] block mb-2 flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#059669]" />
+            <div className="bg-white p-4 rounded-xl border border-slate-200">
+              <span className="font-bold text-emerald-700 block mb-2 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 2. 现阶段 DIY 自主推进建议
               </span>
-              <ul className="space-y-1.5 text-[#57534E]">
+              <ul className="space-y-1.5 text-slate-600">
                 {result.diyAdvice.map((adv, i) => (
                   <li key={i} className="flex items-start gap-1.5">
-                    <span className="text-[#059669] font-bold">·</span>
+                    <span className="text-emerald-600 font-bold">·</span>
                     <span>{adv}</span>
                   </li>
                 ))}
@@ -203,15 +205,15 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
             </div>
 
             {/* Block 3: Risk Signals */}
-            <div className="bg-[#FEF2F2]/60 p-4 rounded-xs border border-[#FCA5A5]/40 md:col-span-2">
-              <span className="font-semibold text-[#DC2626] block mb-1.5 flex items-center gap-1.5">
-                <AlertTriangle className="w-4 h-4 text-[#DC2626]" />
+            <div className="bg-rose-50/70 p-4 rounded-xl border border-rose-200 md:col-span-2">
+              <span className="font-bold text-rose-800 block mb-1.5 flex items-center gap-1.5">
+                <AlertTriangle className="w-4 h-4 text-rose-600" />
                 3. 建议顾问深度介入的临界信号 (Advisor Critical Signals)
               </span>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[#991B1B]">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-rose-950">
                 {result.riskSignals.map((sig, i) => (
                   <li key={i} className="flex items-start gap-1.5">
-                    <span className="font-bold">!</span>
+                    <span className="font-bold text-rose-600">!</span>
                     <span>{sig}</span>
                   </li>
                 ))}
@@ -220,8 +222,8 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
           </div>
 
           {/* CTA: Pre-fill booking */}
-          <div className="pt-3 border-t academic-hairline flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <span className="text-xs text-[#78716C]">
+          <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <span className="text-xs text-slate-500 font-medium">
               想获取基于您具体成绩单 40+ 门课程学分的 1 对 1 先修课对标研判书？
             </span>
             <button
@@ -232,7 +234,7 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
                 langScore: langScore,
                 summary: `自测评级：${result.tier}；准入胜算：${result.g5Odds}`
               })}
-              className="px-4 py-2 bg-[#1C1917] hover:bg-[#78350F] text-[#FBF9F5] text-xs font-semibold rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs shrink-0"
+              className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs shrink-0"
             >
               <span>将此份数据带入预约顾问深度解读</span>
               <ArrowRight className="w-3.5 h-3.5" />

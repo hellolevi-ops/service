@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaseStudyItem } from '../data/mockData';
-import { ArrowRight, Award, ShieldAlert, User, BookOpen } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 interface CaseStudyCardProps {
   item: CaseStudyItem;
@@ -13,87 +13,97 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   onSelect,
   onAppointAdvisor
 }) => {
+  // 根据录取的大学赋予不同的视觉特色色带
+  const isUk = item.trackId.includes('uk');
+  const isUs = item.trackId.includes('us');
+  const isHkSg = item.trackId.includes('hk') || item.trackId.includes('sg');
+
+  const bannerBg = isUk 
+    ? 'from-blue-950 to-indigo-900' 
+    : isUs 
+    ? 'from-sky-950 to-blue-900' 
+    : isHkSg 
+    ? 'from-teal-950 to-slate-900' 
+    : 'from-slate-900 to-slate-800';
+
   return (
-    <div className="bg-[#FFFFFF] border academic-hairline p-5 sm:p-6 rounded-sm hover:border-[#92400E] transition-all shadow-2xs hover:shadow-xs flex flex-col justify-between">
+    <div 
+      onClick={() => onSelect(item)}
+      className="bg-white border border-slate-200 rounded-2xl hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden cursor-pointer"
+    >
       <div>
-        {/* Top Meta: Academic Track + Background Grade */}
-        <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b academic-hairline text-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-[#92400E] bg-[#F5F2EB] px-2 py-0.5 rounded-xs">
+        {/* 卡片顶部：图文视觉横幅 (Image-Text Banner Header) */}
+        <div className={`p-4 bg-gradient-to-r ${bannerBg} text-white relative overflow-hidden`}>
+          <div className="absolute right-0 top-0 bottom-0 w-32 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]" />
+          
+          <div className="flex items-center justify-between text-[11px] pb-2 mb-2 border-b border-white/15">
+            <span className="font-semibold text-amber-300">
               {item.trackName}
             </span>
-            <span className="text-[#78716C] font-mono">{item.enrollmentYear}</span>
+            <span className="text-slate-300 tabular-nums">
+              {item.enrollmentYear} 录取档
+            </span>
           </div>
-          <span className="text-[#44403C] font-medium bg-[#EDE7DC]/70 px-2 py-0.5 rounded-xs">
-            {item.backgroundGrade}
-          </span>
-        </div>
 
-        {/* Student Target & Admit University */}
-        <div className="mb-3">
-          <h4 className="text-base sm:text-lg font-serif-title font-bold text-[#1C1917] group-hover:text-[#92400E] leading-snug">
+          <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-amber-200 transition-colors leading-tight font-editorial-title">
             {item.admitUniversity}
           </h4>
-          <span className="text-xs text-[#78716C] block mt-0.5 font-medium">
+          <span className="text-xs text-slate-200 block mt-1 font-medium truncate">
             {item.admitProgram}
           </span>
         </div>
 
-        {/* Background Details Summary */}
-        <div className="bg-[#FBF9F5] p-3 rounded-xs border academic-hairline mb-3 text-xs space-y-1">
-          <div className="text-[#57534E]">
-            <span className="text-[#A8A29E] mr-1.5">原始背景：</span>
-            <span>{item.undergradProfile}</span>
+        <div className="p-5 space-y-3.5">
+          {/* Background Details Summary */}
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs space-y-1.5">
+            <div className="text-slate-700">
+              <span className="text-slate-400 mr-1.5">始发背景：</span>
+              <span className="font-semibold text-slate-900">{item.undergradProfile}</span>
+            </div>
+            <div className="text-slate-600 flex items-center justify-between pt-1 border-t border-slate-200 tabular-nums">
+              <span>
+                <span className="text-slate-400 mr-1">GPA：</span>
+                <span className="font-bold text-slate-900">{item.gpa}</span>
+              </span>
+              <span>
+                <span className="text-slate-400 mr-1">标化：</span>
+                <span className="font-bold text-slate-900">{item.testScores}</span>
+              </span>
+            </div>
           </div>
-          <div className="text-[#57534E] flex items-center justify-between">
-            <span>
-              <span className="text-[#A8A29E] mr-1.5">GPA/均分：</span>
-              <span className="font-mono font-medium text-[#1C1917]">{item.gpa}</span>
-            </span>
-            <span>
-              <span className="text-[#A8A29E] mr-1.5">语言/标化：</span>
-              <span className="font-mono font-medium text-[#1C1917]">{item.testScores}</span>
-            </span>
-          </div>
-        </div>
 
-        {/* Core Bottlenecks Highlight */}
-        <div className="mb-3">
-          <div className="text-[11px] font-semibold text-[#DC2626] uppercase tracking-wider mb-1 flex items-center gap-1">
-            <ShieldAlert className="w-3 h-3" />
-            <span>核心申请难点 (Bottleneck)</span>
+          {/* Core Bottlenecks Highlight */}
+          <div className="text-xs space-y-1">
+            <div className="text-[11px] font-semibold text-rose-800 uppercase tracking-wider">
+              申请难点：
+            </div>
+            <p className="text-slate-600 line-clamp-2 leading-relaxed">
+              {item.hardBottlenecks}
+            </p>
           </div>
-          <p className="text-xs text-[#57534E] line-clamp-2 leading-relaxed">
-            {item.hardBottlenecks}
-          </p>
-        </div>
 
-        {/* Strategic Insight Snippet */}
-        <div className="mb-4">
-          <div className="text-[11px] font-semibold text-[#059669] uppercase tracking-wider mb-1 flex items-center gap-1">
-            <BookOpen className="w-3 h-3" />
-            <span>书院导师应对建议</span>
+          {/* Strategic Insight Snippet */}
+          <div className="text-xs space-y-1">
+            <div className="text-[11px] font-semibold text-slate-900 uppercase tracking-wider">
+              学术破局：
+            </div>
+            <p className="text-slate-700 line-clamp-2 leading-relaxed">
+              {item.strategicInsight}
+            </p>
           </div>
-          <p className="text-xs text-[#44403C] line-clamp-2 leading-relaxed font-serif-title">
-            {item.strategicInsight}
-          </p>
         </div>
       </div>
 
       {/* Footer: Advisor Sign-off + Detail CTA */}
-      <div className="pt-3 border-t academic-hairline flex items-center justify-between text-xs">
-        <div className="flex items-center gap-1.5 text-[#57534E]">
-          <User className="w-3.5 h-3.5 text-[#A8A29E]" />
-          <span>指导：{item.leadAdvisorName}</span>
-        </div>
+      <div className="px-5 py-3 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between text-xs">
+        <span className="text-slate-500 font-medium">
+          带教导师：{item.leadAdvisorName}
+        </span>
 
-        <button
-          onClick={() => onSelect(item)}
-          className="text-xs font-semibold text-[#92400E] hover:text-[#78350F] flex items-center gap-1 cursor-pointer transition-colors"
-        >
-          <span>完整研判案卷</span>
-          <ArrowRight className="w-3 h-3" />
-        </button>
+        <span className="font-semibold text-blue-950 group-hover:text-blue-700 flex items-center gap-0.5 transition-colors">
+          <span>阅读案卷实录</span>
+          <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+        </span>
       </div>
     </div>
   );
