@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+    --font-brand: 'Cinzel', 'Noto Serif SC', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FBF9F5;
+    color: #1C1917;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-serif-title {
+    font-family: var(--font-serif);
+  }
+
+  .font-brand-title {
+    font-family: var(--font-brand);
+  }
+}
+
+/* Custom scrollbar and subtle paper texture styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F0E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6CEBF;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8AE9C;
+}
+
+/* Academic hairline grid */
+.academic-hairline {
+  border-color: rgba(28, 25, 23, 0.09);
+}
+
+.paper-grain {
+  background-color: #FBF9F5;
+  background-image: radial-gradient(rgba(120, 53, 15, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
