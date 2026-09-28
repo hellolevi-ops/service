@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ShieldCheck, Clock, Check, ArrowRight, UserCheck, Sparkles } from 'lucide-react';
+import { X, ShieldCheck, Clock, Check, ArrowRight, UserCheck } from 'lucide-react';
 import { ADVISORS, VERTICAL_TRACKS, LeadSubmission } from '../data/mockData';
 
 interface LeadBookingModalProps {
@@ -51,7 +51,7 @@ export const LeadBookingModal: React.FC<LeadBookingModalProps> = ({
       return;
     }
     if (!privacyConsented) {
-      alert('请勾选同意《博研书院个人信息保护与学术服务公约》');
+      alert('请勾选同意《青藤国际个人信息保护与学术服务公约》');
       return;
     }
 
@@ -65,7 +65,7 @@ export const LeadBookingModal: React.FC<LeadBookingModalProps> = ({
     const slaDeadline = `${String(slaTime.getHours()).padStart(2, '0')}:${String(slaTime.getMinutes()).padStart(2, '0')}`;
 
     const newLead: LeadSubmission = {
-      id: `BY-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}-${Math.floor(1000 + Math.random() * 9000)}`,
+      id: `IVY-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}-${Math.floor(1000 + Math.random() * 9000)}`,
       name,
       mobile,
       wechat,
@@ -155,7 +155,7 @@ export const LeadBookingModal: React.FC<LeadBookingModalProps> = ({
             </div>
 
             <p className="text-xs text-[#57534E] mb-5 leading-relaxed">
-              请保持电话 <strong className="font-mono text-[#1C1917]">{submittedLead.mobile}</strong> 畅通。同时建议您添加值班督导微信（<span className="font-mono font-semibold">boyan_advisory_2026</span>），以便提前将本科成绩单大纲安全发给导师审阅。
+              请保持电话 <strong className="font-mono text-[#1C1917]">{submittedLead.mobile}</strong> 畅通。同时建议您添加值班督导微信（<span className="font-mono font-semibold">ivyglobal_advisory_2026</span>），以便提前将本科成绩单大纲安全发给导师审阅。
             </p>
 
             <button
@@ -173,10 +173,10 @@ export const LeadBookingModal: React.FC<LeadBookingModalProps> = ({
                 45-MINUTE 1V1 SCHOLARLY DIAGNOSIS
               </span>
               <h3 className="text-xl sm:text-2xl font-serif-title font-bold text-[#1C1917]">
-                预约 45 分钟学术背景初诊与选校研判
+                预约 1对1 免费选校规划与录取率测算
               </h3>
               <p className="text-xs text-[#78716C] mt-1 leading-relaxed">
-                由剑桥博后、哥大教育学博士等资深导师亲自审视成绩单先修课。完全免费，不强制绑定任何商业消费。
+                由海外名校资深导师亲自为您分析成绩单与软实力背景，出具客观中肯的冲刺与稳妥院校梯队建议。完全免费，不强制绑定任何消费。
               </p>
             </div>
 
@@ -313,7 +313,7 @@ export const LeadBookingModal: React.FC<LeadBookingModalProps> = ({
                     className="mt-0.5 rounded-xs text-[#92400E] focus:ring-0 border-stone-300"
                   />
                   <span>
-                    我已阅读并同意《博研书院个人信息保护公约与服务免责条款》（v2026.09版）。书院承诺仅将上述信息用于学术初诊与联系，绝不向任何第三方泄漏或转售。
+                    我已阅读并同意《青藤国际个人信息保护公约与服务免责条款》（v2026.09版）。书院承诺仅将上述信息用于学术初诊与联系，绝不向任何第三方泄漏或转售。
                   </span>
                 </label>
               </div>
@@ -329,7 +329,7 @@ export const LeadBookingModal: React.FC<LeadBookingModalProps> = ({
                     <span>正在生成预约学术案卷...</span>
                   ) : (
                     <>
-                      <span>提交预约 · 启动 15 分钟初诊学术响应</span>
+                      <span>免费提交预约 · 资深导师 15 分钟内专业答疑</span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}

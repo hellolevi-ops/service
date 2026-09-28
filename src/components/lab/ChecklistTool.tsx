@@ -15,7 +15,7 @@ export const ChecklistTool: React.FC = () => {
     { id: 'c2', category: '学术件', title: '中英文在读证明或毕业证/学位证', detail: '已毕业学子提供双证原件及学信网 (CHESICC) 电子认证报告', required: true },
     { id: 'c3', category: '学术件', title: '核心专业课先修课程大纲 (Syllabus)', detail: '针对转专业或跨学科申请，列出 30+ 门主干课英译教学计划与学分说明', required: false },
     { id: 'c4', category: '文书推荐信', title: '至少 2 封官方大学邮箱学术推荐信 (LOR)', detail: '使用带有大学抬头纸（Letterhead）打印，推荐人必须使用官方 .edu 邮箱提交', required: true },
-    { id: 'c5', category: '文书推荐信', title: '纯学术目的陈述 (Statement of Purpose)', detail: '严禁 AI 腔调，前 150 词清晰界定学术兴趣，对标目标系所教授研读篇目', required: true },
+    { id: 'c5', category: '文书推荐信', title: '纯学术目的陈述 (Statement of Purpose)', detail: '拒绝模板套作与流水线套词，前 150 词清晰界定学术兴趣，对标目标系所教授研读篇目', required: true },
     { id: 'c6', category: '文书推荐信', title: '学术简历 (Curriculum Vitae)', detail: '排版严谨符合英美学术圈传统，着重列出科研项目、论文、学术会议与专业技能', required: true },
     { id: 'c7', category: '财务合规', title: '30万–50万元人民币银行存款证明', detail: '必须冻结 3–6 个月，开具中英文对照原件，覆盖首年学费与官方生活费基准', required: true },
     { id: 'c8', category: '财务合规', title: '父母资助声明与亲属关系公证件', detail: '资金若在父母名下，需由派出所户口本公证或公证处出具正式声明函', required: true },

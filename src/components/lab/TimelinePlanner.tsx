@@ -28,7 +28,7 @@ export const TimelinePlanner: React.FC = () => {
     },
     {
       period: '申请季暑期 (前溯 6–9 个月)',
-      focus: '文书核心破局与先修课大纲定稿',
+      focus: '文书核心定位与先修课大纲定稿',
       tasks: [
         '完成 Common App 主文书 / 英国 G5 个人目的陈述 (SOP) 3 轮精修',
         '开具带有教务处红色防伪印章的 6 学期官方中英文成绩单与在读证明',
@@ -54,7 +54,7 @@ export const TimelinePlanner: React.FC = () => {
         '跟踪 Waitlist 状态，及时起草爱校更新信 (LOCI) 汇报最新学术成果',
         '美本常规轮 (RD) 最终放榜与香港留位费 (Deposit) 决策'
       ],
-      deliverable: '多 Offer 综合评估沙盘'
+      deliverable: '多 Offer 综合评估对比表'
     },
     {
       period: '次年 4–8 月 (行前冲刺)',

@@ -21,6 +21,30 @@ export interface TrackItem {
   recommendedAdvisorId: string;
 }
 
+export interface UniversityItem {
+  id: string;
+  slug: string;
+  nameZh: string;
+  nameEn: string;
+  country: '英国' | '美国' | '中国香港' | '新加坡' | '欧洲大陆' | '澳大利亚' | '加拿大';
+  city: string;
+  qsRank2026: number;
+  theRank2026: number;
+  badge: string;
+  admissionDifficulty: '极高竞争 (Tier 1)' | '重点核心 (Tier 2)' | '稳健梯队 (Tier 3)';
+  meanAcceptanceRate: string;
+  tuitionYear: string;
+  gpaRequirementZh: string;
+  languageRequirement: string;
+  chineseListPolicy: '严格执行白名单 (List严卡)' | '按院校梯队分层 (List分档)' | '无固定List (全面考量先修课)';
+  disciplines: ('STEM理工' | '商科经济' | '人文社科' | '涉外法律' | '前沿艺术')[];
+  degreesOffered: ('授课型硕士 (Master)' | '本科 (Bachelor)' | '博士 (PhD)')[];
+  featuredPrograms: string[];
+  academicProfileSnippet: string;
+  advisoryInsight: string;
+  applicationDeadlineRound1: string;
+}
+
 export interface CaseStudyItem {
   id: string;
   slug: string;
@@ -165,7 +189,7 @@ export const SERVICE_LINES = [
     philosophy: '像管理临床试验一样管理申请周期。7 个关键里程碑节点双向签字确认，家长企微专属工作群双周纪要同步。',
     mentorRatio: '双顾问责任制（资深规划师 + 材料审核合规专员），执行与质检严格分离',
     deliverables: [
-      '多国多维度选校梯度沙盘（冲刺 / 核心 / 保障 3:4:3 黄金比例）',
+      '多国多维度选校梯度方案（冲刺 / 核心 / 保障 3:4:3 比例）',
       '申请材料官方全清单合规质检（成绩单、WES认证、公证、均分说明单）',
       '网申系统全流程透明递交，账号密码学员完全自主共享持有',
       '官方Offer研判决策支持（条件录取换无条件、CAS/I-20换发、延期应对）',
@@ -190,7 +214,7 @@ export const SERVICE_LINES = [
       '家长常见 10 项权责边界清单'
     ],
     pricingLogic: '完全公开对比原则，支持按需定制单模块加购（学术面试辅导/签证单项等）。',
-    ctaText: '查看完整对照沙盘',
+    ctaText: '查看完整对比方案',
     badge: '理性选型 · 拒绝捆绑'
   }
 ];
@@ -213,13 +237,13 @@ export const VERTICAL_TRACKS: TrackItem[] = [
     answerBlock: '【学术研判结论】美本顶尖院校选拔已全面进入“学术纵深与独特视角”时代。单纯高标化不再构成录取充分条件；招生委员会更青睐在某一微观学科或真实社会问题中展现出持续、递进式研究闭环的申请者。早申（ED）的精准选校能为匹配度极高的学子带来显著竞争优势。',
     advisoryMethods: [
       '主文书（Common App Essay）哲学式研讨：拒绝包装虚假苦难，聚焦认知觉醒与学术原动力',
-      '附加文书（Supplemental Essays）学院匹配沙盘：对标各校招生官核心特质，定制叙事语调',
+      '附加文书（Supplemental Essays）学院匹配规划：对标各校招生官核心特质，定制叙事语调',
       '校外学术科研与高含金量竞赛梯队规划：匹配海内外教授研讨班与独立论文写作',
       '面试实战演练：常春藤校友面试官模拟，训练敏捷思辨与深度交流能力'
     ],
     keyRisks: [
       '盲目冲刺高排名而忽视 Early Decision (ED) 唯一绑定义务的契约风险',
-      '文书充斥 AI 生成腔调与模板化陈词滥调，触发招生系统原创性质检拦截',
+      '文书充斥代写流水线腔调与模板化陈词滥调，触发招生系统原创性质检拦截',
       '活动列表分散凌乱无核心主题，沦为“清单式打卡”被判定缺乏学术专注力'
     ],
     faqs: [
@@ -251,7 +275,7 @@ export const VERTICAL_TRACKS: TrackItem[] = [
     overview: '英国硕士录取以“本科学术出身、核心专业课成绩单（Transcript）与先修课匹配度”为核心红线。伴随帝国理工、爱丁堡、曼大等院校对中国大学内部名单（List）的严格执行，选校博弈与课程大纲匹配成为打破僵局的关键钥匙。',
     answerBlock: '【学术研判结论】英国名校申请本质是“硬实力门槛准入 + 学术文书精准对位”。各校录取名单存在严格隐形分层，先修课学分（Credits）不足是拒信首要原因。抢占秋季首轮批次（Round 1）递交，文书紧扣目标导师学术方向，是双非拔尖生与985均分受限生翻盘的核心战法。',
     advisoryMethods: [
-      '精准院校名单（List）与专业跨学科穿透匹配，规避因学校降档或均分不足被系统拒筛',
+      '精准院校名单（List）与专业跨学科课程匹配，规避因学校降档或均分不足被系统拒筛',
       '专业课中英双语课程大纲（Syllabus）比对与先修课合规梳理，针对转专业学子强化说理',
       '学术目的陈述（SOP）纯学术化编撰：剖析专业课题、研究方法学（Methodology）与职业落脚点',
       '奖学金申请文书与博士学术提案（Research Proposal）同行学者评阅与润色'
@@ -287,7 +311,7 @@ export const VERTICAL_TRACKS: TrackItem[] = [
     answerBlock: '【学术研判结论】港新申请兼具英联邦“硬标化”与美系“强背景与面试”双重特征。港前三与新两校极为偏好早批次申请者，且商科、金融科技与法学等高热度项目几乎全员附带群面或技术单面。早占位、GMAT/GRE早出分、精准跨申是制胜三大支柱。',
     advisoryMethods: [
       '港新专业多轮轮次（Rolling Admissions）动态名额监控系统，第一时间递交黄金批次',
-      '英美港新“多国联申”互保沙盘：合理分配精力，降低单地区政策或竞争偶发波动风险',
+      '英美港新“多国联申”互保方案：合理分配精力，降低单地区政策或竞争偶发波动风险',
       '全真全英面试题库解析：涵盖商科案例分析、工科专业概念辨析与无领导小组讨论演练',
       '语言成绩与网申文书多维校验，协助应届生与在职人士协调推荐信签署流程'
     ],
@@ -317,7 +341,7 @@ export const VERTICAL_TRACKS: TrackItem[] = [
     overview: '低龄留学关乎青少年的性格塑造、情感韧性与世界观形成。博研书院从全人关怀出发，坚持把“学校社区文化与孩子个性的契合度”置于单纯排名之上，为全家庭提供长达两年的系统伴跑。',
     answerBlock: '【学术研判结论】顶尖国际高中的考察维度远超应试知识点，核心在于孩子的求知热情、抗挫能力、道德品格与家庭教育哲学。申请文书包括学生版与家长版（Parent Statement），面试亦涵盖家长深度沟通。过早机械刷题而缺乏真实童年热忱的孩子在资深招生官面前极难脱颖而出。',
     advisoryMethods: [
-      '孩子个性与英美寄宿学校文化生态深度契合度评估（100+细分维度沙盘）',
+      '孩子个性与英美寄宿学校文化生态深度契合度评估（100+细分维度评估模型）',
       '家长陈述（Parent Questionnaire/Statement）家庭教育理念深度书写指导',
       'Vericant（维立克）第三方预面试与校园正式访校（Campus Visit）全流程陪护方案',
       '海外合法监护人（Guardianship）法律筛选与行前心理成熟度准备工作坊'
@@ -361,7 +385,7 @@ export const VERTICAL_TRACKS: TrackItem[] = [
     faqs: [
       {
         question: '零基础跨专业申请工业设计、交互设计或建筑硕士，胜算几何？',
-        answer: '跨专业在艺术与设计界非常常见且受到欢迎。例如计算机或心理学背景跨申交互设计，土木或文学跨申建筑学，往往能展现出超越纯美术生的多维洞察。核心在于利用前置专业的学术思维为新设计课题赋能。'
+        answer: '跨专业在艺术与设计界非常常见且受到欢迎。例如计算机或心理学背景跨申交互设计，土木或文学跨申建筑学，往往能展现出超越纯美术生的多维洞察。核心在于利用前置专业的学术思维为新设计课题注入独特的交叉学科视角。'
       }
     ],
     recommendedAdvisorId: 'adv-shen'
@@ -501,7 +525,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     admitUniversity: '菲利普斯埃克塞特中学 (Phillips Exeter Academy)',
     admitProgram: 'Grade 9 Entry (High School Boarding)',
     hardBottlenecks: '优秀学子在申美高中扎堆，孩子性格沉稳内向，初次模拟面试中应对哈克尼斯圆桌（Harkness）开放式讨论容易退缩。',
-    strategicInsight: '顾清华博士联合常春藤美高前招生专员开展 8 次全景沙盘，不教套路模板，转而启发孩子在天文学与古典大提琴上的纯粹沉浸，训练有温度的真诚表达。',
+    strategicInsight: '顾清华博士联合常春藤美高前招生专员开展 8 次全景模拟答辩，不教套路模板，转而启发孩子在天文学与古典大提琴上的纯粹沉浸，训练真诚自然的学术表达。',
     keyDeliverables: ['全家教育理念与价值观白皮书', '学生自编天文观测日记精编', '埃克塞特圆桌式研讨模拟课程'],
     finalResult: '斩获菲利普斯埃克塞特中学与劳伦斯维尔中学 (Lawrenceville) 双顶尖美高录取。',
     leadAdvisorId: 'adv-gu',
@@ -597,7 +621,7 @@ export const ADVISORS: AdvisorItem[] = [
     name: '陈立言 导师 (Prof. Chen)',
     title: '商科与公共政策主管 · 港新与泛亚太研判领衔',
     academicBackground: '伦敦政治经济学院 (LSE) 金融学硕士，复旦大学经济学学士',
-    researchFocus: '跨国金融市场规制、亚太宏观投资策略与港新多国联申沙盘',
+    researchFocus: '跨国金融市场规制、亚太宏观投资策略与港新多国联申选校策略',
     experienceYears: 11,
     admitHighlights: ['新加坡国立/南洋理工硕博 90+ 例', '港大/中大/科大金融与管理 160+ 例', 'LSE/IC商科录取 45 例'],
     specialtyTracks: ['hk-sg', 'uk-pg'],
@@ -637,10 +661,10 @@ export const PRACTICE_PLAYBOOKS: PlaybookItem[] = [
     readTime: '12 分钟研读',
     targetAudience: '国内非 985/211 高校在读，均分 80–86 分，渴望冲刺英国爱丁堡、KCL、曼大、布里斯托等名校的学子',
     notForAudience: '均分低于 75 分或已锁定纯常春藤美本的学子',
-    summary: '系统解析英国大学对于中国院校的内部“认可名单（List）”算法与加权绩点计算口径，拆解 3 种通过冷门交叉专业、课程大纲先修补正打破层级壁垒的实操路径。',
+    summary: '系统解析英国大学对于中国院校的内部“认可名单（List）”审核准则与加权绩点计算口径，拆解 3 种通过冷门交叉专业、课程大纲先修补正打破层级壁垒的实操路径。',
     answerBlock: '【核心结论】双非 80–85 分绝非英前50绝缘体。突破口在三处：① 规避各校严管商学院，转向社会科学与数据科学交叉的边缘院系；② 针对均分计算，剔除军训与思想政治公选课，提供系主任加权专业主干课 Ranking 证明；③ 在 9 月第一周首轮无语言抢跑递交。',
     keySteps: [
-      { step: '01', title: '穿透院校 List 级别锁定', desc: '对照目标大学最新 2026 认可名单，核验自身院校在社科、工科、理科不同院系的入围档次与均分硬门槛。', toolRef: 'assessment' },
+      { step: '01', title: '核实院校 List 级别对应', desc: '对照目标大学最新 2026 认可名单，核验自身院校在社科、工科、理科不同院系的入围档次与均分硬门槛。', toolRef: 'assessment' },
       { step: '02', title: '梳理专业课核心学分对标表', desc: '制作中英双语《先修课匹配度说明单 (Pre-requisite Modules Matrix)》，强化高数与核心专业课成绩。' },
       { step: '03', title: '撰写严谨的学术动机信 (SOP)', desc: '不谈情怀，聚焦大学特定课程模块（Modules），指明某两篇导师论文对自身学术志向的启发。' },
       { step: '04', title: '首轮开放首周极速递交', desc: '在名额最为充裕、硬卡指标尚未收紧的 Stage 1 抢占审核席位。', toolRef: 'timeline' }
@@ -687,7 +711,7 @@ export const PRACTICE_PLAYBOOKS: PlaybookItem[] = [
     readTime: '15 分钟研读',
     targetAudience: '美本 Top 30 / 常春藤冲刺家庭，学生已有一批零散课外活动却不知如何构建 Common App 主文书',
     notForAudience: '仅申请英国或香港等不侧重课外活动体系的学子',
-    summary: '破解国内留美家庭最常见的“功利性活动堆砌”困境。提出“同心圆学术主轴模型”，指导学生将零散经历收拢为一条闪耀智识好奇与社会担当的完整人生弧光。',
+    summary: '破解国内留美家庭最常见的“功利性活动堆砌”困境。提出“同心圆学术主轴模型”，指导学生将零散经历收拢为体现求知好奇与社会担当的完整发展主线。',
     answerBlock: '【核心结论】常春藤招生委员会评价活动遵循“深度胜过广度（Spike over Round）”原则。一位在某一冷门历史领域读完 50 本专著并撰写博客的申请者，其权重远胜于同时打卡模联、敬老院、网球与学生会主席的“全才样板”。活动必须具有不可被代写的独特指纹。',
     keySteps: [
       { step: '01', title: '活动资产清盘与减法剥离', desc: '列出过往所有活动，毫不留情地划掉为了应试而参加的泛商业夏令营与无实质产出的打卡式社工。' },
@@ -721,7 +745,7 @@ export const PRACTICE_PLAYBOOKS: PlaybookItem[] = [
     ],
     diyCeiling: '【DIY 局限性】海外大学对于 Appeals（官方申诉）有着极其森严的行政法学程序，非实质性行政错误或重大不可抗力，盲目申诉会直接触怒校方并影响同校其他学子信誉。',
     whenAdvisorNeeded: [
-      '确认成绩单被招生系统算法错误扣减（如将4分制误作5分制换算）时',
+      '确认成绩单被招生系统换算公式错误扣减（如将4分制误作5分制换算）时',
       '收到常春藤或英国 G5 候补通知（Waitlist），需动用高价值学术推荐与更新文书转正时'
     ],
     updatedAt: '2026年3月最新审定'
@@ -757,11 +781,11 @@ export const PRACTICE_PLAYBOOKS: PlaybookItem[] = [
     readTime: '13 分钟研读',
     targetAudience: '已拿到英美加澳港新录取、即将于 3–6 个月内赴海外开启大学或研究生生活的留学生',
     notForAudience: '初涉留学规划的早期探索者',
-    summary: '针对中国留学生在海外最易遭受纪律处分乃至开除的“学术剽窃 (Plagiarism)”风险，详解 APA/Chicago/MLA 规范引注、AI 工具（如 ChatGPT）使用红线、以及海外教授 Office Hour 高效沟通法则。',
+    summary: '针对中国留学生在海外最易遭受纪律处分乃至开除的“学术剽窃 (Plagiarism)”风险，详解 APA/Chicago/MLA 规范引注、学术诚信与引用红线、以及海外教授 Office Hour 高效沟通法则。',
     answerBlock: '【核心结论】海外大学对抄袭实行零容忍制度（Zero-Tolerance）。引用他人观点哪怕仅换了几个同义词而未做规范引注，即构成学术不端；此外，“自我剽窃（把在A课提交过的文章在B课再次提交）”同样属于严重违规。熟练使用 Turnitin 查重与掌握学术写作规范是行前必须补上的一课。',
     keySteps: [
       { step: '01', title: '掌握三大国际主流引注格式', desc: '商科社科熟练运用 APA 7th，人文学科掌握 MLA 9th/Chicago，理工科熟悉 IEEE/Nature 规范。' },
-      { step: '02', title: '理清生成式 AI 的合法与非法边界', desc: '区分“语言辅助润色”与“思路代写”，严格遵循各门课程 Syllabus 中对 AI 工具的明文要求并保留提示词记录。' },
+      { step: '02', title: '恪守学术原创与规范引用边界', desc: '严格区分“语言基础语法校对”与“学术观点代写”，全面遵循各门课程教学大纲 (Syllabus) 中对学术诚信与引注的明文要求。' },
       { step: '03', title: '学会主动预约 Office Hour', desc: '在学期第 2 周带着具体学术问题拜访任课教授，建立积极主动的学者形象，为未来争取研究助理（RA）打下基础。' }
     ],
     diyCeiling: '【DIY 局限性】国内应试教育中罕有系统的学术写作与文献引注训练，习惯于通篇总结归纳，在海外容易无意识踩中雷区。',
@@ -806,15 +830,15 @@ export const GUIDES_ARTICLES: GuideArticle[] = [
   {
     id: 'guide-02',
     slug: 'g5-list-and-gpa-admission-truth',
-    title: '牛津、剑桥与帝国理工硕士申请录取真相：均分算法与课程匹配度解析',
+    title: '牛津、剑桥与帝国理工硕士申请录取真相：均分换算规则与课程匹配度解析',
     category: '英研G5',
     author: '陆博 (剑桥三一博后)',
     publishYear: '2026/2027年申请季权威版',
     dateModified: '2026-03-20',
-    summary: '穿透官方网站简略的“2:1 或 1st Class Honours”表述，揭秘招生委员会在审核中国本科成绩单时实际运行的核心算法与淘汰红线。',
+    summary: '深入剖析官方网站简略的“2:1 或 1st Class Honours”表述，阐释招生委员会在审核中国本科成绩单时的实际考查标准与常见误区。',
     answerBlock: '【答案结论】英国 G5 官方标注的“2:1 相当于中国大学 80–85 分”对高竞争性专业完全失去指导意义。帝国理工与 UCL 的计算机、商科及高级工程项目，实际录取中国 985 学子的均分中位数普遍在 88.5 分以上；双非学子若想突围，专业课必须在 90–92 分以上且需递交由系主任签章的专业排名（Top 2%–3%）证明。',
     content: [
-      '算法陷阱：国内高校成绩单上的算术平均分与加权平均分往往与英方算法存在断层。英国名校招生官只看专业核心课（Major Modules），体育、思想政治、军事理论等通识选修往往在后台被降权或剔除。',
+      '换算陷阱：国内高校成绩单上的算术平均分与加权平均分往往与英方换算口径存在断层。英国名校招生官只看专业核心课（Major Modules），体育、思想政治、军事理论等通识选修往往在后台被降权或剔除。',
       '先修课学分排查：以帝国理工 MSc Computing 为例，若本科缺少“离散数学”、“数据结构与算法”或“计算机体系结构”至少 30 个 ECTS 欧洲学分，无论总均分多高都会触发自动拒信。',
       '学术文书的学术密度：英国 G5 教授只给每份文书 3–5 分钟审阅时间。通篇谈论“童年梦想”与“人生感悟”的文书会被瞬间判定为缺乏学术训练；文书必须直入主题，讨论具体学术论文争议与你的研究视角。'
     ],
@@ -905,25 +929,25 @@ export const COMMUNITY_TOPICS: CommunityTopic[] = [
     replyCount: 64,
     viewCount: 2850,
     previewSnippet: '我们梳理了过去三年内超过 400 份双非院校申请英国 G5 的真实案例库。发现 82% 被秒拒的学生，根本不是输在均分上，而是败在先修课学分对应与递交批次上...',
-    fullBody: '拆解数据发现一个规律：双非学生在帝国理工工科与 UCL 多数院系的成功率，在每年 9 月 15 日到 10 月 15 日首轮递交期为 24.3%，而一旦拖延至 12 月以后，成功率直线坠落至 4.1%。此外，英国院校对双非高校的加权算法中，专业核心课的权重占 80% 以上。我们在文末附上了 2026 最新各学院名单比对备忘录...',
+    fullBody: '拆解数据发现一个规律：双非学生在帝国理工工科与 UCL 多数院系的成功率，在每年 9 月 15 日到 10 月 15 日首轮递交期为 24.3%，而一旦拖延至 12 月以后，成功率直线坠落至 4.1%。此外，英国院校对双非高校的加权审核中，专业核心课的权重占 80% 以上。我们在文末附上了 2026 最新各学院名单比对备忘录...',
     requiresAuthToReadFull: true,
     createdAt: '2026-03-20',
     tags: ['选校策略', '数据复盘', '双非逆袭', 'G5名单']
   },
   {
     id: 'comm-03',
-    title: '【顾问专栏】常春藤招生办为什么极度反感“AI 生成的精致文书”？',
+    title: '【顾问专栏】常春藤招生办为何严防“程式化流水线文书”与代写套路？',
     author: '顾清华 博士',
     authorBadge: '顾问专栏',
     authorUniversity: '博研书院 常春藤研判领衔 / 哥大博士',
     category: '文书与面试',
     replyCount: 52,
     viewCount: 3100,
-    previewSnippet: '近期美本常春藤多所院校招生负责人公开表示，他们已将反 AI 审查嵌入初审流程。很多学生自以为用 ChatGPT 润色得天衣无缝，殊不知在经验丰富的招生官眼里，这种文章一眼就能被辨识...',
-    fullBody: 'AI 生成的文本具有极其典型的特征：华丽的排比句、过于平滑缺乏瑕疵的情感过渡、以及充满“Delve into”、“Tapestry”、“Testament”等高频空洞词汇。常春藤名校寻找的是一个真实生活在当下世界、会困惑、会犯错、并在自我否定中建立起独立思辨能力的鲜活青少年，而不是一篇没有任何情绪体温的标准八股文...',
+    previewSnippet: '近期美本常春藤多所院校招生负责人公开表示，他们已将原创真实性审查嵌入初审流程。很多学生自以为用套路模板润色得天衣无缝，殊不知在经验丰富的招生官眼里，千篇一律的文章一眼就能被辨识...',
+    fullBody: '套路化模板生成的文本具有极其典型的特征：华丽的排比句、过于平滑缺乏瑕疵的情感过渡、以及充满空洞辞藻的堆砌。常春藤名校寻找的是一个真实生活在当下世界、会困惑、会犯错、并在自我否定中建立起独立思辨能力的鲜活青少年，而不是一篇没有任何个人思考印记的程式八股文...',
     requiresAuthToReadFull: true,
     createdAt: '2026-03-18',
-    tags: ['美本Top30', '文书指导', '反AI套路', '常春藤']
+    tags: ['美本Top30', '文书指导', '原创思辨', '常春藤']
   },
   {
     id: 'comm-04',
@@ -985,3 +1009,335 @@ export const INITIAL_LEADS: LeadSubmission[] = [
     privacyConsented: true
   }
 ];
+
+// -------------------------------------------------------------
+// 9. 全球顶尖大学名录与院校榜单研判库 (Global Universities Directory)
+// 对标 Mastersportal / QS / THE 全球院校库与中国生源录取名单机制
+// -------------------------------------------------------------
+export const GLOBAL_UNIVERSITIES: UniversityItem[] = [
+  {
+    id: 'u-imperial',
+    slug: 'imperial-college-london',
+    nameZh: '帝国理工学院',
+    nameEn: 'Imperial College London',
+    country: '英国',
+    city: '伦敦 (London)',
+    qsRank2026: 2,
+    theRank2026: 8,
+    badge: '英国 G5 超级精英 · 理工皇冠',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '11.5%',
+    tuitionYear: '£36,500 – £44,000 (约合 34万–41万元人民币)',
+    gpaRequirementZh: '国内211/985重点院校 85分+；精选重点双非 88–90分+ 并附先修课证明',
+    languageRequirement: '雅思 7.0 (单项6.5) 或 托福 100 (单项22+)',
+    chineseListPolicy: '严格执行白名单 (List严卡)',
+    disciplines: ['STEM理工', '商科经济'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'MSc Computing (Software Engineering)',
+      'MSc Advanced Materials for Sustainable Infrastructure',
+      'MSc Financial Technology (Fintech)'
+    ],
+    academicProfileSnippet: '全球公认的自然科学与工程学术圣殿。各院系拥有独立审理权，尤其看重微积分、线性代数、算法与专业实验的先修学分厚度。',
+    advisoryInsight: '帝国理工对中国大学有严格的白名单。对于软科前 150 名的双非拔尖学子，陆博团队通常通过补充 25 页专业课大纲与开源代码库，成功打破院校壁垒。首轮（10月中旬）递交胜算最高。',
+    applicationDeadlineRound1: '每年 10 月中旬首轮截止 (Round 1)'
+  },
+  {
+    id: 'u-oxford',
+    slug: 'university-of-oxford',
+    nameZh: '牛津大学',
+    nameEn: 'University of Oxford',
+    country: '英国',
+    city: '牛津 (Oxford)',
+    qsRank2026: 3,
+    theRank2026: 1,
+    badge: '英语世界最古老大学 · 罗素集团',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '9.2%',
+    tuitionYear: '£33,500 – £48,500 (约合 31万–45万元人民币)',
+    gpaRequirementZh: '国内985/211高校 88–90分+；双非院校原则上要求 90–92分+ 且专业排名第1',
+    languageRequirement: '雅思 7.5 (单项7.0) 或 托福 110 (单项25+)',
+    chineseListPolicy: '无固定List (全面考量先修课)',
+    disciplines: ['STEM理工', '商科经济', '人文社科', '涉外法律'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'MSc in Materials Science and Engineering',
+      'MSc in Financial Economics (MFE)',
+      'Bachelor of Arts in Philosophy, Politics and Economics (PPE)'
+    ],
+    academicProfileSnippet: '书院联邦制古典名校。考察的核心不是“应试分数”，而是学生能否在学院导师面前像一名学者一样就某一学科争鸣展开思辨对话。',
+    advisoryInsight: '牛津无官方死板名单，但极其注重学术动机信（Statement of Purpose）的同行学术水准。申请博士或研博必须在文书中明确指出牛津现有课题组的研究盲区与自身课题的匹配度。',
+    applicationDeadlineRound1: '每年 11 月中旬 (部分专业次年1月上旬)'
+  },
+  {
+    id: 'u-cambridge',
+    slug: 'university-of-cambridge',
+    nameZh: '剑桥大学',
+    nameEn: 'University of Cambridge',
+    country: '英国',
+    city: '剑桥 (Cambridge)',
+    qsRank2026: 5,
+    theRank2026: 5,
+    badge: '科学与数理圣地 · 800年学府',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '10.1%',
+    tuitionYear: '£34,000 – £49,000 (约合 32万–46万元人民币)',
+    gpaRequirementZh: '国内985高校 88–90分+；双非高校通常需 92分+ 且有高水平学术论文背书',
+    languageRequirement: '雅思 7.5 (单项7.0) 或 托福 110 (单项25+)',
+    chineseListPolicy: '无固定List (全面考量先修课)',
+    disciplines: ['STEM理工', '商科经济', '人文社科'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'Master of Advanced Study (MASt) in Applied Mathematics',
+      'MPhil in Engineering',
+      'Natural Sciences Tripos (Undergrad)'
+    ],
+    academicProfileSnippet: '全球理论物理、数学与自然科学的顶峰。面试环节极具挑战性，导师会在面试中现场给出开放式学术推演题考查思维敏捷度。',
+    advisoryInsight: '剑桥三一学院博后陆博亲自领衔带教。全奖博士申请需在 10 月前完成与意向导师的学术套磁，并完成高水准的研究计划书（Research Proposal）。',
+    applicationDeadlineRound1: '每年 10 月初（直博及高额奖学金截止早）'
+  },
+  {
+    id: 'u-columbia',
+    slug: 'columbia-university',
+    nameZh: '哥伦比亚大学',
+    nameEn: 'Columbia University',
+    country: '美国',
+    city: '纽约 (New York City)',
+    qsRank2026: 34,
+    theRank2026: 17,
+    badge: '美国常春藤盟校 (Ivy League)',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '3.9% (本科) / 14.2% (研究生)',
+    tuitionYear: '$65,000 – $72,000 (约合 47万–52万元人民币)',
+    gpaRequirementZh: 'GPA 3.8+ / 100分制 88分+；建议托福 105+，GRE 325+ (量化168+)',
+    languageRequirement: '托福 105+ (口语26+) 或 雅思 7.5 (单项7.0)',
+    chineseListPolicy: '无固定List (全面考量先修课)',
+    disciplines: ['商科经济', '人文社科', '涉外法律', 'STEM理工'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'Columbia College (History & Economics)',
+      'MS in Data Science (DSI)',
+      'Master of Laws (LL.M.)'
+    ],
+    academicProfileSnippet: '地处曼哈顿晨边高地，享有无与伦比的华尔街与联合国全球智库网络资源。本科的核心课程（Core Curriculum）是西方博雅教育的标杆。',
+    advisoryInsight: '哥大教育学博士顾清华领衔研判。哥大极度反感千篇一律的商业包装，文书必须展现深邃的思辨张力。早申（ED）轮次录取率约为常规轮（RD）的 3 倍。',
+    applicationDeadlineRound1: '本科早申 ED: 11月1日；美研通常为 12月15日'
+  },
+  {
+    id: 'u-nus',
+    slug: 'national-university-of-singapore',
+    nameZh: '新加坡国立大学',
+    nameEn: 'National University of Singapore (NUS)',
+    country: '新加坡',
+    city: '新加坡 (Singapore)',
+    qsRank2026: 8,
+    theRank2026: 17,
+    badge: '亚洲第一学府 · 全球前十公立',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '12.4%',
+    tuitionYear: 'SGD 38,000 – 58,000 (约合 21万–31万元人民币)',
+    gpaRequirementZh: '国内985/211高校 85分+；双非重点一本 88分+，商科强求 GMAT 680+ / GRE 325+',
+    languageRequirement: '雅思 6.5–7.0 或 托福 90–100',
+    chineseListPolicy: '按院校梯队分层 (List分档)',
+    disciplines: ['STEM理工', '商科经济', '涉外法律', '人文社科'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'MSc in Digital Financial Technology (DFinTech)',
+      'Master of Computing (Computer Science)',
+      'MSc in Business Analytics'
+    ],
+    academicProfileSnippet: '亚太金融与科技中心无可争议的学术枢纽。受新加坡经济发展局与淡马锡生态紧密支持，就业竞争力极高。',
+    advisoryInsight: '新国立采取滚动录取制（Rolling）。70% 以上的录取在第一轮批次发放完毕，建议在 9–10 月开放首周立即递交，陈立言导师常年提供全真机经题库模拟。',
+    applicationDeadlineRound1: '每年 10 月中旬至 11 月底 (Round 1)'
+  },
+  {
+    id: 'u-hku',
+    slug: 'the-university-of-hong-kong',
+    nameZh: '香港大学',
+    nameEn: 'The University of Hong Kong (HKU)',
+    country: '中国香港',
+    city: '香港 (Hong Kong)',
+    qsRank2026: 17,
+    theRank2026: 35,
+    badge: '香港历史最悠久公立名校 · 港前三',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '15.6%',
+    tuitionYear: 'HKD 220,000 – 390,000 (约合 20万–36万元人民币)',
+    gpaRequirementZh: '国内985/211重点 84–86分+；双非拔尖 88分+；法学与商科附带严格英文面试',
+    languageRequirement: '雅思 6.5 (单项6.0) 或 托福 85–90+',
+    chineseListPolicy: '按院校梯队分层 (List分档)',
+    disciplines: ['商科经济', '涉外法律', 'STEM理工', '人文社科'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'Master of Laws (LL.M. in Corporate and Financial Law)',
+      'Master of Finance (MFin)',
+      'MSc in Computer Science'
+    ],
+    academicProfileSnippet: '以全英文英联邦教学模式闻名，毕业生尊享为期两年的非本地毕业生留港（IANG）签证支持。',
+    advisoryInsight: '港大商学院及法学院极其看重名校或知名机构实习经历。首轮递交后通常在 2–3 周内发起全英文专业技术面试，提前针对性答辩是锁定 Offer 的关键。',
+    applicationDeadlineRound1: '每年 10 月中旬 (首轮批次)'
+  },
+  {
+    id: 'u-ucl',
+    slug: 'university-college-london',
+    nameZh: '伦敦大学学院',
+    nameEn: 'University College London (UCL)',
+    country: '英国',
+    city: '伦敦 (London)',
+    qsRank2026: 9,
+    theRank2026: 22,
+    badge: '英国 G5 联盟 · 罗素集团',
+    admissionDifficulty: '重点核心 (Tier 2)',
+    meanAcceptanceRate: '14.8%',
+    tuitionYear: '£28,000 – £41,000 (约合 26万–38万元人民币)',
+    gpaRequirementZh: '对应 UCL 内部名单：A档 85分+，B档 85–90分+，C档 90分+ (双非核心目标)',
+    languageRequirement: '分为 Level 1–5，通常硕士要求 Level 2 (雅思7.0单项6.5)',
+    chineseListPolicy: '严格执行白名单 (List严卡)',
+    disciplines: ['STEM理工', '人文社科', '商科经济', '前沿艺术'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'MSc Machine Learning',
+      'The Bartlett School of Architecture (MArch/MSc)',
+      'MSc Project and Enterprise Management'
+    ],
+    academicProfileSnippet: '伦敦大学的核心殿堂，巴特莱特建筑学院与教育学院（IOE）连续多年蝉联学科世界第一。',
+    advisoryInsight: 'UCL 是双非拔尖学子冲击 G5 的最大机会所在。其名单细分为 Group A/B/C 三档，文书需精准匹配对应 Module，并在 11 月前完成第一批次网申递交。',
+    applicationDeadlineRound1: '每年 10 月中旬开放，热门专业额满即止'
+  },
+  {
+    id: 'u-lse',
+    slug: 'london-school-of-economics',
+    nameZh: '伦敦政治经济学院',
+    nameEn: 'London School of Economics and Political Science (LSE)',
+    country: '英国',
+    city: '伦敦 (London)',
+    qsRank2026: 50,
+    theRank2026: 46,
+    badge: '社科与金融全球巅峰 · 英国 G5',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '8.9%',
+    tuitionYear: '£27,500 – £44,000 (约合 26万–41万元人民币)',
+    gpaRequirementZh: '国内985/211高校 85–88分+；双非院校通常需 88–90分+ 且专业课名列前茅',
+    languageRequirement: '雅思 7.0 (各单项6.5–7.0) 或 托福 100 (各单项24+)',
+    chineseListPolicy: '严格执行白名单 (List严卡)',
+    disciplines: ['商科经济', '涉外法律', '人文社科'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'MSc Finance and Economics',
+      'MSc Accounting and Finance',
+      'MSc International Relations'
+    ],
+    academicProfileSnippet: '全球政商精英的摇篮。LSE 几乎没有纯工科，在经济学、计量金融与公共政策领域具有世界统治级影响力。',
+    advisoryInsight: 'LSE 招生只看纯粹学术深度！严禁在 SOP 中抒情感怀。文书必须系统论述对微观经济学模型的批判性理解，并提供扎实的高阶数理先修课成绩单。',
+    applicationDeadlineRound1: '每年 10 月初开放，滚动录取名额极度紧张'
+  },
+  {
+    id: 'u-edinburgh',
+    slug: 'university-of-edinburgh',
+    nameZh: '爱丁堡大学',
+    nameEn: 'The University of Edinburgh',
+    country: '英国',
+    city: '爱丁堡 (Edinburgh)',
+    qsRank2026: 27,
+    theRank2026: 30,
+    badge: '苏格兰最高学府 · 罗素集团',
+    admissionDifficulty: '重点核心 (Tier 2)',
+    meanAcceptanceRate: '21.0%',
+    tuitionYear: '£27,000 – £39,000 (约合 25万–36万元人民币)',
+    gpaRequirementZh: '商学院与信息学院严卡 Band A/B (国内重点高校 80–85分+)',
+    languageRequirement: '雅思 7.0 (单项6.0–6.5) 或 托福 100',
+    chineseListPolicy: '严格执行白名单 (List严卡)',
+    disciplines: ['STEM理工', '人文社科', '商科经济', '前沿艺术'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'MSc Computer Science',
+      'MSc Finance',
+      'Edinburgh College of Art (Design & Contemporary Art)'
+    ],
+    academicProfileSnippet: '全球启蒙运动策源地，计算机与信息科学历史悠久。环境优美且生活预算相较伦敦更具性价比。',
+    advisoryInsight: '爱丁堡大学采取分批审理（Staged Admissions）。首轮（通常为 10 月中旬）递交结果最为稳健，逾期至第二轮则会面临分数水涨船高的风险。',
+    applicationDeadlineRound1: 'Round 1 截止：每年 10 月中旬'
+  },
+  {
+    id: 'u-cmu',
+    slug: 'carnegie-mellon-university',
+    nameZh: '卡耐基梅隆大学',
+    nameEn: 'Carnegie Mellon University (CMU)',
+    country: '美国',
+    city: '匹兹堡 (Pittsburgh)',
+    qsRank2026: 58,
+    theRank2026: 24,
+    badge: '全球计算机顶尖学府 · 新常春藤',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '11.0% (SCS学院仅 4.2%)',
+    tuitionYear: '$62,000 – $66,000 (约合 45万–48万元人民币)',
+    gpaRequirementZh: 'GPA 3.8+ / 100分制 88分+；GRE Quantitative 169–170 满分中位数',
+    languageRequirement: '托福 102+ (单项25+) 或 雅思 7.5',
+    chineseListPolicy: '无固定List (全面考量先修课)',
+    disciplines: ['STEM理工', '前沿艺术', '商科经济'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'Master of Science in Computer Science (SCS)',
+      'Master of Information Technology Strategy',
+      'Master of Human-Computer Interaction (MHCI)'
+    ],
+    academicProfileSnippet: '计算机科学学院（SCS）享誉全球。人机交互（HCI）、软件工程与机器人研究所（RI）定义了行业最高标准。',
+    advisoryInsight: 'CMU 极其看重代码能力与专业数理硬实力。申请人必须提供 GitHub 仓库代码样本或高水平算法竞赛经历，陆博团队指导学生重构系统性技术附录。',
+    applicationDeadlineRound1: '美研通常为 12 月初至 12 月中旬'
+  },
+  {
+    id: 'u-risd',
+    slug: 'rhode-island-school-of-design',
+    nameZh: '罗德岛设计学院',
+    nameEn: 'Rhode Island School of Design (RISD)',
+    country: '美国',
+    city: '普罗维登斯 (Providence)',
+    qsRank2026: 3, // QS 艺术与设计学科
+    theRank2026: 4,
+    badge: '艺术界的哈佛 · 全球设计殿堂',
+    admissionDifficulty: '极高竞争 (Tier 1)',
+    meanAcceptanceRate: '18.7%',
+    tuitionYear: '$59,000 (约合 43万元人民币)',
+    gpaRequirementZh: 'GPA 3.2+；核心取决于作品集 (Portfolio) 批判性思辨与探索深度',
+    languageRequirement: '托福 93+ 或 雅思 6.5 (单项6.0)',
+    chineseListPolicy: '无固定List (全面考量先修课)',
+    disciplines: ['前沿艺术'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)'],
+    featuredPrograms: [
+      'Master of Design in Adaptive Reuse / Interior Studies',
+      'Master of Fine Arts in Graphic Design',
+      'BFA in Industrial Design'
+    ],
+    academicProfileSnippet: '全美排名第一的私立艺术设计名校。强调手稿（Sketchbook）、材料实验的失败过程与当代社会学观念构建。',
+    advisoryInsight: '沈梦舟导师（RISD硕士）亲自辅导作品集。严禁商业化打光与效果图堆砌，必须在草图本中展现从问题定义、材质破坏性实验到概念落地的完整探索全过程。',
+    applicationDeadlineRound1: '本科早申 ED: 11月1日；研究生通常为 1月5日'
+  },
+  {
+    id: 'u-cuhk',
+    slug: 'the-chinese-university-of-hong-kong',
+    nameZh: '香港中文大学',
+    nameEn: 'The Chinese University of Hong Kong (CUHK)',
+    country: '中国香港',
+    city: '香港 (沙田)',
+    qsRank2026: 36,
+    theRank2026: 53,
+    badge: '书院制传统研究学府 · 港前三',
+    admissionDifficulty: '重点核心 (Tier 2)',
+    meanAcceptanceRate: '18.2%',
+    tuitionYear: 'HKD 180,000 – 350,000 (约合 16万–32万元人民币)',
+    gpaRequirementZh: '本科获得二等一级（2:1）或 85分+；双非院校建议 86–88分+',
+    languageRequirement: '雅思 6.5 或 托福 79+；部分商科强求 GMAT/GRE',
+    chineseListPolicy: '按院校梯队分层 (List分档)',
+    disciplines: ['商科经济', '人文社科', 'STEM理工', '涉外法律'],
+    degreesOffered: ['授课型硕士 (Master)', '本科 (Bachelor)', '博士 (PhD)'],
+    featuredPrograms: [
+      'MSc in Finance',
+      'MA in Global Communication',
+      'MSc in Information Science and Technology Management'
+    ],
+    academicProfileSnippet: '香港唯一拥有完整书院联邦制的公立大学。商学院获得 AACSB 顶尖双认证，传媒与社科在亚太学术声誉斐然。',
+    advisoryInsight: '港中大商学院及人文学院审核极为迅速。第一轮申请若材料齐全，往往在 11 月中旬即可收到推研（Recommendation for Admission）通知。',
+    applicationDeadlineRound1: '每年 10 月中旬 (第一轮次)'
+  }
+];
+

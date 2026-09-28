@@ -41,7 +41,7 @@ export const AdminLeadsDrawer: React.FC<AdminLeadsDrawerProps> = ({
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `博研书院_线索管理台账_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute('download', `青藤国际_线索管理台账_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -58,7 +58,7 @@ export const AdminLeadsDrawer: React.FC<AdminLeadsDrawerProps> = ({
         <div className="p-5 border-b academic-hairline flex items-center justify-between bg-[#FBF9F5]">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#15803D]" />
               <h3 className="text-base font-serif-title font-bold text-[#1C1917]">
                 学术督导线索管理看板 (Leads & 15m SLA Monitor)
               </h3>
@@ -155,7 +155,7 @@ export const AdminLeadsDrawer: React.FC<AdminLeadsDrawerProps> = ({
                     <div>
                       <span className="text-[#A8A29E] block text-[10px]">指定顾问</span>
                       <span className="text-[#1C1917]">
-                        {advisor ? advisor.name : '学术委员会智能统筹'}
+                        {advisor ? advisor.name : '学术委员会统筹分配'}
                       </span>
                     </div>
 

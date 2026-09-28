@@ -46,13 +46,13 @@ export const LabView: React.FC<LabViewProps> = ({
       {/* Header */}
       <div className="pb-6 border-b academic-hairline">
         <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-          PRACTICE LAB & OPEN METHODOLOGY
+          FREE ADMISSION TOOLS & GUIDES · 免费自测工具与避坑指南
         </span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-[#1C1917] tracking-tight">
-          最佳实践工作室与自助工具箱 (Practice Lab)
+          免费自测工具箱与升学避坑指南
         </h1>
-        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed font-serif-title">
-          我们相信真诚的专业度来源于“方法论的彻底公开”。在这里，您可以免费试用书院内部研发的四大升学沙盘工具，研读 6 篇高价值学术 Playbook，先自助走清自己的路，在遭遇战略决策瓶颈时再找顾问。
+        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed">
+          测录取概率、算留学总花费、核对申请材料清单、倒排申请时间线。所有自测工具免费开放，数据对标 2026/2027 官方最新标准，让您先自助摸清方向，少走弯路。
         </p>
       </div>
 
@@ -240,7 +240,7 @@ export const LabView: React.FC<LabViewProps> = ({
               <AnswerBlock
                 title="Playbook 核心实操结论 (Answer Block)"
                 answer={activePlaybook.answerBlock}
-                sourceStamp="博研书院学术委员会官方教研资产 · 实操指引"
+                sourceStamp="青藤国际学术委员会官方教研资产 · 实操指引"
               />
 
               {/* Key Steps */}
@@ -373,7 +373,7 @@ export const LabView: React.FC<LabViewProps> = ({
 
           <div className="pt-4 border-t academic-hairline flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
             <span className="text-[#57534E]">
-              无论您最终选择 DIY 还是由书院带教，博研书院均愿为您提供 45 分钟客观免费初诊。
+              无论您最终选择 DIY 还是由书院带教，青藤国际均愿为您提供 45 分钟客观免费初诊。
             </span>
             <button
               onClick={() => onOpenBooking()}

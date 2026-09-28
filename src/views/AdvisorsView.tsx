@@ -18,13 +18,13 @@ export const AdvisorsView: React.FC<AdvisorsViewProps> = ({
       {/* Header */}
       <div className="pb-6 border-b academic-hairline">
         <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-          FACULTY & ADVISORY SCHOLARS
+          EXPERT ADVISORS & MENTORS · 资深顾问与名校导师
         </span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-[#1C1917] tracking-tight">
-          博研书院领衔学者与学术督导阵容
+          资深名校顾问与导师团队
         </h1>
-        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed font-serif-title">
-          我们坚决杜绝“销售顾问先签单，后台不知名实习生流水线套模板”的行业潜规则。在博研书院，所有主导文书与战略选校的导师均拥有海外顶级名校博士或博后学术背景，签约即直接绑定带教学者姓名。
+        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed">
+          坚决杜绝“销售签约后转包无名实习生流水线套模板”的行业潜规则。青藤国际所有主导选校与文书的导师均具备海外名校博士/硕士背景与多年一线申请经验，签约明确绑定负责导师，1对1负责到底。
         </p>
       </div>
 

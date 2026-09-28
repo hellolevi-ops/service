@@ -1,18 +1,18 @@
 import React from 'react';
 import { 
-  ArrowRight, ShieldCheck, CheckCircle2, Award, Clock, 
-  BookOpen, Users, Compass, FileText, ChevronRight, Sparkles, Building2,
-  Calendar, Layers, Check
+  ArrowRight, ShieldCheck, CheckCircle2, ChevronRight, MessageSquare, 
+  Calculator, ListChecks, DollarSign
 } from 'lucide-react';
 import { 
-  SERVICE_LINES, VERTICAL_TRACKS, CASE_STUDIES, ADVISORS, PRACTICE_PLAYBOOKS, CaseStudyItem 
+  SERVICE_LINES, VERTICAL_TRACKS, CASE_STUDIES, ADVISORS, CaseStudyItem, AdvisorItem 
 } from '../data/mockData';
 import { CaseStudyCard } from '../components/CaseStudyCard';
 import { AdvisorCard } from '../components/AdvisorCard';
-import { AnswerBlock } from '../components/AnswerBlock';
-import { ParentReadableBlock } from '../components/ParentReadableBlock';
+import { SuccessStoryCarousel } from '../components/SuccessStoryCarousel';
+import { RecentAdmitsTicker } from '../components/RecentAdmitsTicker';
+import { QuickIntentMatcher } from '../components/QuickIntentMatcher';
 import { ProcessTimeline } from '../components/ProcessTimeline';
-import { NextStops } from '../components/NextStops';
+import { FeeBoundary } from '../components/FeeBoundary';
 
 interface HomeViewProps {
   onNavigate: (tab: string, extraSlug?: string) => void;
@@ -29,491 +29,622 @@ export const HomeView: React.FC<HomeViewProps> = ({
 }) => {
   const featuredCases = CASE_STUDIES.slice(0, 3);
   const featuredAdvisors = ADVISORS.slice(0, 3);
-  const featuredPlaybooks = PRACTICE_PLAYBOOKS.slice(0, 3);
+
+  // Intent generator from Hero interactive tool
+  const handleQuickIntentGenerated = (data: { track: string; degree: string; background: string; keyConcern: string }) => {
+    onOpenBooking(undefined, data.track);
+  };
+
+  const handleSelectCaseBySlug = (slug: string) => {
+    const found = CASE_STUDIES.find(c => c.slug === slug);
+    if (found) {
+      onSelectCase(found);
+    } else {
+      onNavigate('cases');
+    }
+  };
+
+  const handleOpenBookingWithAdvisor = (advisorName: string) => {
+    const found = ADVISORS.find(a => a.name.includes(advisorName));
+    onOpenBooking(found?.id);
+  };
 
   return (
-    <div className="space-y-16 sm:space-y-24 pb-16">
-      {/* 1. HERO SECTION (Anti-slop, clean architectural composition) */}
-      <section className="relative pt-8 sm:pt-16 pb-12 sm:pb-20 border-b academic-hairline overflow-hidden paper-grain">
+    <div className="space-y-12 sm:space-y-16 pb-16">
+      
+      {/* ========================================================================= */}
+      {/* 模块 1：首屏 HERO & 快速意向自测 (清晰明了，新东方/金吉列大气实用风)        */}
+      {/* ========================================================================= */}
+      <section className="relative pt-6 sm:pt-10 pb-8 sm:pb-12 border-b academic-hairline overflow-hidden bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* 顶条便签 */}
+          <div className="flex flex-wrap items-center justify-between pb-3.5 mb-6 border-b academic-hairline gap-2 text-xs">
+            <div className="flex items-center gap-2 text-[#78350F] font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#059669]" />
+              <span>🔥 2026/2027 申请季已全面启动</span>
+              <span className="text-[#A8A29E]">/</span>
+              <span className="text-[#57534E]">英美港新名校早鸟规划通道</span>
+            </div>
+            <div className="flex items-center gap-3 text-[11px] text-[#78716C]">
+              <span>正规留学合同保障</span>
+              <span className="text-[#D6CEBF]">|</span>
+              <span className="text-[#059669] font-medium flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5" /> 拒录全额退费 · 签约前明码标价
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* Left 7 Cols: Typography, Claim, CTA */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Kicker */}
-              <div className="flex items-center gap-2 text-xs font-semibold text-[#78350F] tracking-wider uppercase font-sans">
-                <span className="w-2 h-2 rounded-full bg-[#92400E]" />
-                <span>垂直深耕型国际学者与升学研判体系</span>
-                <span className="text-[#A8A29E]">·</span>
-                <span className="text-[#78716C]">2026/2027 申请季已启动</span>
+            {/* 左侧 6 列：主标题、核心痛点保障、行动转化 */}
+            <div className="lg:col-span-6 space-y-5">
+              
+              <div>
+                <span className="inline-block px-2.5 py-1 bg-[#EDE7DC] text-[#78350F] font-semibold text-xs rounded-xs mb-3">
+                  专注全球名校高端留学申请
+                </span>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-[#1C1917] tracking-tight leading-[1.2] text-balance">
+                  选对好学校，冲刺世界名校<br />
+                  <span className="text-[#92400E] font-medium">青藤国际 · 资深导师 1对1 护航</span>
+                </h1>
               </div>
 
-              {/* Title */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif-title font-bold text-[#1C1917] tracking-tight leading-[1.15] text-balance">
-                以严谨学术研判为舟，<br />
-                <span className="text-[#92400E] font-medium italic">穿透顶尖名校的信息黑箱</span>
-              </h1>
-
-              {/* Support Statement */}
-              <p className="text-base sm:text-lg text-[#44403C] leading-relaxed max-w-2xl font-serif-title">
-                拒绝流水线包装与模板文书。博研书院联合海外顶尖院校在研学者与学术督导，以严谨的文献方法学、先修课穿透匹配与全透明精益交付，协助高志向学子与理性家庭实现确定性跃迁。
+              <p className="text-sm sm:text-base text-[#44403C] leading-relaxed">
+                拒绝流水线中介模板代写，由海外名校导师亲授。精准把关院校录取门槛、深度挖掘个人特色定制原创文书，网申账号密码 100% 共享自持，让您的每一步留学投资都透明安心。
               </p>
 
-              {/* Quantitative Claim-to-Proof Ribbon (Single row, strict typography) */}
-              <div className="grid grid-cols-3 gap-4 pt-2 pb-2 border-y academic-hairline max-w-xl text-xs">
-                <div>
-                  <span className="text-lg sm:text-xl font-serif-title font-bold text-[#1C1917] block">
-                    100%
-                  </span>
-                  <span className="text-[11px] text-[#78716C]">网申账号家庭自主共享</span>
+              {/* 四大核心保障金牌标签 (击中中国家长与学生痛点) */}
+              <div className="grid grid-cols-2 gap-2.5 pt-1 pb-1 text-xs">
+                <div className="bg-[#FFFFFF] p-2.5 rounded-xs border academic-hairline flex items-center gap-2 shadow-2xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
+                  <span className="text-[#1C1917] font-medium">名校导师 1对1 规划带教</span>
                 </div>
-                <div>
-                  <span className="text-lg sm:text-xl font-serif-title font-bold text-[#1C1917] block">
-                    7 阶
-                  </span>
-                  <span className="text-[11px] text-[#78716C]">全生命周期实物交付</span>
+                <div className="bg-[#FFFFFF] p-2.5 rounded-xs border academic-hairline flex items-center gap-2 shadow-2xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
+                  <span className="text-[#1C1917] font-medium">拒绝模板套作 · 文书满意定稿</span>
                 </div>
-                <div>
-                  <span className="text-lg sm:text-xl font-serif-title font-bold text-[#92400E] block">
-                    15 分钟
-                  </span>
-                  <span className="text-[11px] text-[#78716C]">工作日学术响应承诺</span>
+                <div className="bg-[#FFFFFF] p-2.5 rounded-xs border academic-hairline flex items-center gap-2 shadow-2xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
+                  <span className="text-[#1C1917] font-medium">网申账号 100% 学生自持查进度</span>
+                </div>
+                <div className="bg-[#FFFFFF] p-2.5 rounded-xs border academic-hairline flex items-center gap-2 shadow-2xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
+                  <span className="text-[#1C1917] font-medium">正规合同保障 · 拒录全额退费</span>
                 </div>
               </div>
 
-              {/* CTA Group */}
+              {/* 行动按钮 */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <button
                   onClick={() => onOpenBooking()}
-                  className="px-6 py-3.5 bg-[#1C1917] hover:bg-[#78350F] text-[#FBF9F5] font-semibold text-sm rounded-xs transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+                  className="px-6 py-3.5 bg-[#92400E] hover:bg-[#78350F] text-[#FBF9F5] font-semibold text-xs sm:text-sm rounded-xs transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>预约免费学术背景评估 (45分钟)</span>
+                  <span>免费获取 1对1 名校申请方案</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
                 <button
-                  onClick={() => onNavigate('cases')}
-                  className="px-5 py-3.5 bg-[#FFFFFF] hover:bg-[#EDE7DC] text-[#292524] font-medium text-sm rounded-xs border academic-hairline transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                  onClick={onOpenWeCom}
+                  className="px-5 py-3.5 bg-[#FFFFFF] hover:bg-[#EDE7DC] text-[#292524] font-medium text-xs sm:text-sm rounded-xs border academic-hairline transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
                 >
-                  <BookOpen className="w-4 h-4 text-[#78350F]" />
-                  <span>研读 8 大真实难点案例</span>
+                  <MessageSquare className="w-4 h-4 text-[#059669]" />
+                  <span>微信直接咨询顾问</span>
                 </button>
               </div>
 
-              <div className="text-[11px] text-[#78716C] flex items-center gap-3 pt-1">
-                <span className="flex items-center gap-1 text-[#059669]">
-                  <Check className="w-3.5 h-3.5" /> 零保录欺诈
-                </span>
-                <span className="text-[#D6CEBF]">|</span>
-                <span>完全公开计费逻辑</span>
-                <span className="text-[#D6CEBF]">|</span>
-                <span>支持指定带教导师</span>
+              {/* 关键保障数字 */}
+              <div className="flex items-center gap-6 pt-2 text-xs border-t academic-hairline text-[#78716C]">
+                <div>
+                  <span className="font-mono text-base font-bold text-[#1C1917] block">98.2%</span>
+                  <span>前三志愿录取率</span>
+                </div>
+                <div className="h-6 w-px bg-stone-200" />
+                <div>
+                  <span className="font-mono text-base font-bold text-[#1C1917] block">100%</span>
+                  <span>网申账号自主掌控</span>
+                </div>
+                <div className="h-6 w-px bg-stone-200" />
+                <div>
+                  <span className="font-mono text-base font-bold text-[#1C1917] block">0隐形收费</span>
+                  <span>明码标价签署合同</span>
+                </div>
               </div>
+
             </div>
 
-            {/* Right 5 Cols: Academic Crest / Archival Presentation Box */}
-            <div className="lg:col-span-5">
-              <div className="bg-[#FFFFFF] border academic-hairline p-7 rounded-sm shadow-md relative">
-                {/* Header of the archival dossier */}
-                <div className="flex items-center justify-between pb-4 mb-5 border-b academic-hairline text-xs">
-                  <div className="flex items-center gap-2 text-[#78350F] font-semibold">
-                    <Building2 className="w-4 h-4" />
-                    <span>BOYAN ACADEMIC DOSSIER 2026</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#A8A29E]">ARCHIVE NO. 2026-A1</span>
-                </div>
-
-                <div className="space-y-4 text-xs">
-                  <div className="p-3 bg-[#FBF9F5] rounded-xs border academic-hairline">
-                    <span className="text-[11px] font-semibold text-[#1C1917] block mb-1">
-                      【即时先修课对标研判】帝国理工与 UCL 计算机/数据科学
-                    </span>
-                    <p className="text-[#57534E] leading-relaxed text-[11px]">
-                      经 2026 春季官方审定：本科纯数学、线性代数、概率统计学分低于 25 ECTS 申请者将被直接归入候补，建议提前补充海外官方微证书认证。
-                    </p>
-                  </div>
-
-                  <div className="p-3 bg-[#FBF9F5] rounded-xs border academic-hairline">
-                    <span className="text-[11px] font-semibold text-[#1C1917] block mb-1">
-                      【常春藤早申胜率沙盘】ED (Early Decision) 唯一性契约
-                    </span>
-                    <p className="text-[#57534E] leading-relaxed text-[11px]">
-                      达特茅斯、耶鲁、MIT 已恢复 SAT/ACT 强制递交标准，学术活动叙事必须摆脱“泛商业刷题”，聚焦核心单一课题闭环。
-                    </p>
-                  </div>
-
-                  <div className="pt-2 flex items-center justify-between text-xs">
-                    <button
-                      onClick={() => onNavigate('lab')}
-                      className="text-[#92400E] hover:text-[#78350F] font-medium flex items-center gap-1"
-                    >
-                      <span>进入 Practice Lab 免费自测</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </button>
-                    <button
-                      onClick={onOpenWeCom}
-                      className="text-[#059669] hover:underline text-[11px] font-medium"
-                    >
-                      企微领取《2026名校List》
-                    </button>
-                  </div>
-                </div>
-              </div>
+            {/* 右侧 6 列：简单直接的 30 秒自测表单 */}
+            <div className="lg:col-span-6">
+              <QuickIntentMatcher onGeneratePlan={handleQuickIntentGenerated} />
             </div>
 
           </div>
+
         </div>
       </section>
 
-      {/* 2. THREE SERVICE LINES (PRD §6.2) */}
+      {/* ========================================================================= */}
+      {/* 模块 2：最新录取喜报跑马灯 (Recent Admits Ticker)                           */}
+      {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-8 border-b academic-hairline gap-4">
-          <div>
-            <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-              清晰区隔 · 拒绝模糊推销
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
-              书院三大服务产品体系
-            </h2>
-          </div>
-          <p className="text-xs text-[#78716C] max-w-md leading-relaxed">
-            不同志向、不同阶段匹配差异化带教模式。每条产品线均有明确的“适合与不适合对象”及可核验交付物。
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {SERVICE_LINES.map((srv) => (
-            <div 
-              key={srv.id}
-              className="bg-[#FFFFFF] border academic-hairline p-6 rounded-sm shadow-2xs hover:shadow-xs flex flex-col justify-between transition-all"
-            >
-              <div>
-                <div className="flex items-center justify-between pb-3 mb-3 border-b academic-hairline">
-                  <span className="text-xs font-semibold text-[#92400E] font-mono">
-                    {srv.badge}
-                  </span>
-                  <span className="text-[10px] text-[#A8A29E] uppercase tracking-wider">
-                    {srv.slug.toUpperCase()}
-                  </span>
-                </div>
-
-                <h3 className="text-lg font-serif-title font-bold text-[#1C1917] leading-snug">
-                  {srv.name}
-                </h3>
-                <span className="text-xs text-[#78716C] block mt-0.5 mb-3">
-                  {srv.subname}
-                </span>
-
-                <div className="bg-[#FBF9F5] p-3 rounded-xs border academic-hairline mb-4 text-xs space-y-2">
-                  <div>
-                    <strong className="text-[#1C1917] block text-[11px]">适合对象：</strong>
-                    <span className="text-[#57534E] leading-relaxed">{srv.targetAudience}</span>
-                  </div>
-                  <div>
-                    <strong className="text-[#DC2626] block text-[11px]">明确不适合：</strong>
-                    <span className="text-[#78716C] leading-relaxed">{srv.notForAudience}</span>
-                  </div>
-                </div>
-
-                <div className="space-y-2 mb-5">
-                  <span className="text-[11px] font-semibold text-[#1C1917] block">核心交付标准：</span>
-                  <ul className="space-y-1.5 text-xs text-[#57534E]">
-                    {srv.deliverables.slice(0, 3).map((del, dIdx) => (
-                      <li key={dIdx} className="flex items-start gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" />
-                        <span>{del}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t academic-hairline space-y-3">
-                <div className="text-[11px] text-[#78716C]">
-                  <strong>定价逻辑：</strong>{srv.pricingLogic}
-                </div>
-
-                <button
-                  onClick={() => {
-                    if (srv.id === 'compare') {
-                      onNavigate('services', 'compare');
-                    } else {
-                      onOpenBooking(undefined, srv.id);
-                    }
-                  }}
-                  className="w-full py-2.5 text-center text-xs font-semibold text-[#1C1917] hover:text-white bg-[#F5F2EB] hover:bg-[#1C1917] border academic-hairline rounded-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                >
-                  <span>{srv.ctaText}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <RecentAdmitsTicker />
       </section>
 
-      {/* 3. FIVE VERTICAL TRACKS (PRD §6.1) */}
+      {/* ========================================================================= */}
+      {/* 模块 3：想去哪里留学？热门国家与方向一览 (Hot Destinations)                 */}
+      {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-8 border-b academic-hairline gap-4">
-          <div>
-            <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-              深耕学科领域 · 拒绝泛泛而谈
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
-              五大核心研判赛道
-            </h2>
-          </div>
-          <button
-            onClick={() => onNavigate('tracks')}
-            className="text-xs font-semibold text-[#92400E] hover:text-[#78350F] flex items-center gap-1 self-start md:self-auto"
-          >
-            <span>浏览全部赛道决策模型</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {VERTICAL_TRACKS.map((track) => (
-            <div
-              key={track.id}
-              onClick={() => onNavigate('tracks', track.slug)}
-              className="bg-[#FFFFFF] border academic-hairline p-6 rounded-sm shadow-2xs hover:border-[#92400E] cursor-pointer group transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between pb-3 mb-3 border-b academic-hairline text-xs">
-                  <span className="text-xs font-semibold text-[#92400E] bg-[#F5F2EB] px-2 py-0.5 rounded-xs">
-                    {track.badge}
-                  </span>
-                  <span className="text-[11px] text-[#A8A29E] font-mono">{track.slug}</span>
-                </div>
-
-                <h3 className="text-lg font-serif-title font-bold text-[#1C1917] group-hover:text-[#92400E] transition-colors leading-snug">
-                  {track.name}
-                </h3>
-                <span className="text-xs text-[#78716C] block mt-0.5 mb-3 font-medium">
-                  {track.subtitle}
-                </span>
-
-                <p className="text-xs text-[#57534E] line-clamp-3 leading-relaxed mb-4">
-                  {track.overview}
-                </p>
-
-                <div className="space-y-1.5 text-xs text-[#78716C] bg-[#FBF9F5] p-3 rounded-xs border academic-hairline mb-4">
-                  <div>
-                    <span className="text-[#A8A29E] mr-1">标化基准：</span>
-                    <span className="text-[#1C1917] font-medium">{track.scoreBenchmark}</span>
-                  </div>
-                  <div>
-                    <span className="text-[#A8A29E] mr-1">预算区间：</span>
-                    <span className="text-[#1C1917] font-medium">{track.costRange}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t academic-hairline flex items-center justify-between text-xs text-[#92400E] font-medium">
-                <span>进入该赛道时间轴与解法</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. FEATURED CASES (PRD §6.3, 难点结构化) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-8 border-b academic-hairline gap-4">
-          <div>
-            <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-              可对标 · 可核验 · 难点结构化
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
-              真实案例学术复盘精选
-            </h2>
-          </div>
-          <button
-            onClick={() => onNavigate('cases')}
-            className="text-xs font-semibold text-[#92400E] hover:text-[#78350F] flex items-center gap-1 self-start md:self-auto"
-          >
-            <span>进入 8 大详细难点案例库</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredCases.map((item) => (
-            <CaseStudyCard 
-              key={item.id} 
-              item={item} 
-              onSelect={onSelectCase}
-            />
-          ))}
-        </div>
-
-        <div className="mt-4 p-3 bg-[#FBF9F5] border academic-hairline rounded-xs text-[11px] text-[#A8A29E] text-center">
-          声明：本院公布之案例系脱敏学术记录，均已取得学子书面授权存档；个案背景不可简单复制，不构成对任何后续申请者绝对录取概率之承诺。
-        </div>
-      </section>
-
-      {/* 5. SEVEN STAGE LIFECYCLE (PRD §6.5) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ProcessTimeline />
-      </section>
-
-      {/* 6. ADVISOR TEAM PREVIEW (PRD §6.4) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-8 border-b academic-hairline gap-4">
-          <div>
-            <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-              真人学者 · 学术背景公开透明
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
-              书院带教领衔顾问团队
-            </h2>
-          </div>
-          <button
-            onClick={() => onNavigate('advisors')}
-            className="text-xs font-semibold text-[#92400E] hover:text-[#78350F] flex items-center gap-1 self-start md:self-auto"
-          >
-            <span>查看完整学者履历与案例</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredAdvisors.map((advisor) => (
-            <AdvisorCard
-              key={advisor.id}
-              advisor={advisor}
-              onAppoint={(adv) => onOpenBooking(adv.id)}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* 7. PRACTICE LAB PREVIEW (PRD R, Playbooks & Tools) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#FAF8F5] border academic-hairline p-8 rounded-sm">
-          <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-8 border-b academic-hairline gap-4">
+        <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs space-y-6">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b academic-hairline gap-3">
             <div>
-              <span className="text-xs font-semibold text-[#92400E] uppercase tracking-wider block mb-1">
-                PRACTICE LAB · 经验资产展厅
+              <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
+                POPULAR DESTINATIONS · 热门留学目的地
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
-                最佳实践工作室与自助工具箱
+                想去哪里留学？热门国家与地区一览
               </h2>
+              <p className="text-xs sm:text-sm text-[#78716C] mt-1 max-w-2xl leading-relaxed">
+                英美港新澳加学制、学费、申请门槛大不同，为您量身匹配最适合的求学与就业路径
+              </p>
             </div>
+            
             <button
-              onClick={() => onNavigate('lab')}
-              className="px-4 py-2 bg-[#1C1917] hover:bg-[#78350F] text-[#FBF9F5] text-xs font-semibold rounded-xs transition-colors shadow-xs"
+              onClick={() => onNavigate('tracks')}
+              className="text-xs text-[#92400E] hover:underline font-semibold flex items-center gap-1 shrink-0 cursor-pointer"
             >
-              打开全部 Lab 工具与 Playbook
+              <span>查看全部国家详细规划</span>
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
 
-          {/* 3 Playbooks cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-            {featuredPlaybooks.map((pb) => (
-              <div 
-                key={pb.id}
-                onClick={() => onNavigate('lab', pb.slug)}
-                className="bg-[#FFFFFF] border academic-hairline p-5 rounded-xs hover:border-[#92400E] cursor-pointer transition-all shadow-2xs flex flex-col justify-between"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {VERTICAL_TRACKS.map((track) => (
+              <div
+                key={track.id}
+                className="bg-[#FBF9F5] border academic-hairline p-5 rounded-xs hover:border-[#92400E] transition-all group flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between text-[11px] pb-2 mb-2 border-b academic-hairline text-[#78716C]">
-                    <span className="font-semibold text-[#92400E]">{pb.category}</span>
-                    <span>{pb.readTime}</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="px-2 py-0.5 text-[10px] font-semibold bg-[#EDE7DC] text-[#78350F] rounded-xs">
+                      {track.badge}
+                    </span>
+                    <span className="text-xs text-[#059669] font-medium">2026申请中</span>
                   </div>
-                  <h4 className="text-sm font-serif-title font-bold text-[#1C1917] leading-snug mb-2">
-                    {pb.title}
-                  </h4>
-                  <p className="text-xs text-[#57534E] line-clamp-3 leading-relaxed mb-3">
-                    {pb.summary}
+
+                  <h3 className="text-base font-bold text-[#1C1917] group-hover:text-[#92400E] transition-colors mb-2">
+                    {track.name}
+                  </h3>
+
+                  <p className="text-xs text-[#57534E] leading-relaxed mb-4 line-clamp-2">
+                    {track.overview}
                   </p>
+
+                  <div className="space-y-1.5 text-xs text-[#78716C] border-t academic-hairline pt-3 mb-4">
+                    <div className="flex items-center justify-between">
+                      <span>建议均分：</span>
+                      <span className="text-[#1C1917] font-medium truncate max-w-[180px]">
+                        {track.scoreBenchmark.split('，')[0]}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span>规划节奏：</span>
+                      <span className="text-[#92400E] font-medium">{track.typicalTimeline.split('，')[0]}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="pt-2 border-t academic-hairline text-xs font-medium text-[#92400E] flex items-center justify-between">
-                  <span>研读最佳实践大纲</span>
-                  <ArrowRight className="w-3 h-3" />
+
+                <div className="flex items-center gap-2 pt-2 border-t academic-hairline">
+                  <button
+                    onClick={() => onNavigate('tracks', track.slug)}
+                    className="flex-1 py-2 text-center text-xs font-semibold bg-white hover:bg-[#EDE7DC] border academic-hairline text-[#1C1917] rounded-xs transition-colors cursor-pointer"
+                  >
+                    查看该国方案
+                  </button>
+                  <button
+                    onClick={() => onOpenBooking(undefined, track.id)}
+                    className="flex-1 py-2 text-center text-xs font-semibold bg-[#92400E] hover:bg-[#78350F] text-white rounded-xs transition-colors cursor-pointer"
+                  >
+                    咨询专属导师
+                  </button>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Quick Tools Grid Callout */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 模块 4：四大核心服务项目 (What We Offer - 一眼看懂你要买什么)             */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs space-y-6">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b academic-hairline gap-3">
+            <div>
+              <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
+                OUR SERVICES · 核心服务项目
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
+                全学段量身定制留学服务项目
+              </h2>
+              <p className="text-xs sm:text-sm text-[#78716C] mt-1 max-w-2xl leading-relaxed">
+                从高中、本科到硕士、博士，全流程精细护航，签约前明码标价无隐形消费
+              </p>
+            </div>
+            
+            <button
+              onClick={() => onNavigate('services')}
+              className="text-xs text-[#92400E] hover:underline font-semibold flex items-center gap-1 shrink-0 cursor-pointer"
+            >
+              <span>查看服务详细条款与报价单</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {SERVICE_LINES.map((srv, idx) => (
+              <div 
+                key={srv.id}
+                className="bg-[#FBF9F5] border academic-hairline p-6 rounded-xs flex flex-col justify-between hover:border-[#92400E] transition-all group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="px-2 py-0.5 text-[10px] font-semibold bg-[#EDE7DC] text-[#78350F] rounded-xs font-mono">
+                      PRODUCT 0{idx + 1}
+                    </span>
+                    <span className="text-xs font-semibold text-[#059669]">
+                      {srv.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#1C1917] group-hover:text-[#92400E] transition-colors mb-1">
+                    {srv.name}
+                  </h3>
+                  <span className="text-xs text-[#78716C] block mb-3 font-mono">
+                    {srv.subname}
+                  </span>
+
+                  <p className="text-xs text-[#57534E] leading-relaxed mb-4">
+                    {srv.targetAudience}
+                  </p>
+
+                  <div className="border-t academic-hairline pt-3 mb-4 space-y-2">
+                    <strong className="text-xs text-[#1C1917] block">核心包含内容：</strong>
+                    <div className="space-y-1 text-xs text-[#57534E]">
+                      {srv.deliverables.slice(0, 4).map((d, dIdx) => (
+                        <div key={dIdx} className="flex items-start gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#059669] shrink-0 mt-0.5" />
+                          <span className="leading-snug">{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t academic-hairline">
+                  <div className="flex items-baseline justify-between mb-3">
+                    <span className="text-xs text-[#78716C]">定价机制</span>
+                    <span className="text-xs font-semibold text-[#92400E]">{srv.pricingLogic}</span>
+                  </div>
+                  <button
+                    onClick={() => onOpenBooking(undefined, srv.id)}
+                    className="w-full py-2.5 bg-[#1C1917] hover:bg-[#78350F] text-white font-semibold text-xs rounded-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    <span>立即咨询该服务</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 模块 5：三大中国家庭最需要的实用自测工具箱 (Free Tools)                     */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#FAF8F5] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs space-y-6">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b academic-hairline gap-3">
+            <div>
+              <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
+                FREE DECISION TOOLS · 免费决策工具箱
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
+                不用找中介，先用免费工具测一测
+              </h2>
+              <p className="text-xs sm:text-sm text-[#78716C] mt-1 max-w-2xl leading-relaxed">
+                基于英美港新官方最新 2026/2027 招生规程与名单标准，让您心里更有本明白账
+              </p>
+            </div>
+            
+            <button
+              onClick={() => onNavigate('lab')}
+              className="text-xs text-[#92400E] hover:underline font-semibold flex items-center gap-1 shrink-0 cursor-pointer"
+            >
+              <span>进入完整工具箱</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* 工具 1 */}
             <div 
               onClick={() => onNavigate('lab', 'assessment')}
-              className="bg-[#FFFFFF] p-3.5 rounded-xs border academic-hairline hover:border-[#92400E] cursor-pointer transition-colors"
+              className="bg-white p-5 rounded-xs border academic-hairline hover:border-[#92400E] transition-all cursor-pointer group shadow-2xs"
             >
-              <Compass className="w-4 h-4 text-[#92400E] mb-1" />
-              <strong className="block text-[#1C1917]">背景四维雷达</strong>
-              <span className="text-[11px] text-[#78716C]">量化准入胜算与缺漏</span>
+              <div className="w-10 h-10 rounded-xs bg-[#FAF8F5] border academic-hairline flex items-center justify-center text-[#92400E] mb-3 group-hover:bg-[#EDE7DC]">
+                <Calculator className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#1C1917] group-hover:text-[#92400E] transition-colors mb-1">
+                名校录取概率快速自测
+              </h3>
+              <p className="text-xs text-[#57534E] leading-relaxed mb-4">
+                输入本科学校档次、绩点成绩与专业方向，快速测算匹配冲刺、核心与保底院校。
+              </p>
+              <span className="text-xs text-[#92400E] font-semibold flex items-center gap-1">
+                立即测算 <ArrowRight className="w-3.5 h-3.5" />
+              </span>
             </div>
 
-            <div 
-              onClick={() => onNavigate('lab', 'timeline')}
-              className="bg-[#FFFFFF] p-3.5 rounded-xs border academic-hairline hover:border-[#92400E] cursor-pointer transition-colors"
-            >
-              <Calendar className="w-4 h-4 text-[#92400E] mb-1" />
-              <strong className="block text-[#1C1917]">18月倒排时间轴</strong>
-              <span className="text-[11px] text-[#78716C]">锁定关键早申批次</span>
-            </div>
-
-            <div 
-              onClick={() => onNavigate('lab', 'checklist')}
-              className="bg-[#FFFFFF] p-3.5 rounded-xs border academic-hairline hover:border-[#92400E] cursor-pointer transition-colors"
-            >
-              <FileText className="w-4 h-4 text-[#92400E] mb-1" />
-              <strong className="block text-[#1C1917]">材料自检清单</strong>
-              <span className="text-[11px] text-[#78716C]">公章、防伪、成绩核验</span>
-            </div>
-
+            {/* 工具 2 */}
             <div 
               onClick={() => onNavigate('lab', 'cost')}
-              className="bg-[#FFFFFF] p-3.5 rounded-xs border academic-hairline hover:border-[#92400E] cursor-pointer transition-colors"
+              className="bg-white p-5 rounded-xs border academic-hairline hover:border-[#92400E] transition-all cursor-pointer group shadow-2xs"
             >
-              <Clock className="w-4 h-4 text-[#92400E] mb-1" />
-              <strong className="block text-[#1C1917]">留学预算粗算器</strong>
-              <span className="text-[11px] text-[#78716C]">学费加生活费透底</span>
+              <div className="w-10 h-10 rounded-xs bg-[#FAF8F5] border academic-hairline flex items-center justify-center text-[#92400E] mb-3 group-hover:bg-[#EDE7DC]">
+                <DollarSign className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#1C1917] group-hover:text-[#92400E] transition-colors mb-1">
+                留学总费用预算粗算器
+              </h3>
+              <p className="text-xs text-[#57534E] leading-relaxed mb-4">
+                自主选择目标国家与生活消费水准，3秒生成精细到学费、住宿费与汇率的总开销账单。
+              </p>
+              <span className="text-xs text-[#92400E] font-semibold flex items-center gap-1">
+                测算费用 <ArrowRight className="w-3.5 h-3.5" />
+              </span>
             </div>
+
+            {/* 工具 3 */}
+            <div 
+              onClick={() => onNavigate('lab', 'checklist')}
+              className="bg-white p-5 rounded-xs border academic-hairline hover:border-[#92400E] transition-all cursor-pointer group shadow-2xs"
+            >
+              <div className="w-10 h-10 rounded-xs bg-[#FAF8F5] border academic-hairline flex items-center justify-center text-[#92400E] mb-3 group-hover:bg-[#EDE7DC]">
+                <ListChecks className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#1C1917] group-hover:text-[#92400E] transition-colors mb-1">
+                申请与行前材料核对清单
+              </h3>
+              <p className="text-xs text-[#57534E] leading-relaxed mb-4">
+                成绩单防伪章、存款证明冻结期、推荐信信头纸逐项打勾自查，避免因缺漏材料被秒拒。
+              </p>
+              <span className="text-xs text-[#92400E] font-semibold flex items-center gap-1">
+                核对材料 <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 模块 6：真实学员录取故事与成功案例 (Success Story Carousel)                 */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SuccessStoryCarousel 
+          onSelectCaseBySlug={handleSelectCaseBySlug} 
+          onOpenBookingWithAdvisor={handleOpenBookingWithAdvisor} 
+        />
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 模块 7：精选案例卡片展示 (Featured Cases)                                   */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs space-y-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b academic-hairline gap-3">
+            <div>
+              <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
+                REAL ADMISSION CASES · 真实录取实录
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
+                申请难点与学术解决方案精选
+              </h2>
+              <p className="text-xs sm:text-sm text-[#78716C] mt-1 max-w-2xl leading-relaxed">
+                客观还原学员学术背景痛点与针对性应对方案，给您最真实的参考
+              </p>
+            </div>
+            
+            <button
+              onClick={() => onNavigate('cases')}
+              className="text-xs text-[#92400E] hover:underline font-semibold flex items-center gap-1 shrink-0 cursor-pointer"
+            >
+              <span>查看全部 50+ 案例案卷</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredCases.map((c) => (
+              <CaseStudyCard 
+                key={c.id} 
+                item={c} 
+                onSelect={(selected) => onSelectCase(selected)} 
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 8. PARENT READABLE BLOCK (Principle #1) */}
+      {/* ========================================================================= */}
+      {/* 模块 8：资深顾问导师团队 (Advisor Team)                                    */}
+      {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ParentReadableBlock />
+        <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs space-y-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b academic-hairline gap-3">
+            <div>
+              <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
+                ADVISORY TEAM · 资深顾问导师团队
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
+                名校学者与资深留学督导
+              </h2>
+              <p className="text-xs sm:text-sm text-[#78716C] mt-1 max-w-2xl leading-relaxed">
+                拒绝刚毕业的销售，全员海外名校博士/硕士背景，带教经验丰富，亲自操刀文书与选校
+              </p>
+            </div>
+            
+            <button
+              onClick={() => onNavigate('advisors')}
+              className="text-xs text-[#92400E] hover:underline font-semibold flex items-center gap-1 shrink-0 cursor-pointer"
+            >
+              <span>查看全部顾问资历</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredAdvisors.map((adv) => (
+              <AdvisorCard 
+                key={adv.id} 
+                advisor={adv} 
+                onAppoint={(advisor: AdvisorItem) => onOpenBooking(advisor.id)} 
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* 9. CALL TO ACTION BAR */}
+      {/* ========================================================================= */}
+      {/* 模块 9：全流程 5 阶透明服务交付 (Process Timeline)                         */}
+      {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#1C1917] text-[#FBF9F5] p-8 sm:p-12 rounded-sm text-center relative overflow-hidden shadow-lg">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <span className="text-xs font-mono text-[#D97706] uppercase tracking-widest block">
-              INITIAL ACADEMIC DIAGNOSIS · WORKDAY 15-MIN SLA
+        <ProcessTimeline />
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 模块 10：青藤国际 VS 传统流水线中介（签约前必看对比）                       */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#FFFFFF] border academic-hairline p-6 sm:p-8 rounded-sm shadow-xs space-y-6">
+          <div className="pb-4 border-b academic-hairline">
+            <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
+              TRANSPARENCY & COMPARISON · 签约前充分知情
             </span>
-            <h3 className="text-2xl sm:text-3xl font-serif-title font-bold text-white leading-snug">
-              开启您家庭的知情升学研判之旅
-            </h3>
-            <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">
-              带上真实的在校成绩单与学术兴趣。我们的剑桥博后与哥大博士带教团队将在 45 分钟初诊中，为您客观测算先修课匹配度与名单准入梯度。
+            <h2 className="text-2xl sm:text-3xl font-serif-title font-bold text-[#1C1917]">
+              为什么理性家庭更信任青藤国际？
+            </h2>
+            <p className="text-xs sm:text-sm text-[#78716C] mt-1 max-w-2xl leading-relaxed">
+              针对传统留学机构四大痛点：模板代写、扣留账号、推诿退费、隐瞒差校，青藤国际实行全透明规范运作
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button
-                onClick={() => onOpenBooking()}
-                className="w-full sm:w-auto px-6 py-3.5 bg-[#92400E] hover:bg-[#B45309] text-white font-semibold text-xs sm:text-sm rounded-xs transition-colors shadow-xs"
-              >
-                免费预约 45 分钟背景研判初诊
-              </button>
-              <button
-                onClick={onOpenWeCom}
-                className="w-full sm:w-auto px-6 py-3.5 bg-[#292524] hover:bg-[#44403C] text-[#EDE7DC] font-medium text-xs sm:text-sm rounded-xs border border-[#57534E] transition-colors"
-              >
-                加企业微信随时沟通
-              </button>
-            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr className="border-b-2 border-stone-200 bg-[#FAF8F5] text-[#1C1917]">
+                  <th className="p-3.5 font-bold">对比维度</th>
+                  <th className="p-3.5 font-bold text-[#92400E] bg-[#EDE7DC]/50">青藤国际 (Ivy Global)</th>
+                  <th className="p-3.5 font-medium text-[#78716C]">传统大型流水线中介</th>
+                  <th className="p-3.5 font-medium text-[#78716C]">淘宝/个人无资质作坊</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-100">
+                <tr>
+                  <td className="p-3.5 font-semibold text-[#1C1917]">文书创作模式</td>
+                  <td className="p-3.5 text-[#92400E] font-medium bg-[#EDE7DC]/20">
+                    名校导师 1对1 深度沟通，根据学生亮点完全原创定制，满意后才定稿
+                  </td>
+                  <td className="p-3.5 text-[#57534E]">文案兼职/实习生套用模板套作，错误率高</td>
+                  <td className="p-3.5 text-[#78716C]">语法代写，无学术逻辑，易触发查重拦截</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-semibold text-[#1C1917]">网申账号权限</td>
+                  <td className="p-3.5 text-[#92400E] font-medium bg-[#EDE7DC]/20">
+                    100% 账号密码学生自持，递交全过程透明，随时登录官方系统查看
+                  </td>
+                  <td className="p-3.5 text-[#57534E]">中介扣留邮箱与密码，隐瞒真实申请结果</td>
+                  <td className="p-3.5 text-[#78716C]">无系统保障，常出现漏交或错绑材料</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-semibold text-[#1C1917]">选校策略定位</td>
+                  <td className="p-3.5 text-[#92400E] font-medium bg-[#EDE7DC]/20">
+                    冲刺、核心、稳妥合理梯队，直击名校热门院系，拒绝推荐野鸡合作校
+                  </td>
+                  <td className="p-3.5 text-[#57534E]">主推有高额返佣的海外合作校或偏门专业</td>
+                  <td className="p-3.5 text-[#78716C]">凭经验盲猜，对最新院校名单毫无概念</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-semibold text-[#1C1917]">合同与退费保障</td>
+                  <td className="p-3.5 text-[#92400E] font-medium bg-[#EDE7DC]/20">
+                    正规合同，明文约定“无录取全额退费”，72小时无条件冷静期
+                  </td>
+                  <td className="p-3.5 text-[#57534E]">霸王条款，即便失误也找各种理由扣留服务费</td>
+                  <td className="p-3.5 text-[#78716C]">无正规企业法人，纠纷时直接失联拉黑</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* 模块 11：费用边界与安全声明 (Fee Boundary)                                 */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <FeeBoundary />
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 模块 12：底部强力转化区 (Bottom CTA)                                       */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#1C1917] text-[#EDE7DC] p-8 sm:p-12 rounded-sm text-center space-y-6 relative overflow-hidden">
+          <div className="max-w-2xl mx-auto space-y-3 relative z-10">
+            <span className="text-xs font-semibold text-[#D97706] uppercase tracking-wider block">
+              START YOUR ADMISSION JOURNEY TODAY
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif-title font-bold text-white tracking-tight">
+              选对留学领路人，名校录取快人一步
+            </h2>
+            <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">
+              无论您是处于早期的国家选择、背景规划，还是已进入申请季需要紧急文书打磨，青藤国际资深导师都会为您提供客观中肯的专业分析。
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 relative z-10">
+            <button
+              onClick={() => onOpenBooking()}
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#92400E] hover:bg-[#B45309] text-white font-semibold text-xs sm:text-sm rounded-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>立即免费预约 1对1 选校规划</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={onOpenWeCom}
+              className="w-full sm:w-auto px-6 py-3.5 bg-[#FFFFFF] hover:bg-[#EDE7DC] text-[#1C1917] font-semibold text-xs sm:text-sm rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <MessageSquare className="w-4 h-4 text-[#059669]" />
+              <span>微信即时在线咨询</span>
+            </button>
+          </div>
+
+          <div className="pt-2 text-[11px] text-[#78716C] flex items-center justify-center gap-4">
+            <span>全国免费热线：400-820-1926</span>
+            <span>·</span>
+            <span>工作日 15 分钟内专业答复</span>
+            <span>·</span>
+            <span>严守家庭隐私</span>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };

@@ -26,28 +26,28 @@ export const FeeBoundary: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-[#92400E] mb-3">
               <FileSpreadsheet className="w-4 h-4" />
-              <span>1. 书院咨询服务费定价逻辑</span>
+              <span>1. 咨询服务费定价标准</span>
             </div>
             <p className="text-xs text-[#57534E] leading-relaxed mb-4">
-              我们拒绝传统中介模糊的一口价。费用根据学术目标跨度、选校数量与带教导师学术职级量化：
+              我们拒绝传统中介模糊的一口价。费用根据目标国家、申请院校数量与学位阶段量化：
             </p>
             <ul className="space-y-2 text-xs text-[#44403C]">
               <li className="flex items-start gap-2 bg-white p-2 rounded-xs border academic-hairline">
-                <span className="font-semibold text-[#92400E] shrink-0">全流程精益线：</span>
-                <span>2.8万 – 5.6万元人民币（覆盖 5–8 所大学全生命周期质检与递交）</span>
+                <span className="font-semibold text-[#92400E] shrink-0">名校全案申请：</span>
+                <span>2.8万 – 5.6万元人民币（覆盖 5–8 所大学选校、原创文书、网申与签证）</span>
               </li>
               <li className="flex items-start gap-2 bg-white p-2 rounded-xs border academic-hairline">
-                <span className="font-semibold text-[#92400E] shrink-0">精品学术领衔线：</span>
-                <span>5.8万 – 12.8万元人民币（顶尖海外学者带教、文献研讨、多轮答辩）</span>
+                <span className="font-semibold text-[#92400E] shrink-0">名校导师精品线：</span>
+                <span>5.8万 – 12.8万元人民币（海外名校导师1对1带教、科研背景提升、多轮面试答辩）</span>
               </li>
               <li className="flex items-start gap-2 bg-white p-2 rounded-xs border academic-hairline">
                 <span className="font-semibold text-[#92400E] shrink-0">单模块专项加购：</span>
-                <span>8,000 – 18,000元（如独立学术文书打磨、博士研究提案评阅、签证申诉单项）</span>
+                <span>8,000 – 18,000元（如单篇文书精修、博士研究计划书RP辅导、模拟面试）</span>
               </li>
             </ul>
           </div>
           <div className="mt-4 pt-3 border-t academic-hairline text-[11px] text-[#A8A29E]">
-            初诊 45 分钟学术背景诊断完全免费，出具结构化《方案报价单》后再行决策。
+            首次 1对1 学术背景诊断完全免费，出具书面《选校建议与报价单》后再决定签约。
           </div>
         </div>
 
@@ -59,7 +59,7 @@ export const FeeBoundary: React.FC = () => {
               <span>2. 严正声明：以下第三方规费【不包含】</span>
             </div>
             <p className="text-xs text-[#7F1D1D] leading-relaxed mb-4">
-              为杜绝行业内“低报价揽客后以各项名义乱加收”的恶疾，书院承诺绝不代收以下由官方硬性收取的款项：
+              为杜绝行业内“低报价揽客后以各项名义乱加收”的恶疾，青藤国际承诺绝不代收以下由官方硬性收取的款项：
             </p>
             <ul className="space-y-1.5 text-xs text-[#991B1B]">
               <li className="flex items-start gap-1.5">
@@ -110,7 +110,7 @@ export const FeeBoundary: React.FC = () => {
               </div>
               <div className="bg-white p-2.5 rounded-xs border border-[#86EFAC]/40">
                 <span className="font-semibold block text-[#15803D]">全额赔付兜底责任：</span>
-                <span>因书院导师过失导致漏申、延误批次且经双方认定属实者，无条件退还全部对应服务费。</span>
+                <span>因导师过失导致漏申、延误批次且经双方认定属实者，无条件退还全部对应服务费。</span>
               </div>
             </div>
           </div>

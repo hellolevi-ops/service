@@ -72,7 +72,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
         <div className="mb-4">
           <div className="text-[11px] font-semibold text-[#059669] uppercase tracking-wider mb-1 flex items-center gap-1">
             <BookOpen className="w-3 h-3" />
-            <span>书院研判破局解法</span>
+            <span>书院导师应对建议</span>
           </div>
           <p className="text-xs text-[#44403C] line-clamp-2 leading-relaxed font-serif-title">
             {item.strategicInsight}

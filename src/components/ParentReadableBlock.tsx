@@ -11,17 +11,17 @@ interface ParentReadableBlockProps {
 }
 
 export const ParentReadableBlock: React.FC<ParentReadableBlockProps> = ({
-  feeLogicTitle = "费用构成与计费逻辑公约",
-  feeLogicDesc = "博研书院全线服务采取公开透明的因子定损制。绝不在签约后巧立名目加收‘名校溢价’、‘文书加急费’或‘海外沟通渠道费’。所有使领馆规费、第三方公证与考试报名费均由家庭直接向官方机构缴纳，书院不设资金池。",
-  boundaryTitle = "服务边界与严正合规底线",
+  feeLogicTitle = "费用构成与透明收费公约",
+  feeLogicDesc = "青藤国际全线服务采取公开透明的收费标准。绝不在签约后巧立名目加收‘名校溢价’、‘文书加急费’或‘渠道费’。所有使领馆规费、第三方公证与考试报名费均由家庭直接向官方机构缴纳，机构不设任何资金截留池。",
+  boundaryTitle = "服务边界与合规底线",
   boundaryPoints = [
-    "坚决拒绝‘内部关系保录’虚假承诺：所有录取均建立在学员硬核学术背景与合规文书之上",
+    "坚决拒绝‘内部关系保录’虚假噱头：所有录取均建立在学员硬核学术背景与合规文书之上",
     "网申账号密码完全对学员与家长透明共享，任何递交均有官方系统邮件留痕回执",
-    "如因书院顾问主观漏申、错报等实质性违约导致失误，全额启动先行赔付退费程序",
-    "提供正式服务协议与机打增值税发票，保障家庭合法消费权益"
+    "如因顾问主观漏申、错报等实质性过失，全额启动先行退费程序",
+    "提供正规留学服务合同与增值税发票，全面保障家庭合法消费权益"
   ],
-  syncMethodTitle = "家长进度双向同步机制",
-  syncMethodDesc = "我们深知低龄及本科留学是全家庭的重要决策。书院专设企微三方协同沟通组，双周推送《学业与申请备忘录 (Academic Progress Memo)》，关键选校定选节点召开线上/线下家庭决策会，确保父母随时洞悉进度而不造成对孩子文书自主性的过度干预。"
+  syncMethodTitle = "家长进度全程同步机制",
+  syncMethodDesc = "我们深知出国留学是全家庭的重要投资决策。专设微信协同沟通群，定期同步学业与申请进展，关键选校定选节点召开线上/线下家庭决策会，确保父母随时知晓进度，踏实放心。"
 }) => {
   return (
     <div className="bg-[#FAF8F5] border academic-hairline p-6 sm:p-8 rounded-sm my-8 relative overflow-hidden">

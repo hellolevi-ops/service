@@ -10,23 +10,23 @@ export const ProcessTimeline: React.FC = () => {
       title: '初诊研判与学术立项',
       phase: '入学前 18–24 个月',
       subtitle: 'Comprehensive Scholarly Diagnosis & Scoping',
-      summary: '全面梳理学员已修课程大纲、绩点加权算法、语言考力及学术兴趣，建立专属申请学术档案。',
+      summary: '全面梳理学员已修课程大纲、绩点加权核算、语言考力及学术兴趣，建立专属申请学术档案。',
       deliverables: [
         '《学生学术竞争力与先修课对标诊断报告》（20+页深度分析）',
         '长周期标化考试与学科竞赛节点倒排甘特图',
-        '双向签署《博研学术诚信与服务边界公约》'
+        '双向签署《青藤学术诚信与服务边界公约》'
       ],
       parentSync: '召开家庭三方线下或视频会议，厘清长远升学目标与财务预算承受区间。',
       duration: '历时 2–3 周'
     },
     {
       num: '02',
-      title: '选校博弈与梯队沙盘',
+      title: '选校方案与梯队规划',
       phase: '入学前 12–15 个月',
       subtitle: 'Strategic School Matrix & Admission Odds',
-      summary: '结合当年英美各校最新内部名单 (List)、录取名额波动与历史数据，推演冲刺/核心/保障黄金梯队。',
+      summary: '结合当年英美各校最新内部名单 (List)、录取名额波动与历史数据，制定冲刺/核心/保障合理梯队。',
       deliverables: [
-        '《多国多维选校梯队沙盘》（包含专业模块、录取难度分层、学费及就业分析）',
+        '《多国多维选校梯队方案》（包含专业模块、录取难度分层、学费及就业分析）',
         '先修课学分对应补正方案（提供选修课加修建议或网课背书指引）',
         '保底院校安全边界量化评定书'
       ],
@@ -94,7 +94,7 @@ export const ProcessTimeline: React.FC = () => {
       title: '海外学术适应与先修伴跑',
       phase: '入学前 1–2 个月及抵校初期',
       subtitle: 'Academic Transition & Scholar Fellowship',
-      summary: '开展学术写作（Academic Writing）、防学术抄袭（Plagiarism）规范培训，接入博研在读学者网络。',
+      summary: '开展学术写作（Academic Writing）、防学术抄袭（Plagiarism）规范培训，接入青藤在读学者网络。',
       deliverables: [
         '《海外大学学术规范与文献引注实训指南》',
         '目标院校同专业优秀在读学长学姐一对一选课避坑交流',
@@ -110,14 +110,14 @@ export const ProcessTimeline: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-6 border-b academic-hairline gap-4">
         <div>
           <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-            严谨、确定、可验证的闭环交付
+            严谨、规范、可验证的完整服务交付
           </span>
           <h3 className="text-xl sm:text-2xl font-serif-title font-bold text-[#1C1917]">
             全生命周期 7 阶服务交付流程
           </h3>
         </div>
         <p className="text-xs text-[#78716C] max-w-md leading-relaxed">
-          像学术科研实验一样严格设立里程碑。拒绝传统机构“签约前热情、签约后失联”的黑箱操作，每个环节均可交付实物并对家长透明同步。
+          像学术科研实验一样严格设立阶段里程碑。拒绝传统机构“签约前承诺、签约后拖延”的信息封闭做法，每个环节均交付切实文书档案并对学员及家长全程公开同步。
         </p>
       </div>
 

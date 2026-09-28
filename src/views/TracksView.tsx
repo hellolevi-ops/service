@@ -31,13 +31,13 @@ export const TracksView: React.FC<TracksViewProps> = ({
       {/* Page Header */}
       <div className="pb-6 border-b academic-hairline">
         <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-          SPECIALIZED ACADEMIC PATHWAYS
+          POPULAR DESTINATIONS & PATHWAYS · 热门留学国家与规划
         </span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-[#1C1917] tracking-tight">
-          五大垂直学科赛道学术研判
+          热门留学国家与升学方向详细规划
         </h1>
-        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed font-serif-title">
-          不同赛道招生委员会的考核逻辑截然不同。从美本的全人叙事到英研的先修课名单穿透，我们为每条赛道构建深度的学术策略大纲与风险避雷指南。
+        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed">
+          英国、美国、中国香港、新加坡及前沿艺术各方向招生规则大不相同。从申请时间线、选校梯队、均分门槛到文书要求，为您提供清晰透彻的升学路线图。
         </p>
       </div>
 
@@ -142,7 +142,7 @@ export const TracksView: React.FC<TracksViewProps> = ({
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-[#1C1917] uppercase tracking-wider flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-[#059669]" />
-            <span>博研书院在该赛道的核心研判与破局方法论</span>
+            <span>青藤国际在该赛道的核心研判与应对策略</span>
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#57534E]">
             {activeTrack.advisoryMethods.map((m, idx) => (
@@ -235,7 +235,7 @@ export const TracksView: React.FC<TracksViewProps> = ({
         <NextStops
           items={[
             { title: '测算该赛道专属开销：留学全成本预算粗算器', tabId: 'lab', extraSlug: 'cost', reason: '输入你的意向专业与生活标准，3秒获得精细到千元的总账单' },
-            { title: '查阅真实录取案卷：对标同背景学子破局历程', tabId: 'cases', reason: '研读与你当前均分、院校相仿的学术案卷与申请难点结构' }
+            { title: '查阅真实录取案卷：对标同背景学子升学实录', tabId: 'cases', reason: '研读与你当前均分、院校相仿的学术案卷与申请难点结构' }
           ]}
           onNavigate={onNavigate}
         />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES, VERTICAL_TRACKS, CaseStudyItem } from '../data/mockData';
 import { CaseStudyCard } from '../components/CaseStudyCard';
+import { PlacementAnalytics } from '../components/PlacementAnalytics';
 import { 
   Search, Filter, BookOpen, ShieldAlert, Award, 
   User, CheckCircle2, X, ArrowRight, Quote, FileCheck 
@@ -42,15 +43,18 @@ export const CasesView: React.FC<CasesViewProps> = ({
       {/* Header */}
       <div className="pb-6 border-b academic-hairline">
         <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-          CASE ARCHIVE & EVIDENCE-BASED REVIEW
+          REAL SUCCESS STORIES · 真实录取案例库
         </span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-[#1C1917] tracking-tight">
-          真实录取学术案卷与难点复盘
+          真实名校录取案例库与申请难点复盘
         </h1>
-        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed font-serif-title">
-          拒绝报喜不报忧的奖杯墙。我们坚持结构化还原每一位学子的真实始发背景、致命申请痛点、书院破局策略与交付物清单。
+        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed">
+          真实还原每一位学员的始发背景、均分短板、文书策略突破口与最终录取结果。支持按就读本科档次、目标国家与专业筛选，给您最接地气的借鉴参考。
         </p>
       </div>
+
+      {/* Successful Placement Analytics Data Visualization (Recharts) */}
+      <PlacementAnalytics />
 
       {/* Filter and Search Bar */}
       <div className="bg-[#FFFFFF] border academic-hairline p-5 rounded-sm shadow-2xs space-y-4 text-xs">
@@ -125,7 +129,7 @@ export const CasesView: React.FC<CasesViewProps> = ({
       {/* Bottom Legal Disclaimer */}
       <div className="p-4 bg-[#FAF8F5] border academic-hairline rounded-sm text-xs text-[#78716C] leading-relaxed">
         <strong>个案免责声明：</strong>
-        本页面所有案例均基于博研书院过往带教学员真实经历编写，已对姓名与核心隐私实施学术脱敏并签署存档授权协议。名校录取受当年申请池竞争、政策调整及招生官个体主观偏好综合影响，过往个案的成功不构成对任何后续学子录取结果之法律要约或必然性保证。
+        本页面所有案例均基于青藤国际过往带教学员真实经历编写，已对姓名与核心隐私实施学术脱敏并签署存档授权协议。名校录取受当年申请池竞争、政策调整及招生官个体主观偏好综合影响，过往个案的成功不构成对任何后续学子录取结果之法律要约或必然性保证。
       </div>
 
       {/* Detailed Modal Popup for Single Case */}
@@ -185,7 +189,7 @@ export const CasesView: React.FC<CasesViewProps> = ({
             <div className="mb-5 space-y-1.5">
               <span className="text-xs font-bold text-[#DC2626] uppercase tracking-wider flex items-center gap-1.5">
                 <ShieldAlert className="w-4 h-4" />
-                <span>1. 申请核心死穴与硬伤难点 (Hard Bottlenecks)</span>
+                <span>1. 申请核心难点与背景短板 (Key Bottlenecks)</span>
               </span>
               <p className="text-xs text-[#57534E] leading-relaxed bg-[#FEF2F2]/60 p-3.5 rounded-xs border border-[#FCA5A5]/40 font-serif-title">
                 {selectedCaseModal.hardBottlenecks}
@@ -196,7 +200,7 @@ export const CasesView: React.FC<CasesViewProps> = ({
             <div className="mb-5 space-y-1.5">
               <span className="text-xs font-bold text-[#059669] uppercase tracking-wider flex items-center gap-1.5">
                 <BookOpen className="w-4 h-4" />
-                <span>2. 书院学者导师研判与破局解法 (Advisory Strategy)</span>
+                <span>2. 书院学者导师研判与应对方案 (Advisory Strategy)</span>
               </span>
               <p className="text-xs text-[#1C1917] leading-relaxed bg-[#F0FDF4]/70 p-3.5 rounded-xs border border-[#86EFAC]/50 font-serif-title">
                 {selectedCaseModal.strategicInsight}

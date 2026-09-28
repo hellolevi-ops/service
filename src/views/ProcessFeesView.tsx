@@ -18,13 +18,13 @@ export const ProcessFeesView: React.FC<ProcessFeesViewProps> = ({
       {/* Header */}
       <div className="pb-6 border-b academic-hairline">
         <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-          LIFECYCLE, TRANSPARENT FEES & EXIT POLICIES
+          TRANSPARENT PROCESS & FEES · 流程、费用与退费保障
         </span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-[#1C1917] tracking-tight">
-          服务交付全生命周期、费用构成与解约退费准则
+          服务流程、费用构成与退费保障
         </h1>
-        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed font-serif-title">
-          我们拒绝任何形式的“前轻后重”或“隐形收费”。签约前向每一位家长与学子明示全部 7 阶交付节点、明确列支第三方不包含项、并公开分阶段解约退费细则。
+        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed">
+          签约前明示完整服务交付节点、明码标价无任何隐形消费，明确列支第三方费用（如大学网申费与使馆签证费自付），正规合同保障拒录全额退费与冷静期退费权益。
         </p>
       </div>
 

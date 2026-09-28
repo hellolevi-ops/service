@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { COMMUNITY_TOPICS, CommunityTopic } from '../data/mockData';
 import { 
   Users, MessageSquare, Lock, Unlock, ShieldAlert, 
-  Sparkles, CheckCircle2, ArrowRight, Eye, Tag, AlertCircle 
+  CheckCircle2, ArrowRight, Eye, Tag, AlertCircle 
 } from 'lucide-react';
 
 interface CommunityViewProps {
@@ -59,7 +59,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                   : 'bg-[#1C1917] text-white hover:bg-[#78350F]'
               }`}
             >
-              {isAuthenticated ? '退出登录' : '一键模拟登录体验'}
+              {isAuthenticated ? '退出登录' : '测试账号登录'}
             </button>
           </div>
         </div>
@@ -76,7 +76,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
           <span>合规：帖文全文仅对登录认证用户可见，禁止外部爬虫</span>
         </div>
         <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-[#059669] shrink-0" />
+          <CheckCircle2 className="w-4 h-4 text-[#059669] shrink-0" />
           <span>纯粹：所有特邀在读与官方帖均有显性认证徽章</span>
         </div>
       </div>

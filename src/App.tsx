@@ -1,5 +1,5 @@
 /**
- * 博研书院 (Boyan Academic & Advisory)
+ * 青藤国际 (Ivy Global Education & Advisory)
  * 垂直深耕型国际学者与留学研判体系 - 核心前端应用
  */
 
@@ -13,6 +13,7 @@ import { AdminLeadsDrawer } from './components/AdminLeadsDrawer';
 // Views
 import { HomeView } from './views/HomeView';
 import { ServicesView } from './views/ServicesView';
+import { UniversitiesView } from './views/UniversitiesView';
 import { TracksView } from './views/TracksView';
 import { CasesView } from './views/CasesView';
 import { AdvisorsView } from './views/AdvisorsView';
@@ -40,7 +41,7 @@ export default function App() {
   // Leads state
   const [leads, setLeads] = useState<LeadSubmission[]>(() => {
     try {
-      const saved = localStorage.getItem('boyan_leads_data');
+      const saved = localStorage.getItem('ivyglobal_leads_data');
       return saved ? JSON.parse(saved) : INITIAL_LEADS;
     } catch {
       return INITIAL_LEADS;
@@ -51,7 +52,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('boyan_leads_data', JSON.stringify(leads));
+      localStorage.setItem('ivyglobal_leads_data', JSON.stringify(leads));
     } catch (e) {
       console.error(e);
     }
@@ -94,8 +95,8 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-[#FBF9F5] text-[#1C1917] font-sans selection:bg-[#B45309]/15 selection:text-[#78350F]">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 bg-[#1C1917] text-white text-xs px-4 py-3 rounded-xs shadow-xl border border-[#D97706]/40 flex items-center gap-2 animate-in slide-in-from-top-2 duration-200">
-          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+        <div className="fixed top-20 right-6 z-50 bg-[#1C1917] text-white text-xs px-4 py-3 rounded-xs shadow-xl border border-[#D97706]/40 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#15803D]" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -124,6 +125,14 @@ export default function App() {
             initialSubTab={extraSlug}
             onOpenBooking={handleOpenBooking}
             onOpenWeCom={() => setIsWeComOpen(true)}
+          />
+        )}
+
+        {currentTab === 'universities' && (
+          <UniversitiesView
+            onOpenBooking={handleOpenBooking}
+            onOpenWeCom={() => setIsWeComOpen(true)}
+            onNavigateToTools={(toolId) => handleNavigate('lab', toolId)}
           />
         )}
 

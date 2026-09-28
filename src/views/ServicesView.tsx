@@ -23,13 +23,13 @@ export const ServicesView: React.FC<ServicesViewProps> = ({
       {/* Header */}
       <div className="pb-6 border-b academic-hairline">
         <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-          SERVICE ARCHITECTURE & DELIVERABLES
+          SERVICE PACKAGES & FEES · 服务项目与费用标准
         </span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-[#1C1917] tracking-tight">
-          博研书院服务产品体系与选型对照
+          青藤国际服务项目与收费标准
         </h1>
-        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed font-serif-title">
-          我们坚信高品质学术升学服务应如同行学者般坦诚。每条产品线均公开其带教模式、导师配置比、具体交付实物与透明定价逻辑。
+        <p className="text-sm sm:text-base text-[#57534E] mt-2 max-w-3xl leading-relaxed">
+          拒绝任何隐形加价与模糊承诺。每一项服务均清晰列明适合人群、导师配置、具体书面交付物以及正规退费规则，签约前明明白白，保障家长与学子的每一分权益。
         </p>
       </div>
 
@@ -115,7 +115,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({
             {/* Philosophy & Ratio */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-[#44403C]">
               <div>
-                <strong className="text-[#1C1917] block mb-1.5 font-serif-title text-sm">带教理念与底层逻辑：</strong>
+                <strong className="text-[#1C1917] block mb-1.5 font-serif-title text-sm">带教理念与指导准则：</strong>
                 <p className="leading-relaxed text-[#57534E] font-serif-title">{srv.philosophy}</p>
               </div>
               <div>
@@ -163,7 +163,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({
             DECISION MATRIX
           </span>
           <h3 className="text-xl sm:text-2xl font-serif-title font-bold text-[#1C1917]">
-            三线服务维度对比沙盘
+            三线服务维度对照评估表
           </h3>
           <p className="text-xs text-[#78716C] mt-1">
             移动端可左右滑动查看完整列 · 签约前充分知情决策

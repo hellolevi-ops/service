@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Sparkles, CheckCircle2, AlertTriangle, ArrowRight, RefreshCw, ShieldCheck } from 'lucide-react';
+import { Compass, CheckCircle2, AlertTriangle, ArrowRight, RefreshCw, ShieldCheck } from 'lucide-react';
 
 interface AssessmentToolProps {
   onProceedToBooking: (assessmentData: {
@@ -67,7 +67,7 @@ export const AssessmentTool: React.FC<AssessmentToolProps> = ({ onProceedToBooki
             学术背景竞争力雷达自测模型 (Profile Match & Risk Radar)
           </h3>
           <p className="text-xs text-[#78716C]">
-            非黑盒伪算法 · 基于英美港新官方最新 2026/2027 录取门槛与名单标准量化研判
+            公开透明规则 · 基于英美港新官方最新 2026/2027 录取门槛与名单标准量化研判
           </p>
         </div>
       </div>

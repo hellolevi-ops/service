@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageSquare, Phone, QrCode, X, Copy, Check, Clock, Shield, Sparkles } from 'lucide-react';
+import { MessageSquare, Phone, QrCode, X, Copy, Check, Clock, Shield, CheckCircle2 } from 'lucide-react';
 
 interface WeComDockProps {
   isOpenModal: boolean;
@@ -14,8 +14,8 @@ export const WeComDock: React.FC<WeComDockProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
   const [desktopExpanded, setDesktopExpanded] = useState(false);
-  const wechatId = "boyan_advisory_2026";
-  const hotlineNumber = "400-880-9218";
+  const wechatId = "ivyglobal_advisory_2026";
+  const hotlineNumber = "400-820-1926";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(wechatId);
@@ -31,7 +31,7 @@ export const WeComDock: React.FC<WeComDockProps> = ({
           <div className="bg-[#FFFFFF] border academic-hairline shadow-xl rounded-sm p-4 w-72 mb-1 animate-in fade-in slide-in-from-bottom-2 duration-200">
             <div className="flex items-center justify-between pb-2 mb-2 border-b academic-hairline">
               <span className="text-xs font-semibold text-[#1C1917] flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#15803D]" />
                 值班学术顾问在线 (15分钟SLA)
               </span>
               <button 
@@ -86,7 +86,7 @@ export const WeComDock: React.FC<WeComDockProps> = ({
           className="flex items-center gap-2.5 px-4 py-3 bg-[#1C1917] hover:bg-[#78350F] text-[#FBF9F5] shadow-lg rounded-full border border-[#D6CEBF]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer group"
           aria-label="企业微信即时咨询"
         >
-          <div className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
+          <span className="w-2 h-2 rounded-full bg-[#15803D]" />
           <MessageSquare className="w-4 h-4 text-[#34D399]" />
           <span className="text-xs font-semibold tracking-wide">企微学术初诊</span>
           <span className="text-[11px] bg-[#292524] text-[#EDE7DC] px-1.5 py-0.5 rounded-full font-mono">15m响应</span>
@@ -136,7 +136,7 @@ export const WeComDock: React.FC<WeComDockProps> = ({
                 <QrCode className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-serif-title font-bold text-[#1C1917]">
-                添加博研书院官方企业微信
+                添加青藤国际官方企业微信
               </h3>
               <p className="text-xs text-[#78716C] mt-1">
                 认证学术规划顾问直连 · 工作时间承诺 15 分钟内响应
@@ -170,7 +170,7 @@ export const WeComDock: React.FC<WeComDockProps> = ({
                   <rect x="22" y="38" width="8" height="6" />
                   <rect x="38" y="38" width="24" height="24" fill="#1C1917" />
                   <circle cx="50" cy="50" r="8" fill="white" />
-                  <text x="50" y="54" fontSize="10" textAnchor="middle" fill="#78350F" fontWeight="bold">博</text>
+                  <text x="50" y="54" fontSize="10" textAnchor="middle" fill="#78350F" fontWeight="bold">青</text>
                   <rect x="68" y="38" width="10" height="6" />
                   <rect x="82" y="38" width="8" height="6" />
                   <rect x="38" y="68" width="6" height="12" />
@@ -208,8 +208,8 @@ export const WeComDock: React.FC<WeComDockProps> = ({
                 <span>信息严格保密，绝不向任何第三方转售线索</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-[#3B82F6]" />
-                <span>非骚扰式服务，提供纯粹客观的学术背景初筛建议</span>
+                <CheckCircle2 className="w-3 h-3 text-[#15803D]" />
+                <span>非骚扰式服务，提供客观的学术背景初筛建议</span>
               </div>
             </div>
           </div>

@@ -57,21 +57,21 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 1: Brand & Identity */}
           <div className="col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-sm bg-[#78350F] text-[#FBF9F5] flex items-center justify-center font-brand-title font-bold text-base">
-                博
+              <div className="w-8 h-8 rounded-sm bg-[#78350F] text-[#FBF9F5] flex items-center justify-center font-bold text-base">
+                青
               </div>
               <div>
                 <span className="text-lg font-serif-title font-bold text-[#FBF9F5] tracking-tight block">
-                  博研书院
+                  青藤国际
                 </span>
                 <span className="text-[10px] text-[#A8A29E] tracking-widest uppercase">
-                  BOYAN ACADEMY & ADVISORY
+                  IVY GLOBAL EDUCATION
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-[#A8A29E] leading-relaxed max-w-sm">
-              面向中国大陆高志向学子与理性家庭的垂直深耕型学术与留学研判体系。以严谨的文献方法学、先修课穿透匹配与全透明精益交付，打破传统中介的信息黑箱。
+              面向中国大陆高志向学子与理性家庭的学术与留学规划研判服务。以严谨的文献方法学、先修课程细化对标与全透明精益交付，消除留学申请中的信息不对称。
             </p>
 
             <div className="space-y-1.5 text-[11px] text-[#A8A29E]">
@@ -81,11 +81,11 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#78350F]" />
-                <span>全国咨询热线：400-880-9218 (工作日 09:00 - 21:00)</span>
+                <span>全国咨询热线：400-820-1926 (工作日 09:00 - 21:00)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#78350F]" />
-                <span>纪律与学术合规监督邮箱：supervision@boyan-academy.com</span>
+                <span>纪律与学术合规监督邮箱：supervision@ivyglobal.com</span>
               </div>
             </div>
           </div>
@@ -96,6 +96,7 @@ export const Footer: React.FC<FooterProps> = ({
               服务与学术赛道
             </h4>
             <ul className="space-y-2 text-[#A8A29E]">
+              <li><button onClick={() => onNavigate('universities')} className="hover:text-[#FBF9F5] font-semibold text-[#F59E0B]">全球名校库与List查询</button></li>
               <li><button onClick={() => onNavigate('services', 'premium')} className="hover:text-[#FBF9F5]">学术导师制精品咨询</button></li>
               <li><button onClick={() => onNavigate('services', 'full-cycle')} className="hover:text-[#FBF9F5]">全流程精益交付线</button></li>
               <li><button onClick={() => onNavigate('services', 'compare')} className="hover:text-[#FBF9F5]">服务选型与对照中心</button></li>
@@ -147,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="pt-8 border-t border-[#292524] text-[11px] text-[#78716C] flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center md:text-left">
             <div>
-              主办主体：北京博研学术咨询交流有限公司 (Boyan Academic & Advisory Ltd.)
+              主办主体：北京青藤学术咨询交流有限公司 (Ivy Global Education & Advisory Ltd.)
               <span className="mx-2">|</span>
               京ICP备2026092801号-1
               <span className="mx-2">|</span>
@@ -159,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           <div className="text-center md:text-right text-[11px] text-[#A8A29E] space-y-0.5">
-            <div>© 2026 博研书院. 版权所有. 保留一切学术与出版权利.</div>
+            <div>© 2026 青藤国际. 版权所有. 保留一切学术与出版权利.</div>
             <div className="text-[10px] text-[#57534E]">
               免责声明：本院公布之过往案例均为真实脱敏记录，不构成对任何特定申请者录取之绝对要约或法律承诺。
             </div>
