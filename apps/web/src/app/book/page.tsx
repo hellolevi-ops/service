@@ -36,10 +36,8 @@ export default async function BookPage({
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          ACADEMIC CONSULTATION · 专家初步诊断
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">专家初步诊断</span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
           预约 1对1 免费名校申请与定位初诊
         </h1>
@@ -51,7 +49,7 @@ export default async function BookPage({
         <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-slate-600">
           <span className="flex items-center gap-1.5 text-emerald-700 font-medium">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            完全免费 · 绝无推销电话骚扰
+            完全免费 · 预约后由顾问按约定时间联系
           </span>
           <span aria-hidden="true" className="text-slate-300">·</span>
           <span className="flex items-center gap-1.5 text-slate-700">
@@ -113,7 +111,7 @@ export default async function BookPage({
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                <span>外语标化进度（雅思、托福、GRE/GMAT 等，若暂无亦可直接评估）</span>
+                <span>外语标化进度（雅思、托福、GRE/GMAT 等，成绩待出时也可直接评估）</span>
               </li>
             </ul>
             <div className="pt-2 border-t border-slate-200">
@@ -121,7 +119,7 @@ export default async function BookPage({
                 href="/lab/tools/assessment"
                 className="text-slate-900 hover:text-blue-900 font-semibold inline-flex items-center gap-1 transition-colors"
               >
-                <span>不确定定位？先做名校录取概率自测</span>
+                <span>方向待定？先做背景定位自测</span>
                 <span>→</span>
               </Link>
             </div>

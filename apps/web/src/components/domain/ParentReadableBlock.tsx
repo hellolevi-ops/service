@@ -38,7 +38,7 @@ export function ParentReadableBlock({
         </div>
         <div className="space-y-1.5 flex-1">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md">
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md">
               家长决策备忘
             </span>
           </div>

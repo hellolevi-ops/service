@@ -10,7 +10,7 @@ export default function GuidesFaqPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
-      <div className="pb-6 border-b border-slate-200">
+      <div className="page-banner">
         <p className="text-xs text-slate-500 mb-2">
           <Link href="/guides" className="hover:text-blue-900">
             指南

@@ -10,15 +10,13 @@ export default function ComparePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          DECISION MATRIX · 服务选型与中介对比
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">服务选型与中介对比</span>
         <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
           青藤国际服务选型对照 · 如何科学决策
         </h1>
         <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
-          签约前充分知情，评估背景卡点后再决定产品线。拒绝虚标承诺，所有师资配置、文书交付与退费规则完全透明。
+          签约前充分知情，评估背景卡点后再决定产品线。所有承诺如实标注，师资配置、文书交付与退费规则完全透明。
         </p>
       </div>
 
@@ -45,7 +43,7 @@ export default function ComparePage() {
               ],
               [
                 "文书打磨机制",
-                "学科前沿选题构思，严禁模板与AI套作",
+                "学科前沿选题构思，坚持原创表达与真实写作",
                 "高质量素材深度挖掘，学员反复修改定稿",
                 "模板批量套用，甚至对学员隐瞒文书内容",
               ],
@@ -59,19 +57,19 @@ export default function ComparePage() {
                 "网申账号自主权",
                 "100% 学生与家庭全权自主掌握密码",
                 "100% 学生与家庭全权自主掌握密码",
-                "中介把持账号密码，学生无法查看官方邮件",
+                "中介代管账号密码，学生需申请才能查看官方邮件",
               ],
               [
                 "家校同步机制",
                 "双周备忘录 + 关键决策节点三方研讨",
                 "企微进度周报 + 7 阶关键节点确认签署",
-                "无规范同步，全靠学生家长主动反复催问",
+                "同步机制较松散，多依赖学生家长主动询问",
               ],
               [
                 "违约与退费保障",
                 "72小时冷静期 + 正规合同分阶段明确清算",
                 "72小时冷静期 + 正规合同分阶段明确清算",
-                "合同条款苛刻，拒录往往寻找各种借口扣费",
+                "合同条款偏严格，退费以条款解释为准，常出现争议",
               ],
             ].map(([k, a, b, c]) => (
               <tr key={k} className="hover:bg-slate-50/60 transition-colors">
@@ -93,9 +91,6 @@ export default function ComparePage() {
       {/* Decision Guidance Cards */}
       <div className="grid sm:grid-cols-2 gap-6 text-xs">
         <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 shadow-xs">
-          <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block">
-            RECOMMENDED FOR
-          </span>
           <h2 className="text-lg font-bold text-slate-900 font-editorial-title">
             更适合选择「学术博导制精品咨询」的情形：
           </h2>
@@ -125,9 +120,6 @@ export default function ComparePage() {
         </div>
 
         <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 shadow-xs">
-          <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block">
-            RECOMMENDED FOR
-          </span>
           <h2 className="text-lg font-bold text-slate-900 font-editorial-title">
             更适合选择「全流程精益交付」的情形：
           </h2>
@@ -161,10 +153,10 @@ export default function ComparePage() {
       <div className="bg-slate-900 text-white rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-slate-800 shadow-sm">
         <div className="space-y-1">
           <h2 className="text-xl sm:text-2xl font-bold text-white font-editorial-title">
-            仍不确定哪套方案更契合您的目标？
+            想找到更契合目标的方案？
           </h2>
           <p className="text-sm text-slate-400">
-            预约 1对1 初诊，学术督导将根据您的真实背景给出客观配置建议，绝不强推高客单产品。
+            预约 1对1 初诊，学术督导将根据您的真实背景给出客观配置建议，方案按需匹配，以您的目标为准。
           </p>
         </div>
         <Link

@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const advisor = ADVISORS.find((a) => a.id === slug);
-  if (!advisor) return { title: "导师未找到" };
+  if (!advisor) return { title: "导师主页" };
   return { title: `${advisor.name} · ${advisor.title}`, description: advisor.academicBackground };
 }
 
@@ -55,11 +55,11 @@ export default async function AdvisorDetailPage({
                   {advisor.name}
                 </h1>
                 {advisor.acceptingAppointments ? (
-                  <span className="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded font-medium">
+                  <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded font-medium">
                     接受预约初诊
                   </span>
                 ) : (
-                  <span className="text-[11px] text-slate-400 bg-slate-100 px-2 py-0.5 rounded font-medium">
+                  <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded font-medium">
                     本期满额
                   </span>
                 )}
@@ -77,7 +77,7 @@ export default async function AdvisorDetailPage({
               className="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl inline-flex items-center justify-center gap-2 shrink-0 transition-colors shadow-xs"
             >
               <span>指定该导师进行初诊</span>
-              <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
             </Link>
           ) : null}
         </div>

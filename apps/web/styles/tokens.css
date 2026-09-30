@@ -3,23 +3,29 @@
  */
 :root,
 :root[data-theme="qingteng"] {
-  --paper: #F3F6F5;
+  --paper: #F3F8F7;
   --surface: #FFFFFF;
-  --band: #E4ECEA;
+  --band: #E9F4F1;
   --ink: #16302E;
   --ink-2: #4A605D;
-  --line: rgba(22, 48, 46, 0.16);
+  --line: rgba(22, 48, 46, 0.14);
   --line-strong: rgba(22, 48, 46, 0.42);
-  --brand: #1B6B63;
-  --brand-hover: #0F4F49;
+  --brand: #0A8275;
+  --brand-hover: #076B60;
   --on-brand: #FFFFFF;
-  --vine2: #7B5EA7;
-  --deep: #0F3F3B;
+  --vine2: #B58A3E;
+  --deep: #073B37;
+  --gold: #FF8A1F;
+  --gold-hover: #FF9D42;
+  --on-gold: #1F1000;
   --mark: #B93A08;
   --mark-bg: #FFF1E6;
   --mark-line: #E8590C;
-  --ph-a: #DCE6E3;
-  --ph-b: #E8F0EE;
+  --ph-a: #DEE8E5;
+  --ph-b: #EAF1EF;
+
+  --sans: var(--font-body);
+  --serif: var(--font-display);
 
   --color-bg: var(--paper);
   --color-bg-elevated: var(--surface);
@@ -29,20 +35,20 @@
   --color-ink-light: #7A908D;
   --color-brand: var(--brand);
   --color-brand-deep: var(--deep);
-  --color-brand-blue: #1B6B63;
+  --color-brand-blue: #0A8275;
   --color-accent: var(--brand);
-  --color-accent-gold: #c59b27;
+  --color-accent-gold: #B58A3E;
   --color-accent-hover: var(--brand-hover);
   --color-line: var(--line);
   --color-line-subtle: rgba(22, 48, 46, 0.08);
-  --color-success: #1B6B63;
+  --color-success: #0A8275;
   --color-danger: #B3261E;
   --color-focus: var(--brand);
   --color-overlay: rgba(15, 63, 59, 0.55);
 
-  --font-display: "Noto Serif SC", "Songti SC", "STSong", "Source Han Serif SC", "SimSun", Georgia, serif;
-  --font-serif: "Noto Serif SC", "Songti SC", "STSong", "Source Han Serif SC", "SimSun", Georgia, serif;
-  --font-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-noto-sans), "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-noto-sans), "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-noto-sans), "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 
   --text-xs: 0.75rem;
@@ -55,16 +61,16 @@
   --text-4xl: 2.5rem;
 
   --r-xs: 2px;
-  --r-s: 4px;
-  --r-m: 6px;
-  --r-l: 10px;
-  --r-xl: 14px;
+  --r-s: 2px;
+  --r-m: 4px;
+  --r-l: 6px;
+  --r-xl: 6px;
 
   --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-xl: 14px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 6px;
 
   --container: 75rem;
   --gutter: 1.5rem;

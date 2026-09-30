@@ -35,10 +35,8 @@ export default function CasesPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          ADMISSIONS ARCHIVES · 真实录取案卷库
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">真实录取案卷库</span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
           名校录取案卷复盘与破局实录
         </h1>
@@ -84,12 +82,12 @@ export default function CasesPage() {
         <span>
           共检索到 <strong className="text-slate-900 font-semibold">{filtered.length}</strong> 份官方留痕案卷
         </span>
-        <span>严谨脱敏展示 · 拒绝夸大宣传</span>
+        <span>严谨脱敏展示 · 内容真实可查</span>
       </div>
 
       {filtered.length === 0 ? (
         <div className="text-center py-16 text-sm text-slate-500 border border-slate-200 rounded-xl bg-white space-y-3">
-          <p>暂无符合当前筛选条件的案例，建议更换搜索关键词，或</p>
+          <p>当前筛选条件下暂时为空，建议更换搜索关键词，或</p>
           <Link
             href="/book"
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 text-white rounded-lg font-semibold text-xs hover:bg-slate-800 transition-colors"

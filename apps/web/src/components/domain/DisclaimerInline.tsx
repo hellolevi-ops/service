@@ -8,7 +8,7 @@ export function DisclaimerInline() {
         paddingLeft: "0.75rem",
       }}
     >
-      个案不代表概率；结果标签仅描述该样本路径，不可外推为成功率。
+      个案仅作路径参考，结果标签仅描述该样本路径，请结合自身条件评估。
     </p>
   );
 }

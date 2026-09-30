@@ -14,16 +14,14 @@ export default function GuidesPage() {
 
   if (!active) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-16 text-slate-500">暂无指南内容</div>
+      <div className="max-w-7xl mx-auto px-4 py-16 text-slate-500">指南内容即将上线</div>
     );
   }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-800 tracking-wider block mb-1">
-          SOURCE OF TRUTH · 真相源指南
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">真相源指南</span>
         <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
           权威升学指南与政策考据
         </h1>
@@ -48,7 +46,7 @@ export default function GuidesPage() {
                   : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
               }`}
             >
-              <div className="flex items-center justify-between text-[11px] opacity-80 mb-1">
+              <div className="flex items-center justify-between text-xs opacity-80 mb-1">
                 <span className={activeSlug === art.slug ? "text-amber-300" : "text-amber-700"}>
                   {art.category}
                 </span>
@@ -75,7 +73,7 @@ export default function GuidesPage() {
                 <User className="w-3.5 h-3.5" />
                 {active.author}
               </span>
-              <span className="text-slate-400 ml-auto font-mono text-[11px] flex items-center gap-1">
+              <span className="text-slate-400 ml-auto font-mono text-xs flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5" />
                 更新：{active.dateModified}
               </span>

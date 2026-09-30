@@ -37,12 +37,12 @@ export function WeComDock({
             <h4 className="text-sm font-bold text-slate-900 font-editorial-title">
               微信 / 企微学术直联{advisorName ? ` · ${advisorName}` : ""}
             </h4>
-            <p className="text-[11px] text-slate-500">
+            <p className="text-xs text-slate-500">
               工作时段 15 分钟内首触 · 可直接发送背景评估方案
             </p>
           </div>
         </div>
-        <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium border border-emerald-200/60">
+        <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium border border-emerald-200/60">
           ONLINE
         </span>
       </div>
@@ -51,6 +51,7 @@ export function WeComDock({
         <div className="p-2 bg-slate-50 border border-slate-200 rounded-xl shrink-0 group cursor-pointer">
           <Image
             src={SITE.wecomQr}
+            unoptimized
             alt="微信咨询二维码"
             width={128}
             height={128}
@@ -85,7 +86,7 @@ export function WeComDock({
             )}
           </button>
 
-          <p className="text-[11px] text-slate-400 flex items-center justify-center sm:justify-start gap-1">
+          <p className="text-xs text-slate-400 flex items-center justify-center sm:justify-start gap-1">
             <ShieldCheck className="w-3 h-3 text-emerald-600" />
             <span>扫码添加或微信搜索同号即可添加</span>
           </p>

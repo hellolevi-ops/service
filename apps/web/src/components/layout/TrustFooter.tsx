@@ -12,11 +12,11 @@ export function TrustFooter() {
           <div className="lg:col-span-2 space-y-4">
             <BrandMark variant="dark" size={32} withWordmark href="/" />
             <p className="text-xs sm:text-sm text-emerald-100/70 leading-relaxed max-w-md">
-              垂直深耕型国际学者与升学研判体系。拒绝销售流水线和黑盒转包，导师全流程亲自负责，网申账号密码 100% 由学生与家庭自主自持。
+              垂直深耕型国际学者与升学研判体系。坚持导师全流程亲自负责，网申账号密码 100% 由学生与家庭自主自持。
             </p>
             <div className="pt-2 flex items-center gap-2 text-xs text-emerald-300 font-medium">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>签约前白纸黑字写明交付节点、不含项与 72h 退费机制</span>
+              <span>签约前白纸黑字写明交付节点、另行约定事项与 72h 退费机制</span>
             </div>
           </div>
 
@@ -106,7 +106,7 @@ export function TrustFooter() {
               </li>
               <li>
                 <Link href="/guides" className="hover:text-white transition-colors">
-                  申请真相与避坑指南
+                  申请真相与风险预案指南
                 </Link>
               </li>
               <li>

@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     body = await req.json();
   } catch {
     return NextResponse.json(
-      { ok: false, error: "无效 JSON", requestId },
+      { ok: false, error: "请提交有效的 JSON 格式", requestId },
       { status: 400, headers: { "x-request-id": requestId } },
     );
   }
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
       message: err instanceof Error ? err.message : "error",
     });
     return NextResponse.json(
-      { ok: false, error: "服务暂时不可用", requestId },
+      { ok: false, error: "服务正在恢复，请稍后重试", requestId },
       { status: 500, headers: { "x-request-id": requestId } },
     );
   }

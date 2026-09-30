@@ -104,7 +104,7 @@ export function AssessmentTool() {
                 className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:bg-white focus:border-slate-400 focus:outline-none transition-colors"
               >
                 <option value="ready">已达标或接近目标分数 (如雅思 6.5+/托福 95+)</option>
-                <option value="not-ready">尚未开始准备 / 计划无语言先递交</option>
+                <option value="not-ready">准备阶段 / 计划语言成绩后补递交</option>
               </select>
             </div>
           </div>
@@ -147,7 +147,7 @@ export function AssessmentTool() {
               className="w-full py-3 bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white font-semibold text-xs rounded-xl transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>{loading ? "正在测算中…" : "开始智能梯队测算"}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
         </form>
@@ -163,7 +163,7 @@ export function AssessmentTool() {
               onClick={() => track("lab_ask_advisor_click", { tool: "assessment" })}
             >
               <span>预约导师深度解读该测算方案</span>
-              <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
             </Link>
             <Link
               href="/lab/playbooks/uk-pg-shuangfei-tiering"

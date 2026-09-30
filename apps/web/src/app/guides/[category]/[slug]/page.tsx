@@ -40,8 +40,8 @@ export default async function GuideDetailPage({
         </Link>{" "}
         / {article.category}
       </p>
-      <div>
-        <span className="text-[10px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
+      <div className="page-banner">
+        <span className="text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
           {article.category}
         </span>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 font-editorial-title mt-2 leading-snug">

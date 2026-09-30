@@ -23,14 +23,14 @@ export const CostCalculator: React.FC = () => {
       notes: "伦敦 Zone 1–2 学生公寓租金是主要变量，商科理科学费普遍高出人文社科 25% 左右。",
     },
     "uk-other": {
-      name: "英国 · 非伦敦地区 (爱丁堡 / 曼彻斯特 / 布里斯托)",
+      name: "英国 · 伦敦以外地区 (爱丁堡 / 曼彻斯特 / 布里斯托)",
       curr: "GBP (£)",
       rate: 9.35,
       tuition: degreeLevel === "master" ? 29000 : 26000,
       rentYear: livingStyle === "economy" ? 8500 : livingStyle === "standard" ? 11500 : 16000,
       livingYear: livingStyle === "economy" ? 5000 : livingStyle === "standard" ? 7000 : 9500,
       officialFees: 1266,
-      notes: "非伦敦地区住宿性价比显著提高，爱丁堡与曼大等罗素名校年总预算可稳健控制在 40 万元内。",
+      notes: "伦敦以外地区住宿性价比显著提高，爱丁堡与曼大等罗素名校年总预算可稳健控制在 40 万元内。",
     },
     "us-priv": {
       name: "美国 · 顶尖私立名校 (常春藤 / 芝加哥 / 哥大 / NYU)",
@@ -50,7 +50,7 @@ export const CostCalculator: React.FC = () => {
       rentYear: livingStyle === "economy" ? 13000 : livingStyle === "standard" ? 18000 : 24000,
       livingYear: livingStyle === "economy" ? 9000 : livingStyle === "standard" ? 12000 : 16000,
       officialFees: 900,
-      notes: "国际生按非加州居民学费计费，加州生活费较中部五大湖地区高出约 30%。",
+      notes: "国际生按外州居民学费标准计费，加州生活费较中部五大湖地区高出约 30%。",
     },
     hk: {
       name: "中国香港 · 港前三 (港大 / 中大 / 科大)",
@@ -60,7 +60,7 @@ export const CostCalculator: React.FC = () => {
       rentYear: livingStyle === "economy" ? 75000 : livingStyle === "standard" ? 100000 : 140000,
       livingYear: livingStyle === "economy" ? 45000 : livingStyle === "standard" ? 60000 : 80000,
       officialFees: 3000,
-      notes: "非本地硕士无公立宿舍保障，通常需合租私人公寓，商科与计算机学费近年微调较快。",
+      notes: "海外硕士通常需合租私人公寓（公立宿舍资源有限），商科与计算机学费近年微调较快。",
     },
     sg: {
       name: "新加坡 · 新国立 NUS / 南洋理工 NTU",
@@ -106,7 +106,7 @@ export const CostCalculator: React.FC = () => {
             className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-semibold focus:bg-white focus:border-slate-400 focus:outline-none transition-all cursor-pointer"
           >
             <option value="uk-lon">英国 · 伦敦地区 (IC / UCL / LSE)</option>
-            <option value="uk-other">英国 · 非伦敦地区 (爱丁堡 / 曼大 / 布大)</option>
+            <option value="uk-other">英国 · 伦敦以外地区 (爱丁堡 / 曼大 / 布大)</option>
             <option value="us-priv">美国 · 顶尖私立名校 (常春藤 / 哥大 / NYU)</option>
             <option value="us-pub">美国 · 顶尖公立大学 (UC伯克利 / UCLA / 密歇根)</option>
             <option value="hk">中国香港 · 港前三 (港大 / 中大 / 科大)</option>
@@ -186,7 +186,7 @@ export const CostCalculator: React.FC = () => {
       <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 border-b border-slate-200 gap-3">
           <div>
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">
+            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
               TOTAL ESTIMATED ANNUAL BUDGET (CNY)
             </span>
             <div className="flex items-baseline gap-2 mt-1">
@@ -198,7 +198,7 @@ export const CostCalculator: React.FC = () => {
               </span>
             </div>
           </div>
-          <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full font-semibold self-start sm:self-auto flex items-center gap-1">
+          <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-[3px] font-semibold self-start sm:self-auto flex items-center gap-1">
             <ShieldCheck className="w-3.5 h-3.5" />
             包含 6% 汇率与突发冗余安全池
           </span>
@@ -207,41 +207,41 @@ export const CostCalculator: React.FC = () => {
         {/* Breakdown Items Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs mb-4">
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-            <span className="text-slate-400 block text-[11px]">官方基础学费</span>
+            <span className="text-slate-400 block text-xs">官方基础学费</span>
             <span className="text-base font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.tuition.toLocaleString()}
             </span>
-            <span className="text-[11px] text-slate-500 mt-0.5 block">
+            <span className="text-xs text-slate-500 mt-0.5 block">
               约 ¥{Math.round(current.tuition * current.rate).toLocaleString()}
             </span>
           </div>
 
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-            <span className="text-slate-400 block text-[11px]">学生公寓/校外租房</span>
+            <span className="text-slate-400 block text-xs">学生公寓/校外租房</span>
             <span className="text-base font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.rentYear.toLocaleString()}
             </span>
-            <span className="text-[11px] text-slate-500 mt-0.5 block">
+            <span className="text-xs text-slate-500 mt-0.5 block">
               约 ¥{Math.round(current.rentYear * current.rate).toLocaleString()}
             </span>
           </div>
 
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-            <span className="text-slate-400 block text-[11px]">日常饮食与交通</span>
+            <span className="text-slate-400 block text-xs">日常饮食与交通</span>
             <span className="text-base font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.livingYear.toLocaleString()}
             </span>
-            <span className="text-[11px] text-slate-500 mt-0.5 block">
+            <span className="text-xs text-slate-500 mt-0.5 block">
               约 ¥{Math.round(current.livingYear * current.rate).toLocaleString()}
             </span>
           </div>
 
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-            <span className="text-slate-400 block text-[11px]">签证/IHS医疗等硬性规费</span>
+            <span className="text-slate-400 block text-xs">签证/IHS医疗等硬性规费</span>
             <span className="text-base font-bold font-mono text-slate-900 block mt-1">
               {current.curr} {current.officialFees.toLocaleString()}
             </span>
-            <span className="text-[11px] text-slate-500 mt-0.5 block">
+            <span className="text-xs text-slate-500 mt-0.5 block">
               约 ¥{Math.round(current.officialFees * current.rate).toLocaleString()}
             </span>
           </div>

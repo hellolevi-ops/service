@@ -32,7 +32,7 @@ export interface BranchOfficeItem {
 
 export interface NewsArticleItem {
   id: string;
-  category: '名校政策' | '签证速递' | '申请大数据' | '名校访谈' | '行前避坑';
+  category: '名校政策' | '签证速递' | '申请大数据' | '名校访谈' | '行前清单';
   title: string;
   summary: string;
   date: string;
@@ -95,7 +95,7 @@ export const EXPO_EVENTS: ExpoEventItem[] = [
     dateTime: '2026年4月22日 (周三) 19:30 - 21:00',
     status: '正在报名',
     guestSchools: ['全英学联顾问', '持牌移民法务顾问团队'],
-    highlights: ['使领馆最新签证审理周期排查', '拒签史申诉与资金证明冻结期注意事项', '在线互动 1v1 答疑提问'],
+    highlights: ['使领馆最新签证审理周期排查', '签证复议与资金证明冻结期注意事项', '在线互动 1v1 答疑提问'],
     badge: '全国直播',
     registeredCount: 2310
   }
@@ -219,7 +219,7 @@ export const NEWS_ARTICLES: NewsArticleItem[] = [
     id: 'news-03',
     category: '签证速递',
     title: '美国国务院 2026 夏季 F-1 签证预约排期更新：各大使领馆提前 365 天开放预约',
-    summary: '如何合理把握 DS-160 表格填写、SEVIS 规费缴纳与面签资金证明冻结时间点，避免高峰期延误入学。',
+    summary: '如何合理把握 DS-160 表格填写、SEVIS 规费缴纳与面签资金证明冻结时间点，提前规划，确保按时入学。',
     date: '2026-03-12',
     readCount: '7,430',
     tag: '签证合规',
@@ -227,9 +227,9 @@ export const NEWS_ARTICLES: NewsArticleItem[] = [
   },
   {
     id: 'news-04',
-    category: '行前避坑',
-    title: '教育部涉外监管信息网发布 2026 春季海外办学与无资质中介风险警示通报',
-    summary: '提醒留学生及家长甄别所谓“免联考保录”、“买学分速成学历”，务必通过正规院校官网核准官方学位认证代码。',
+    category: '行前清单',
+    title: '教育部涉外监管信息网发布 2026 春季海外办学与中介资质核验提示通报',
+    summary: '提醒留学生及家长通过正规院校官网核准官方学位认证代码，选择资质清晰、信息公开的服务与项目。',
     date: '2026-03-05',
     readCount: '1.5万+',
     tag: '官方安全预警',

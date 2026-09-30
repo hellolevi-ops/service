@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const item = CASE_STUDIES.find((c) => c.slug === slug && c.authorized);
-  if (!item) return { title: "案例未找到" };
+  if (!item) return { title: "案例详情" };
   return {
     title: `${item.admitUniversity} · ${item.admitProgram} 录取案卷`,
     description: item.hardBottlenecks.slice(0, 120),
@@ -83,7 +83,7 @@ export default async function CaseDetailPage({
 
       {/* Compliance Notice */}
       <div className="text-xs text-slate-500 bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 leading-relaxed">
-        本案卷经学员授权并脱敏展示，聚焦「卡点剖析—学术策略—阶段交付」。个案不代表全局统计概率，亦不构成任何保录承诺。
+        本案卷经学员授权并脱敏展示，聚焦「难点剖析—学术策略—阶段交付」。个案仅作路径参考，录取结果由院校决定。
       </div>
 
       {/* Baseline Section */}
@@ -153,7 +153,7 @@ export default async function CaseDetailPage({
           <div className="flex items-center gap-3">
             <ScholarPortrait name={advisor.name} title={advisor.title} className="w-11 h-11" />
             <div>
-              <span className="text-slate-400 text-[11px] block">该案卷领衔导师</span>
+              <span className="text-slate-400 text-xs block">该案卷领衔导师</span>
               <Link
                 href={`/advisors/${advisor.id}`}
                 className="font-bold text-slate-900 text-sm hover:text-blue-900 transition-colors"
@@ -167,7 +167,7 @@ export default async function CaseDetailPage({
             className="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-md inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors shadow-xs"
           >
             <span>预约该导师初诊</span>
-            <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+            <ArrowRight className="w-3.5 h-3.5 text-white" />
           </Link>
         </div>
       ) : null}
@@ -203,7 +203,7 @@ export default async function CaseDetailPage({
               >
                 <div>
                   <span className="font-semibold text-slate-900 block">{c.admitUniversity}</span>
-                  <span className="text-slate-500 text-[11px] block mt-0.5">{c.admitProgram}</span>
+                  <span className="text-slate-500 text-xs block mt-0.5">{c.admitProgram}</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
               </Link>

@@ -11,15 +11,13 @@ export default function TracksIndexPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          DESTINATIONS & PATHWAYS · 留学国家与垂直赛道
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">留学国家与垂直赛道</span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
           主流名校留学方向与申请规程
         </h1>
         <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-3xl leading-relaxed">
-          英美港新及全球艺术名校。按国家招考机制、内部认可名单（List）与学段特征精细化拆解，拒绝流水线套模，深耕每一条专属赛道。
+          英美港新及全球艺术名校。按国家招考机制、内部认可名单（List）与学段特征精细化拆解，坚持量身定制，深耕每一条专属赛道。
         </p>
       </div>
 
@@ -35,7 +33,7 @@ export default function TracksIndexPage() {
                 <span className="px-2.5 py-0.5 font-semibold bg-slate-100 text-slate-700 rounded-md">
                   {track.badge}
                 </span>
-                <span className="text-emerald-700 font-medium text-[11px] flex items-center gap-1">
+                <span className="text-emerald-700 font-medium text-xs flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
                   2026/2027 规划中
                 </span>
@@ -79,7 +77,7 @@ export default function TracksIndexPage() {
                 className="flex-1 py-2 text-center text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white rounded-lg inline-flex items-center justify-center gap-1 transition-colors shadow-xs"
               >
                 <span>咨询导师</span>
-                <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+                <ArrowRight className="w-3.5 h-3.5 text-white" />
               </Link>
             </div>
           </article>

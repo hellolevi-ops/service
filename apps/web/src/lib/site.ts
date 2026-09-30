@@ -3,7 +3,7 @@ export const SITE = {
   brandEn: "Qingteng International",
   tagline: "专注全球名校高端留学申请",
   support:
-    "拒绝流水线中介模板代写，由海外名校导师亲授。精准把关院校录取门槛、深度挖掘个人特色定制原创文书，网申账号密码 100% 共享自持。",
+    "由海外名校导师亲授，精准把关院校录取门槛，深度挖掘个人特色，定制原创文书，网申账号密码 100% 共享自持。",
   phone: process.env.NEXT_PUBLIC_PHONE || "400-820-1926",
   wechatId: process.env.NEXT_PUBLIC_WECHAT_ID || "qingteng-edu",
   wecomQr: "/wecom-qr.svg",
@@ -29,7 +29,7 @@ export const TRACK_OPTIONS: { slug: TrackSlug; name: string; short: string }[] =
     { slug: "hk-sg", name: "港新", short: "港校 · NUS · NTU" },
     { slug: "k12", name: "低龄", short: "国际高中与寄宿" },
     { slug: "arts", name: "艺术", short: "作品集与设计院校" },
-    { slug: "undecided", name: "尚未确定", short: "先做方向评估" },
+    { slug: "undecided", name: "方向待定", short: "先做方向评估" },
   ];
 
 export function trackLabel(slug: TrackSlug | string) {

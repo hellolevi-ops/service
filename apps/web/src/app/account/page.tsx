@@ -49,7 +49,7 @@ const ROLE_LABEL: Record<string, string> = {
 const STATUS_LABEL: Record<string, string> = {
   pending: "待审核",
   approved: "已通过",
-  rejected: "未通过",
+  rejected: "需补充材料",
 };
 
 export default function AccountPage() {
@@ -234,7 +234,7 @@ export default function AccountPage() {
         <h2 className="text-sm font-bold text-slate-900">我的咨询进度</h2>
         {!leads.length ? (
           <p className="text-xs text-slate-500">
-            暂无关联线索。提交{" "}
+            关联线索将显示在这里。提交{" "}
             <Link href="/book" className="text-blue-900 font-semibold">
               免费评估
             </Link>{" "}
@@ -252,7 +252,7 @@ export default function AccountPage() {
                   {l.landing_slug ? ` · ${l.landing_slug}` : ""}
                 </span>
                 <span className="font-semibold text-slate-800">{l.status}</span>
-                <span className="w-full text-slate-400 font-mono text-[11px]">
+                <span className="w-full text-slate-400 font-mono text-xs">
                   {new Date(l.created_at).toLocaleString("zh-CN")}
                 </span>
               </li>
@@ -295,7 +295,7 @@ export default function AccountPage() {
         ) : (
           <>
             <p className="text-xs text-slate-500 leading-relaxed">
-              通过后可进入社区在读频道与特邀讨论。请如实填写；运营将人工核验（可附学生证/录取说明摘要，勿上传证件原件照片到公网）。
+              通过后可进入社区在读频道与特邀讨论。请如实填写；运营将人工核验（可附学生证/录取说明摘要；证件原件照片请妥善保管在本地）。
             </p>
             {requests.length > 0 && (
               <ul className="space-y-1.5 text-xs">
@@ -330,7 +330,7 @@ export default function AccountPage() {
                   className="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm"
                 />
                 <textarea
-                  placeholder="证明说明（如录取年份、可核验方式，勿贴证件号）"
+                  placeholder="证明说明（如录取年份、可核验方式；证件号请自行隐去）"
                   rows={3}
                   value={verForm.proofNote}
                   onChange={(e) => setVerForm({ ...verForm, proofNote: e.target.value })}

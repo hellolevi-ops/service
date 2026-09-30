@@ -58,15 +58,13 @@ export default function LabHomePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          DECISION TOOLS & LAB · 免费申请决策工具箱
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">免费申请决策工具箱</span>
         <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
           名校申请自研决策工具箱
         </h1>
         <p className="text-sm text-slate-600 mt-2 max-w-2xl leading-relaxed">
-          基于全球主流大学 2026/2027 官方最新招考政策与名单标准。免强制留资、即开即用、杜绝伪录取率营销。
+          基于全球主流大学 2026/2027 官方最新招考政策与名单标准。打开即用、数据口径公开透明、按需留资。
         </p>
       </div>
 
@@ -83,7 +81,7 @@ export default function LabHomePage() {
                 <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-colors">
                   <t.icon className="w-5 h-5" />
                 </div>
-                <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
                   {t.badge}
                 </span>
               </div>
@@ -121,7 +119,7 @@ export default function LabHomePage() {
               className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all group flex flex-col justify-between"
             >
               <div>
-                <span className="text-[10px] font-semibold text-slate-700 bg-slate-200/70 px-2 py-0.5 rounded-md">
+                <span className="text-xs font-semibold text-slate-700 bg-slate-200/70 px-2 py-0.5 rounded-md">
                   {p.category}
                 </span>
                 <h3 className="text-sm font-semibold text-slate-900 group-hover:text-blue-900 transition-colors mt-2">

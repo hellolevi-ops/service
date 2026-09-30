@@ -26,7 +26,7 @@ export async function POST(
       targetTerm: body.targetTerm || "2027 Fall",
     });
   } else {
-    return NextResponse.json({ ok: false, error: "未知工具" }, { status: 404 });
+    return NextResponse.json({ ok: false, error: "请选择站内提供的工具" }, { status: 404 });
   }
 
   try {

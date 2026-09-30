@@ -41,7 +41,7 @@ export default function OpsLoginPage() {
       >
         <div>
           <h1 className="text-lg font-bold text-slate-900">员工登录</h1>
-          <p className="text-xs text-slate-500 mt-1">线索工作台 · 非客户入口</p>
+          <p className="text-xs text-slate-500 mt-1">线索工作台 · 员工专用入口</p>
         </div>
         <label className="block text-xs font-semibold">
           邮箱
@@ -73,7 +73,7 @@ export default function OpsLoginPage() {
         >
           {busy ? "登录中…" : "登录"}
         </button>
-        <p className="text-[11px] text-slate-400 text-center">
+        <p className="text-xs text-slate-400 text-center">
           客户请使用{" "}
           <Link href="/login" className="text-blue-900">
             官网登录

@@ -120,7 +120,7 @@ export function LeadForm({
           {variant === "event" ? "专场活动预约报名" : "预约 1对1 免费专家初诊"}
         </h3>
         <p className="text-slate-500 text-xs mt-1">
-          工作时段博导团队 15 分钟内专业答复 · 绝无推销骚扰
+          工作时段博导团队 15 分钟内专业答复 · 仅用于预约沟通
         </p>
       </div>
 
@@ -255,7 +255,7 @@ export function LeadForm({
       </div>
 
       {/* Consent Checkbox */}
-      <label className="flex items-start gap-2 pt-1 cursor-pointer select-none text-[11px] text-slate-600">
+      <label className="flex items-start gap-2 pt-1 cursor-pointer select-none text-xs text-slate-600">
         <input
           type="checkbox"
           checked={consent}
@@ -284,10 +284,10 @@ export function LeadForm({
         className="w-full py-3 bg-slate-900 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold text-xs rounded-xl transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer"
       >
         <span>{loading ? "正在提交评估中…" : submitLabel}</span>
-        <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+        <ArrowRight className="w-3.5 h-3.5 text-white" />
       </button>
 
-      <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
+      <div className="flex items-center justify-center gap-1.5 text-xs text-slate-400">
         <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
         <span>正规合同保护 · 严格个人信息保护与数据安全保障</span>
       </div>

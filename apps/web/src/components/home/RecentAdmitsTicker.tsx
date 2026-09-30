@@ -107,7 +107,7 @@ export const RecentAdmitsTicker: React.FC<RecentAdmitsTickerProps> = ({ onSelect
 
         {/* Center Animated Notification */}
         <div className="flex-1 flex items-center gap-2 overflow-hidden text-center sm:text-left justify-center sm:justify-start">
-          <span className="text-[11px] text-slate-400 shrink-0 font-mono">[{current.timeAgo}]</span>
+          <span className="text-xs text-slate-400 shrink-0 font-mono">[{current.timeAgo}]</span>
           <span className="font-medium text-white truncate">
             恭喜 <strong className="text-amber-400 font-bold">{current.student}</strong>（{current.undergrad} · {current.gpa}）
             斩获 <strong className="text-blue-400 font-bold">{current.school}</strong> {current.program}！

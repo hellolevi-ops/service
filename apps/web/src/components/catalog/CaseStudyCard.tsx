@@ -43,7 +43,7 @@ export function CaseStudyCard({ item }: { item: CaseStudyItem }) {
         </div>
 
         <div className="mb-3 space-y-1">
-          <div className="text-[11px] font-semibold text-rose-700 flex items-center gap-1">
+          <div className="text-xs font-semibold text-rose-700 flex items-center gap-1">
             <ShieldAlert className="w-3.5 h-3.5" />
             申请卡点与难点
           </div>
@@ -53,7 +53,7 @@ export function CaseStudyCard({ item }: { item: CaseStudyItem }) {
         </div>
 
         <div className="mb-4 space-y-1">
-          <div className="text-[11px] font-semibold text-emerald-700 flex items-center gap-1">
+          <div className="text-xs font-semibold text-emerald-700 flex items-center gap-1">
             <BookOpen className="w-3.5 h-3.5" />
             青藤导师破局策略
           </div>

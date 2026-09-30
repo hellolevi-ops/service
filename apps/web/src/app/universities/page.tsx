@@ -23,7 +23,7 @@ const LIST_POLICIES = [
   "全部政策",
   "严格执行白名单 (List严卡)",
   "按院校梯队分层 (List分档)",
-  "无固定List (全面考量先修课)",
+  "灵活评估 (全面考量先修课)",
 ];
 const DISCIPLINES = ["全部学科", "STEM理工", "商科经济", "人文社科", "涉外法律", "前沿艺术"];
 
@@ -75,11 +75,11 @@ export default function UniversitiesPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
+      <div className="page-banner">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-              GLOBAL UNIVERSITIES DIRECTORY · 全球名校库与招生规程
+            <span className="page-banner__chip">
+              全球名校库与招生规程
             </span>
             <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
               全球主流名校库与录取门槛查询
@@ -261,7 +261,7 @@ export default function UniversitiesPage() {
                 {uni.featuredPrograms.slice(0, 2).map((p) => (
                   <span
                     key={p}
-                    className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[11px] rounded-md"
+                    className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md"
                   >
                     {p}
                   </span>
@@ -278,7 +278,7 @@ export default function UniversitiesPage() {
 
       {filtered.length === 0 && (
         <div className="text-center py-16 text-sm text-slate-500 border border-slate-200 rounded-2xl bg-white space-y-3">
-          <p>暂无符合当前筛选条件的院校，建议放宽筛选维度，或</p>
+          <p>当前筛选条件下暂时为空，建议放宽筛选维度，或</p>
           <Link
             href="/book"
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 text-white rounded-lg font-semibold text-xs hover:bg-slate-800 transition-colors"
@@ -300,7 +300,7 @@ export default function UniversitiesPage() {
           >
             <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex items-start justify-between gap-3 z-10">
               <div>
-                <span className="text-[11px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md">
+                <span className="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md">
                   QS #{selectedUni.qsRank2026} · {selectedUni.country}
                 </span>
                 <h3 className="text-xl font-serif-title font-bold text-slate-900 mt-1">
@@ -332,7 +332,7 @@ export default function UniversitiesPage() {
                   中国生源内部名单 (List) 政策
                 </h4>
                 <p className="leading-relaxed text-slate-700">{selectedUni.chineseListPolicy}</p>
-                <p className="leading-relaxed text-slate-500 pt-1 border-t border-slate-200/60 font-mono text-[11px]">
+                <p className="leading-relaxed text-slate-500 pt-1 border-t border-slate-200/60 font-mono text-xs">
                   GPA最低要求：{selectedUni.gpaRequirementZh}
                 </p>
               </div>
@@ -383,7 +383,7 @@ export default function UniversitiesPage() {
 function Info({ label, value }: { label: string; value: string }) {
   return (
     <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3">
-      <div className="text-[10px] text-slate-400 mb-0.5">{label}</div>
+      <div className="text-xs text-slate-400 mb-0.5">{label}</div>
       <div className="font-semibold text-slate-900 leading-snug">{value}</div>
     </div>
   );

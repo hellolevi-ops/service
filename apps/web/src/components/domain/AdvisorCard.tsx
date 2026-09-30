@@ -60,7 +60,7 @@ export function AdvisorCard({ advisor }: { advisor: Advisor }) {
         </Link>
       ) : (
         <button type="button" className="btn btn-secondary" disabled>
-          暂不接评估
+          本期名额已满
         </button>
       )}
     </article>

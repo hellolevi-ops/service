@@ -9,7 +9,7 @@ export default function WhenToAskPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
-      <div className="pb-6 border-b border-slate-200">
+      <div className="page-banner">
         <p className="text-xs text-slate-500 mb-2">
           <Link href="/lab" className="hover:text-blue-900">
             Practice Lab
@@ -26,7 +26,7 @@ export default function WhenToAskPage() {
 
       <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-950 flex items-start gap-2">
         <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
-        本页不做恐吓倒计时，也不暗示「不找顾问就一定失败」。目标是帮你节省试错成本。
+        本页以平和的节奏提供信息，是否找顾问由你决定。目标是帮你节省试错成本。
       </div>
 
       <ul className="space-y-2">

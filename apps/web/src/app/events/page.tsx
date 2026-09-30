@@ -7,10 +7,8 @@ export const metadata = { title: "活动与巡展" };
 export default function EventsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-800 tracking-wider block mb-1">
-          EVENTS & EXPOS · 活动巡展
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">活动巡展</span>
         <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
           全球名校教育展与招生官专场
         </h1>
@@ -26,7 +24,7 @@ export default function EventsPage() {
             className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-slate-300 hover:shadow-sm transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="flex flex-wrap items-center gap-2 text-[11px] mb-3">
+              <div className="flex flex-wrap items-center gap-2 text-xs mb-3">
                 <span className="font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
                   {e.status}
                 </span>
@@ -55,7 +53,7 @@ export default function EventsPage() {
                 {e.guestSchools.slice(0, 4).map((s) => (
                   <span
                     key={s}
-                    className="px-2 py-0.5 bg-slate-50 border border-slate-200 rounded-lg text-[10px] text-slate-600"
+                    className="px-2 py-0.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-600"
                   >
                     {s}
                   </span>

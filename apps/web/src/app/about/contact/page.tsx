@@ -16,10 +16,8 @@ export default function ContactPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          CONTACT & LOCATIONS · 全国服务中心与联系方式
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">全国服务中心与联系方式</span>
         <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
           与青藤国际学术规划团队取得联系
         </h1>
@@ -73,7 +71,7 @@ export default function ContactPage() {
                 <li key={b.city} className="pb-3 border-b border-slate-200/60 last:border-0 last:pb-0">
                   <div className="flex items-center justify-between font-semibold text-slate-900">
                     <span>{b.city} 办事处 · {b.tier}</span>
-                    <span className="text-[11px] text-slate-400 font-normal">{b.phone}</span>
+                    <span className="text-xs text-slate-400 font-normal">{b.phone}</span>
                   </div>
                   <p className="text-slate-500 mt-0.5">{b.address}</p>
                 </li>
@@ -99,7 +97,7 @@ function Info({
     <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
       <div className="flex items-center gap-2 text-slate-500 mb-1.5">
         {icon}
-        <span className="text-[11px] font-medium">{label}</span>
+        <span className="text-xs font-medium">{label}</span>
       </div>
       <div className="font-semibold text-slate-900 text-sm leading-snug">{value}</div>
     </div>

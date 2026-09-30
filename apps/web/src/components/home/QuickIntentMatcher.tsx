@@ -62,14 +62,14 @@ export const QuickIntentMatcher: React.FC<QuickIntentMatcherProps> = ({ onGenera
           tierDream: "帝国理工学院 (部分系)、伦敦大学学院 (UCL)",
           tierTarget: "爱丁堡大学、曼彻斯特大学、华威大学",
           tierSafety: "格拉斯哥大学、伯明翰大学、南安普顿大学",
-          strategyAdvice: "严格对照院系内部认可名单（List），针对性避开卡双非院系，匹配高认可度学科交叉突围。",
+          strategyAdvice: "严格对照院系内部认可名单（List），针对性选择入围院系，匹配高认可度学科交叉突围。",
         };
       } else {
         return {
           tierDream: "伦敦大学学院 (UCL)、爱丁堡大学",
           tierTarget: "布里斯托大学、南安普顿大学、格拉斯哥大学",
           tierSafety: "谢菲尔德大学、利兹大学、诺丁汉大学",
-          strategyAdvice: "双非无名单优势，建议通过学术课题科研与高质量推荐信破局，避开热门商科泛滥竞争。",
+          strategyAdvice: "双非背景建议通过学术课题科研与高质量推荐信突围，选择竞争相对温和的学科方向。",
         };
       }
     } else if (selectedDestination === "us-ug") {
@@ -121,7 +121,7 @@ export const QuickIntentMatcher: React.FC<QuickIntentMatcherProps> = ({ onGenera
             历年录取标准与认可名单（List）实时推演
           </p>
         </div>
-        <span className="hidden sm:inline-block text-[11px] font-mono text-amber-300 bg-white/10 px-2.5 py-0.5 rounded-[3px] border border-amber-300/30">
+        <span className="hidden sm:inline-block text-xs font-mono text-amber-300 bg-white/10 px-2.5 py-0.5 rounded-[3px] border border-amber-300/30">
           LIVE MATCH
         </span>
       </div>
@@ -222,7 +222,7 @@ export const QuickIntentMatcher: React.FC<QuickIntentMatcherProps> = ({ onGenera
 
         {/* 实时推演匹配卡片 */}
         <div className="bg-slate-50 border border-slate-200 rounded-md p-3.5 space-y-2 mt-2">
-          <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-200 font-mono">
+          <div className="flex items-center justify-between text-xs pb-1.5 border-b border-slate-200 font-mono">
             <span className="font-bold text-slate-900">推演录取梯度预估</span>
             <span className="text-slate-500">官方历年录取数据比对</span>
           </div>
@@ -242,7 +242,7 @@ export const QuickIntentMatcher: React.FC<QuickIntentMatcherProps> = ({ onGenera
             </div>
           </div>
 
-          <p className="text-[11px] text-slate-600 pt-1.5 border-t border-slate-200 leading-relaxed">
+          <p className="text-xs text-slate-600 pt-1.5 border-t border-slate-200 leading-relaxed">
             <strong className="text-slate-800">导师初诊提示：</strong>
             {matchingResult.strategyAdvice}
           </p>
@@ -255,13 +255,13 @@ export const QuickIntentMatcher: React.FC<QuickIntentMatcherProps> = ({ onGenera
             className="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-md transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>预约海外名校导师解读该方案</span>
-            <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+            <ArrowRight className="w-3.5 h-3.5 text-white" />
           </button>
 
-          <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-500 px-1">
+          <div className="mt-2.5 flex items-center justify-between text-xs text-slate-500 px-1">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3 h-3 text-emerald-600" />
-              完全免费 · 绝无推销骚扰
+              完全免费 · 仅用于预约沟通
             </span>
             <span>博导团队 15 分钟内专业答复</span>
           </div>

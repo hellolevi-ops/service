@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { COMMUNITY_TOPICS, type CommunityTopic } from "@/data/catalog";
 
-const CATEGORIES = ["all", "选校与定位", "文书与面试", "真实在读体验", "避坑与申诉"] as const;
+const CATEGORIES = ["all", "选校与定位", "文书与面试", "真实在读体验", "风险预案与申诉"] as const;
 
 export default function CommunityPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,17 +39,17 @@ export default function CommunityPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
+      <div className="page-banner">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-              SCHOLAR NETWORK & COMMUNITY · 学者与学子互助社区
+            <span className="page-banner__chip">
+              学者与学子互助社区
             </span>
             <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
               海外名校学长与学者研判社区
             </h1>
             <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
-              汇集英美港新在读学长与海归学者的实名申请经验、专业课程避坑指南与学术答辩心得。拒绝中介水军代发。
+              汇集英美港新在读学长与海归学者的实名申请经验、专业课程选择指南与学术答辩心得。内容均由真实用户发布。
             </p>
           </div>
           <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-xs flex items-center gap-3 shrink-0">
@@ -90,7 +90,7 @@ export default function CommunityPage() {
       <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl grid md:grid-cols-3 gap-3 text-xs text-slate-600">
         <div className="flex items-center gap-2">
           <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
-          <span>严禁商业招揽、虚假保录及非授权个人隐私文件展示</span>
+          <span>仅限真实分享与学术交流，个人隐私文件请自行保密</span>
         </div>
         <div className="flex items-center gap-2">
           <Lock className="w-4 h-4 text-slate-600 shrink-0" />
@@ -159,7 +159,7 @@ export default function CommunityPage() {
               {topic.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[11px] rounded-md"
+                  className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md"
                 >
                   #{tag}
                 </span>
@@ -236,8 +236,8 @@ export default function CommunityPage() {
                   <Lock className="w-4 h-4 text-amber-600" />
                   全文及学员讨论区需登录后可见
                 </p>
-                <p className="text-slate-500 text-[11px]">
-                  为防止内容被未授权采集并保护学长学术经验分享，请先完成学员登录或微信手机号注册。
+                <p className="text-slate-500 text-xs">
+                  为保护学长学术经验分享的版权，请先完成学员登录或微信手机号注册。
                 </p>
                 <Link
                   href="/login?returnUrl=/community"

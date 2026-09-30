@@ -17,7 +17,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('全部');
   const [activeArticleModal, setActiveArticleModal] = useState<NewsArticleItem | null>(null);
 
-  const categories = ['全部', '名校政策', '申请大数据', '签证速递', '行前避坑'];
+  const categories = ['全部', '名校政策', '申请大数据', '签证速递', '行前清单'];
 
   const filteredNews = NEWS_ARTICLES.filter(n => {
     if (selectedCategory === '全部') return true;
@@ -76,13 +76,13 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
                   {news.hot && (
                     <>
                       <span aria-hidden="true" className="text-slate-300">·</span>
-                      <span className="text-rose-700 font-semibold text-[11px]">
+                      <span className="text-rose-700 font-semibold text-xs">
                         独家研判
                       </span>
                     </>
                   )}
                 </div>
-                <span className="text-slate-400 text-[11px] tabular-nums">{news.date}</span>
+                <span className="text-slate-400 text-xs tabular-nums">{news.date}</span>
               </div>
 
               <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-900 transition-colors line-clamp-2 mb-2 font-editorial-title">
@@ -169,7 +169,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
                 根据青藤国际战略研判团队的最新追踪，当前主流海外名校在筛选中国申请人时，正在从早期的“唯 GPA 论”向“先修课硬实力匹配 + 原创学术思辨”深度转型。
               </p>
               <p>
-                建议意向申请 2026/2027 季度的同学尽早自测校内均分与目标大学内部认可名单（List）的匹配程度，避免由于信息滞后投递已被除名的院系。
+                建议意向申请 2026/2027 季度的同学尽早自测校内均分与目标大学内部认可名单（List）的匹配程度，及时掌握各院系最新名单变化。
               </p>
             </div>
 

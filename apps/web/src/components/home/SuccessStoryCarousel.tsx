@@ -24,7 +24,7 @@ const STORIES = [
     school: "哥伦比亚大学",
     program: "Columbia College",
     quote:
-      "青藤国际没有逼我凑竞赛，而是教我像学者一样好奇自己的城市。这份主轴支撑了我整个早申叙事。",
+      "青藤国际鼓励我沿着兴趣深入，教我像学者一样好奇自己的城市。这份主轴支撑了我整个早申叙事。",
     advisor: "顾清华博士 · 哥大教育学博士",
   },
   {
@@ -53,9 +53,6 @@ export function SuccessStoryCarousel() {
     <div className="bg-white border academic-hairline rounded-sm p-6 sm:p-8 shadow-sm">
       <div className="flex items-end justify-between gap-4 pb-4 mb-5 border-b academic-hairline">
         <div>
-          <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-            SUCCESS STORIES
-          </span>
           <h2 className="text-2xl font-serif-title font-bold text-[#1C1917]">学员录取故事精选</h2>
         </div>
         <div className="flex gap-2">

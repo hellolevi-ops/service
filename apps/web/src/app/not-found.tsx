@@ -12,7 +12,7 @@ export default function NotFound() {
           404 · PAGE NOT FOUND
         </span>
         <h1 className="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">
-          您访问的页面不存在或已迁移
+          您访问的页面已迁移或正在更新
         </h1>
         <p className="text-sm text-slate-500 mt-2">
           请检查输入的网址是否有误，或通过下方导航返回青藤国际官方主页。

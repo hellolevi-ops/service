@@ -99,12 +99,12 @@ function LoginForm() {
             登录 / 注册
           </h1>
           <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-            手机号验证码一键登录；首次验证即完成注册。咨询评估无需先登录。
+            手机号验证码一键登录；首次验证即完成注册。咨询评估可直接预约，登录后可保存记录。
           </p>
         </div>
 
         {DEV_HINT ? (
-          <p className="text-[11px] text-amber-900 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
+          <p className="text-xs text-amber-900 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
             {DEV_HINT}
           </p>
         ) : null}
@@ -146,7 +146,7 @@ function LoginForm() {
         </div>
 
         {hint && hint !== DEV_HINT ? (
-          <p className="text-[11px] text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-2 py-1.5">
+          <p className="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-2 py-1.5">
             {hint}
           </p>
         ) : null}
@@ -193,12 +193,12 @@ function LoginForm() {
           {busy ? "处理中…" : "登录"}
         </button>
 
-        <p className="text-[11px] text-slate-400 text-center">
+        <p className="text-xs text-slate-400 text-center">
           需要申请咨询？直接{" "}
           <Link href="/book" className="text-blue-900 font-semibold">
             免费评估
           </Link>
-          ，无需注册。
+          ，即可直接使用。
         </p>
       </form>
     </main>

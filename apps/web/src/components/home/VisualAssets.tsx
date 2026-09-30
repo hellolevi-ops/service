@@ -32,14 +32,14 @@ export const OxfordVisual: React.FC<VisualProps> = ({ className = "w-full h-44" 
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
 
-      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-medium px-2.5 py-0.5 rounded border border-white/10">
+      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-medium px-2.5 py-0.5 rounded border border-white/10">
         英国 G5 · 罗素集团
       </div>
       <div className="absolute bottom-3 left-3 right-3 text-white">
         <span className="font-bold text-sm block font-editorial-title drop-shadow-sm">
           牛津 & 剑桥帝国理工学术通道
         </span>
-        <span className="text-[11px] text-amber-200/90 block mt-0.5 truncate">
+        <span className="text-xs text-amber-200/90 block mt-0.5 truncate">
           内部名单（List）精准把控 · 第一轮抢跑投递
         </span>
       </div>
@@ -67,14 +67,14 @@ export const ColumbiaVisual: React.FC<VisualProps> = ({ className = "w-full h-44
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
 
-      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-medium px-2.5 py-0.5 rounded border border-white/10">
+      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-medium px-2.5 py-0.5 rounded border border-white/10">
         美国常春藤 · Top30
       </div>
       <div className="absolute bottom-3 left-3 right-3 text-white">
         <span className="font-bold text-sm block font-editorial-title drop-shadow-sm">
           常春藤与Top30战略主轴
         </span>
-        <span className="text-[11px] text-sky-200/90 block mt-0.5 truncate">
+        <span className="text-xs text-sky-200/90 block mt-0.5 truncate">
           学术科研课题构筑 · 前招生官1对1深度打磨
         </span>
       </div>
@@ -102,14 +102,14 @@ export const HkuNusVisual: React.FC<VisualProps> = ({ className = "w-full h-44" 
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
 
-      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-medium px-2.5 py-0.5 rounded border border-white/10">
+      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-medium px-2.5 py-0.5 rounded border border-white/10">
         中国香港 & 新加坡公立名校
       </div>
       <div className="absolute bottom-3 left-3 right-3 text-white">
         <span className="font-bold text-sm block font-editorial-title drop-shadow-sm">
           港前三与 NUS / NTU 顶尖公立
         </span>
-        <span className="text-[11px] text-teal-200/90 block mt-0.5 truncate">
+        <span className="text-xs text-teal-200/90 block mt-0.5 truncate">
           极速审理轮次抢跑 · 英文全真学术面试模拟
         </span>
       </div>
@@ -137,14 +137,14 @@ export const AusCanVisual: React.FC<VisualProps> = ({ className = "w-full h-44" 
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
 
-      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-medium px-2.5 py-0.5 rounded border border-white/10">
+      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-medium px-2.5 py-0.5 rounded border border-white/10">
         澳洲八大 · 加拿大顶尖大学
       </div>
       <div className="absolute bottom-3 left-3 right-3 text-white">
         <span className="font-bold text-sm block font-editorial-title drop-shadow-sm">
           墨尔本、悉尼与多伦多大学
         </span>
-        <span className="text-[11px] text-indigo-200/90 block mt-0.5 truncate">
+        <span className="text-xs text-indigo-200/90 block mt-0.5 truncate">
           加权均分核算 · 快捷审理通道与高额奖学金规划
         </span>
       </div>
@@ -172,14 +172,14 @@ export const ArtsStudioVisual: React.FC<VisualProps> = ({ className = "w-full h-
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
 
-      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-medium px-2.5 py-0.5 rounded border border-white/10">
+      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-medium px-2.5 py-0.5 rounded border border-white/10">
         艺术设计与建筑空间专项
       </div>
       <div className="absolute bottom-3 left-3 right-3 text-white">
         <span className="font-bold text-sm block font-editorial-title drop-shadow-sm">
           皇艺 RCA · 伦艺 UAL · 罗德岛
         </span>
-        <span className="text-[11px] text-pink-200/90 block mt-0.5 truncate">
+        <span className="text-xs text-pink-200/90 block mt-0.5 truncate">
           海外名校博导1对1 · 原创作品集深度打磨
         </span>
       </div>
@@ -207,14 +207,14 @@ export const PhdLabVisual: React.FC<VisualProps> = ({ className = "w-full h-44" 
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none" />
 
-      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-medium px-2.5 py-0.5 rounded border border-white/10">
+      <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-xs font-medium px-2.5 py-0.5 rounded border border-white/10">
         海外博士申请 · 全额奖学金
       </div>
       <div className="absolute bottom-3 left-3 right-3 text-white">
         <span className="font-bold text-sm block font-editorial-title drop-shadow-sm">
           海外博导精准学术套磁
         </span>
-        <span className="text-[11px] text-emerald-200/90 block mt-0.5 truncate">
+        <span className="text-xs text-emerald-200/90 block mt-0.5 truncate">
           研究计划书（RP）构思 · 模拟学术答辩
         </span>
       </div>

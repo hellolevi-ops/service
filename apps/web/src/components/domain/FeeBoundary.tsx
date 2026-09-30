@@ -11,28 +11,28 @@ export function FeeBoundary() {
       iconColor: "text-blue-600 bg-blue-50 border-blue-100",
       title: "计费逻辑与分档标准",
       detail:
-        "按产品线（导师制精品专线 / 全流程精益交付）与申请复杂度分档报价。签约前提供书面确切区间与交付阶段约定，杜绝口头报价或中途坐地起价。",
+        "按产品线（导师制精品专线 / 全流程精益交付）与申请复杂度分档报价。签约前提供书面确切区间与交付阶段约定，报价全程以书面为准。",
     },
     {
       icon: CheckCircle2,
       iconColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
       title: "学杂与海外就读成本单列",
       detail:
-        "学费与海外当地生活费一律依据目标国家官方大学官网核准口径单列，提供最新汇率换算与通胀安全边际参考，绝不虚低预算忽悠签约。",
+        "学费与海外当地生活费一律依据目标国家官方大学官网核准口径单列，提供最新汇率换算与通胀安全边际参考，预算保持真实稳健。",
     },
     {
       icon: XCircle,
       iconColor: "text-rose-600 bg-rose-50 border-rose-100",
-      title: "签约前书面列明不含项 (Exclusions)",
+      title: "签约前书面列明另行约定事项 (Exclusions)",
       detail:
-        "大学官方网申申请费、雅思/托福考试报名费、签证审理规费、机票与住宿定金由学生自理。青藤国际坚决拒绝代考、造假背景或代刷分等违规项目。",
+        "大学官方网申申请费、雅思/托福考试报名费、签证审理规费、机票与住宿定金由学生自理。青藤国际坚持学生本人完成考试与背景材料，全部按规范流程办理。",
     },
     {
       icon: ShieldCheck,
       iconColor: "text-amber-600 bg-amber-50 border-amber-100",
-      title: "72小时无理由冷静期与退费公约",
+      title: "72小时冷静期与退费公约",
       detail:
-        "签约后享有 72 小时无理由全额退款冷静期；若已启动服务，按阶段交付备忘单据清算，绝无任何霸王免责条款，退费规则白纸黑字入合同。",
+        "签约后享有 72 小时全额退款冷静期；若已启动服务，按阶段交付备忘单据清算，退费规则白纸黑字入合同，条款公平透明。",
     },
   ];
 
@@ -40,9 +40,6 @@ export function FeeBoundary() {
     <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xs space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
         <div>
-          <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-            FEE TRANSPARENCY GUARANTEE
-          </span>
           <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-editorial-title">
             费用边界准则与合规履约承诺
           </h3>
@@ -53,7 +50,7 @@ export function FeeBoundary() {
           onClick={() => track("fee_cta_click", { page: "process-fees" })}
         >
           <span>获取个性化报价清单</span>
-          <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+          <ArrowRight className="w-3.5 h-3.5 text-white" />
         </Link>
       </div>
 

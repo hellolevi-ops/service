@@ -239,7 +239,7 @@ export default function OpsLeadsPage() {
                     selected?.id === lead.id ? "bg-amber-50" : "bg-white"
                   }`}
                 >
-                  <td className="p-2.5 whitespace-nowrap font-mono text-[11px] text-slate-500">
+                  <td className="p-2.5 whitespace-nowrap font-mono text-xs text-slate-500">
                     {new Date(lead.created_at).toLocaleString("zh-CN")}
                   </td>
                   <td className="p-2.5 font-semibold">{lead.name}</td>
@@ -263,7 +263,7 @@ export default function OpsLeadsPage() {
             </tbody>
           </table>
           {!leads.length && (
-            <p className="p-8 text-sm text-slate-500 text-center">暂无线索</p>
+            <p className="p-8 text-sm text-slate-500 text-center">线索将在这里显示</p>
           )}
         </div>
 
@@ -272,7 +272,7 @@ export default function OpsLeadsPage() {
             <>
               <div>
                 <h2 className="font-bold text-sm">{selected.name}</h2>
-                <p className="text-[11px] text-slate-500 font-mono mt-0.5">{selected.id}</p>
+                <p className="text-xs text-slate-500 font-mono mt-0.5">{selected.id}</p>
               </div>
               <dl className="text-xs space-y-1 text-slate-600">
                 <div>手机：{selected.mobile}</div>
@@ -283,7 +283,7 @@ export default function OpsLeadsPage() {
                   首触：
                   {selected.first_contact_at
                     ? new Date(selected.first_contact_at).toLocaleString("zh-CN")
-                    : "尚未联系"}
+                    : "待联系"}
                 </div>
               </dl>
               <label className="block text-xs font-semibold">
@@ -343,7 +343,7 @@ export default function OpsLeadsPage() {
               </button>
               <div className="space-y-2 pt-2 border-t border-slate-100">
                 {notes.map((n) => (
-                  <div key={n.id} className="text-[11px] bg-slate-50 rounded-lg p-2">
+                  <div key={n.id} className="text-xs bg-slate-50 rounded-lg p-2">
                     <div className="text-slate-400 font-mono mb-0.5">
                       {new Date(n.created_at).toLocaleString("zh-CN")}
                     </div>

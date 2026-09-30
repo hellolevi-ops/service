@@ -104,7 +104,7 @@ export async function PATCH(req: NextRequest) {
   } catch (err) {
     const msg = err instanceof Error ? err.message : "";
     if (msg === "not_found") {
-      return NextResponse.json({ ok: false, error: "申请不存在" }, { status: 404 });
+      return NextResponse.json({ ok: false, error: "申请记录待确认" }, { status: 404 });
     }
     if (msg === "already_reviewed") {
       return NextResponse.json({ ok: false, error: "已审核" }, { status: 400 });

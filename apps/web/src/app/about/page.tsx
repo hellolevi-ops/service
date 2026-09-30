@@ -11,10 +11,8 @@ export default function AboutPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          INSTITUTIONAL PROFILE · 关于青藤国际
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">关于青藤国际</span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
           专注名校学术带教的留学战略智库
         </h1>
@@ -30,7 +28,7 @@ export default function AboutPage() {
           <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 mb-3">
             <Award className="w-5 h-5" />
           </div>
-          <strong className="text-slate-900 text-sm block font-semibold">拒绝模板与流水线代写</strong>
+          <strong className="text-slate-900 text-sm block font-semibold">坚持原创定制与导师亲授</strong>
           <p className="text-slate-600 leading-relaxed">
             由海外名校同专业硕博导师亲自操刀学术选题与文书构思，全文由学员满意签字后方可定稿。
           </p>
@@ -52,7 +50,7 @@ export default function AboutPage() {
           </div>
           <strong className="text-slate-900 text-sm block font-semibold">导师年限额深度带教</strong>
           <p className="text-slate-600 leading-relaxed">
-            严格控制单导师带教学员在 6–8 人以内，杜绝商业顾问一人兼顾百人的失联敷衍。
+            严格控制单导师带教学员在 6–8 人以内，保证每位学员都有导师的充分精力与持续跟进。
           </p>
         </div>
       </div>

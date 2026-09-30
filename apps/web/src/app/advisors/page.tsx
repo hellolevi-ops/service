@@ -12,15 +12,13 @@ export default function AdvisorsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
       {/* Editorial Header */}
-      <div className="pb-6 border-b border-slate-200">
-        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
-          GLOBAL FACULTY & ADVISORS · 海外名校学术导师团队
-        </span>
+      <div className="page-banner">
+        <span className="page-banner__chip">海外名校学术导师团队</span>
         <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
           全球顶尖名校海归硕博导师团队
         </h1>
         <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
-          青藤国际导师团队均拥有英国G5、美国常春藤、港前三或海外对口顶尖院校硕博学位与一线学术研究资历。坚持专业对口、年限带教，拒绝流水线销售转包。
+          青藤国际导师团队均拥有英国G5、美国常春藤、港前三或海外对口顶尖院校硕博学位与一线学术研究资历。坚持专业对口、年限带教，全程由导师本人负责。
         </p>
       </div>
 
@@ -29,7 +27,7 @@ export default function AdvisorsPage() {
         <Principle
           icon={<Award className="w-5 h-5 text-amber-600" />}
           title="学科对口 1对1 带教"
-          body="严格根据学员申请院系与学科匹配同专业海归导师，不做跨专业拼凑，确保学术深度与专业把关。"
+          body="严格根据学员申请院系与学科匹配同专业海归导师，保持专业对口，确保学术深度与专业把关。"
         />
         <Principle
           icon={<Users className="w-5 h-5 text-emerald-600" />}
@@ -39,12 +37,12 @@ export default function AdvisorsPage() {
         <Principle
           icon={<ShieldCheck className="w-5 h-5 text-blue-600" />}
           title="保障机制与督导监管"
-          body="完备的服务考核与学术督导巡检制度，支持依据服务合同约定申请更换导师，保障申请无忧。"
+          body="完备的服务考核与学术督导巡检制度，支持依据服务合同约定申请更换导师，保障申请顺畅。"
         />
       </div>
 
       {/* Advisors Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
         {ADVISORS.map((a) => (
           <AdvisorCard key={a.id} advisor={a} />
         ))}
@@ -54,7 +52,7 @@ export default function AdvisorsPage() {
       <div className="bg-slate-900 text-white rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-slate-800 shadow-sm">
         <div className="space-y-1">
           <h2 className="text-xl sm:text-2xl font-serif-title font-bold text-white">
-            不确定该匹配哪位导师？
+            想找到最匹配的导师？
           </h2>
           <p className="text-sm text-slate-400">
             填写您的学术背景与目标院校，学术督导将在 15 分钟内为您精准引荐对口专业导师。

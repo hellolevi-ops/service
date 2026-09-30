@@ -29,7 +29,7 @@ export function GET() {
 - 联系: ${base}/about/contact
 
 ## 合规
-不做包录承诺；案例个案不代表概率。社区 UGC 不在本站公开抓取范围。
+录取由院校决定；案例个案仅作路径参考。社区 UGC 仅供站内阅读。
 `;
   return new Response(body, {
     headers: { "Content-Type": "text/plain; charset=utf-8" },

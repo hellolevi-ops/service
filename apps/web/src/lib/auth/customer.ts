@@ -74,7 +74,7 @@ export async function sendOtp(mobileRaw: string, meta: { ip?: string }) {
   if (!devOtp && !hasSms && process.env.NODE_ENV === "production") {
     return {
       ok: false as const,
-      error: "短信服务未配置，请联系运营",
+      error: "短信服务待配置，请联系运营",
       status: 503,
     };
   }

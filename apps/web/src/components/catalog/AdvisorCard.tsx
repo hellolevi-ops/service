@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, Award, Users } from "lucide-react";
 import type { AdvisorItem } from "@/data/catalog";
-import { ScholarPortrait } from "@/components/home/VisualAssets";
+import { AdvisorPortrait } from "@/components/home/AdvisorPortrait";
 
 export function AdvisorCard({ advisor }: { advisor: AdvisorItem }) {
   return (
@@ -11,14 +11,14 @@ export function AdvisorCard({ advisor }: { advisor: AdvisorItem }) {
       <div>
         <div className="flex items-start justify-between pb-4 mb-4 border-b border-slate-100 gap-3">
           <div className="flex items-center gap-3">
-            <ScholarPortrait name={advisor.name} title={advisor.title} className="w-12 h-12" />
+            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-[var(--line)]"><AdvisorPortrait name={advisor.name} compact /></div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-900 transition-colors font-editorial-title">
                   <Link href={`/advisors/${advisor.id}`}>{advisor.name}</Link>
                 </h3>
                 {advisor.acceptingAppointments ? (
-                  <span className="text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded font-medium">
+                  <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded font-medium">
                     可预约初诊
                   </span>
                 ) : null}
@@ -33,7 +33,7 @@ export function AdvisorCard({ advisor }: { advisor: AdvisorItem }) {
             <span className="text-base font-bold text-slate-900 font-editorial-title block tabular-nums">
               {advisor.experienceYears} 年
             </span>
-            <span className="text-[10px] text-slate-400 uppercase tracking-wider block">
+            <span className="text-xs text-slate-400 uppercase tracking-wider block">
               带教资历
             </span>
           </div>
@@ -51,7 +51,7 @@ export function AdvisorCard({ advisor }: { advisor: AdvisorItem }) {
           &ldquo;{advisor.consultationPhilosophy}&rdquo;
         </blockquote>
 
-        <div className="bg-slate-50/80 p-2.5 rounded-lg border border-slate-100 mb-4 text-[11px] text-slate-600 flex items-start gap-2">
+        <div className="bg-slate-50/80 p-2.5 rounded-lg border border-slate-100 mb-4 text-xs text-slate-600 flex items-start gap-2">
           <Users className="w-3.5 h-3.5 text-slate-500 shrink-0 mt-0.5" />
           <span>
             <strong className="text-slate-800 font-medium">家长协同：</strong>
@@ -66,7 +66,7 @@ export function AdvisorCard({ advisor }: { advisor: AdvisorItem }) {
           className="w-full py-2.5 text-center text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-xs"
         >
           <span>指定该导师进行初诊</span>
-          <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+          <ArrowRight className="w-3.5 h-3.5 text-white" />
         </Link>
       ) : (
         <button

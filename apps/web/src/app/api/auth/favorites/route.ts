@@ -39,10 +39,10 @@ export async function POST(req: NextRequest) {
     href?: string;
   };
   if (!TYPES.has(body.targetType || "") || !body.targetSlug || !body.title || !body.href) {
-    return NextResponse.json({ ok: false, error: "参数不完整" }, { status: 400 });
+    return NextResponse.json({ ok: false, error: "请补全必填参数" }, { status: 400 });
   }
   if (!body.href.startsWith("/")) {
-    return NextResponse.json({ ok: false, error: "非法链接" }, { status: 400 });
+    return NextResponse.json({ ok: false, error: "请使用站内有效链接" }, { status: 400 });
   }
 
   const result = await query(
@@ -70,7 +70,7 @@ export async function DELETE(req: NextRequest) {
   const targetType = sp.get("targetType") || "";
   const targetSlug = sp.get("targetSlug") || "";
   if (!TYPES.has(targetType) || !targetSlug) {
-    return NextResponse.json({ ok: false, error: "参数不完整" }, { status: 400 });
+    return NextResponse.json({ ok: false, error: "请补全必填参数" }, { status: 400 });
   }
   await query(
     `DELETE FROM user_favorites WHERE user_id = $1 AND target_type = $2 AND target_slug = $3`,

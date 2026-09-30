@@ -88,7 +88,7 @@ export default function OpsVerificationsPage() {
       {error && <p className="px-4 py-2 text-xs text-rose-600 bg-rose-50">{error}</p>}
       <div className="p-4 space-y-3 max-w-3xl mx-auto">
         {!rows.length && (
-          <p className="text-sm text-slate-500 text-center py-10">暂无记录</p>
+          <p className="text-sm text-slate-500 text-center py-10">记录将在这里显示</p>
         )}
         {rows.map((r) => (
           <article
@@ -102,7 +102,7 @@ export default function OpsVerificationsPage() {
               <span className="font-mono text-slate-500">{r.status}</span>
             </div>
             <p className="text-slate-600">
-              {r.program || "专业未填"} · 手机 {r.mobile}
+              {r.program || "专业待补充"} · 手机 {r.mobile}
               {r.nickname ? ` · ${r.nickname}` : ""}
             </p>
             {r.proof_note && (

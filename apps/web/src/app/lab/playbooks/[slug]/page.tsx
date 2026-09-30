@@ -36,8 +36,8 @@ export default async function PlaybookPage({
         </Link>{" "}
         / Playbook
       </p>
-      <div>
-        <span className="text-[10px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
+      <div className="page-banner">
+        <span className="text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
           {pb.category}
         </span>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 font-editorial-title mt-2 leading-snug">
@@ -54,7 +54,7 @@ export default async function PlaybookPage({
           <p className="text-emerald-900 leading-relaxed">{pb.targetAudience}</p>
         </div>
         <div className="bg-rose-50 border border-rose-200 rounded-xl p-3">
-          <strong className="text-rose-800 block mb-1">不适用</strong>
+          <strong className="text-rose-800 block mb-1">更适合其他路径</strong>
           <p className="text-rose-900 leading-relaxed">{pb.notForAudience}</p>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default async function PlaybookPage({
               className="bg-white border border-slate-200 rounded-xl p-4 text-xs"
             >
               <div className="flex items-center gap-2 mb-1">
-                <span className="w-6 h-6 rounded-lg bg-slate-900 text-white text-[11px] font-bold flex items-center justify-center">
+                <span className="w-6 h-6 rounded-lg bg-slate-900 text-white text-xs font-bold flex items-center justify-center">
                   {s.step}
                 </span>
                 <strong className="text-slate-900">{s.title}</strong>
