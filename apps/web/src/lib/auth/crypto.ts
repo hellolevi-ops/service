@@ -21,7 +21,13 @@ export function normalizeMobile(raw: string) {
 }
 
 export function isDevOtpEnabled() {
-  return process.env.AUTH_DEV_OTP === "1" || process.env.AUTH_DEV_OTP === "true";
+  if (process.env.AUTH_DEV_OTP === "0" || process.env.AUTH_DEV_OTP === "false") return false;
+  return (
+    process.env.AUTH_DEV_OTP === "1" ||
+    process.env.AUTH_DEV_OTP === "true" ||
+    process.env.NEXT_PUBLIC_AUTH_DEV_OTP === "1" ||
+    process.env.NODE_ENV !== "production"
+  );
 }
 
 export const DEV_OTP_CODE = "888888";

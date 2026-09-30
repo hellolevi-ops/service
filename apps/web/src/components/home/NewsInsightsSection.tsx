@@ -25,7 +25,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
   });
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-xs space-y-6">
+    <div className="bg-white border border-slate-200/90 rounded-xl p-6 sm:p-8 shadow-xs space-y-6">
       
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b border-slate-100 gap-3">
@@ -47,7 +47,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-lg font-medium transition-colors shrink-0 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-md font-medium transition-colors shrink-0 cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-slate-900 text-white font-semibold shadow-xs'
                   : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
@@ -65,7 +65,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
           <div
             key={news.id}
             onClick={() => setActiveArticleModal(news)}
-            className="p-5 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group flex flex-col justify-between"
+            className="p-5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-2 text-xs text-slate-500">
@@ -110,9 +110,9 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
       </div>
 
       {/* Bottom Bar: Download full report CTA */}
-      <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50/50 rounded-xl border border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50/50 rounded-lg border border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0">
+          <div className="w-9 h-9 rounded-md bg-blue-600 text-white flex items-center justify-center shrink-0">
             <FileText className="w-4 h-4" />
           </div>
           <div>
@@ -120,14 +120,14 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
               免费索取《2026 中国留学生全球名校录取大数据年度白皮书》（PDF 电子版）
             </h4>
             <p className="text-slate-600 text-xs mt-0.5">
-              新东方/青藤国际核心数据沉淀：涵盖英美港新各专业录取均分、跨专业要求与院校内部名单
+              青藤国际全球智库核心数据沉淀：涵盖英美港新各专业录取均分、跨专业要求与院校内部名单
             </p>
           </div>
         </div>
 
         <button
           onClick={onOpenWeCom}
-          className="w-full sm:w-auto px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg transition-colors shrink-0 flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
+          className="w-full sm:w-auto px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-md transition-colors shrink-0 flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
         >
           <span>添加企微免费发送</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -137,14 +137,14 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
       {/* News Article Modal Detail */}
       {activeArticleModal && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-5 border border-slate-200 shadow-2xl relative">
+          <div className="bg-white rounded-xl max-w-2xl w-full p-6 sm:p-8 space-y-5 border border-slate-200 shadow-2xl relative">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <span className="text-xs font-semibold text-blue-800 bg-blue-50 px-2.5 py-1 rounded">
+              <span className="text-xs font-semibold text-blue-800 bg-blue-50 px-2.5 py-0.5 rounded-[3px] border border-blue-200 font-mono">
                 {activeArticleModal.category} · {activeArticleModal.tag}
               </span>
               <button
                 onClick={() => setActiveArticleModal(null)}
-                className="text-slate-400 hover:text-slate-800 text-sm font-semibold p-1"
+                className="text-slate-400 hover:text-slate-800 text-sm font-semibold p-1 cursor-pointer"
               >
                 ✕ 关闭
               </button>
@@ -159,7 +159,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
               </h2>
             </div>
 
-            <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-2">
+            <div className="p-4 bg-slate-50 rounded-md border border-slate-200 text-xs text-slate-700 leading-relaxed space-y-2">
               <strong className="text-slate-900 block font-semibold">【核心研判摘要】</strong>
               <p>{activeArticleModal.summary}</p>
             </div>
@@ -182,7 +182,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
                   setActiveArticleModal(null);
                   onOpenWeCom();
                 }}
-                className="px-4 py-2 bg-slate-900 hover:bg-blue-700 text-white rounded-xl text-xs font-medium transition-colors cursor-pointer"
+                className="px-4 py-2 bg-slate-900 hover:bg-blue-700 text-white rounded-md text-xs font-medium transition-colors cursor-pointer"
               >
                 微信直连导师解读
               </button>

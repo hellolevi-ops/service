@@ -94,7 +94,7 @@ export const RecentAdmitsTicker: React.FC<RecentAdmitsTickerProps> = ({ onSelect
   const current = RECENT_ADMITS[currentIndex];
 
   return (
-    <div className="bg-slate-900 text-slate-200 border border-slate-800 rounded-xl py-2.5 px-4 sm:px-6 shadow-sm overflow-hidden">
+    <div className="bg-slate-900 text-slate-200 border border-slate-800 rounded-lg py-2.5 px-4 sm:px-6 shadow-2xs overflow-hidden">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
         {/* Left Badge */}
         <div className="flex items-center gap-2.5 shrink-0">

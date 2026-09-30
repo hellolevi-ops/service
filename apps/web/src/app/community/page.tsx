@@ -10,6 +10,7 @@ import {
   MessageSquare,
   ShieldAlert,
   Unlock,
+  X,
 } from "lucide-react";
 import { COMMUNITY_TOPICS, type CommunityTopic } from "@/data/catalog";
 
@@ -37,18 +38,18 @@ export default function CommunityPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
+      {/* Editorial Header */}
       <div className="pb-6 border-b border-slate-200">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs font-semibold text-amber-800 tracking-wider block mb-1">
-              SCHOLAR COMMUNITY · 学术互助社区
+            <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
+              SCHOLAR NETWORK & COMMUNITY · 学者与学子互助社区
             </span>
             <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
-              学长学者学术研判互助社区
+              海外名校学长与学者研判社区
             </h1>
-            <p className="text-sm text-slate-500 mt-2 max-w-3xl leading-relaxed">
-              连接「申请中」与「海外在读/学者」的实名交流圈层。L0 公网摘要 + L1
-              认证可见，杜绝虚假马甲与中介水军。
+            <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
+              汇集英美港新在读学长与海归学者的实名申请经验、专业课程避坑指南与学术答辩心得。拒绝中介水军代发。
             </p>
           </div>
           <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-xs flex items-center gap-3 shrink-0">
@@ -56,10 +57,10 @@ export default function CommunityPage() {
               {isAuthenticated ? (
                 <Unlock className="w-4 h-4 text-emerald-600" />
               ) : (
-                <Lock className="w-4 h-4 text-amber-600" />
+                <Lock className="w-4 h-4 text-slate-500" />
               )}
-              <span>
-                {isAuthenticated ? "已认证在读学子 (L1)" : "访客浏览 (L0 摘要)"}
+              <span className="text-slate-700 font-medium">
+                {isAuthenticated ? "已认证学员 (L1)" : "访客浏览模式"}
               </span>
             </div>
             <button
@@ -73,43 +74,45 @@ export default function CommunityPage() {
                   window.location.href = "/login?returnUrl=/community";
                 }
               }}
-              className={`px-2.5 py-1 rounded-lg font-medium ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-colors ${
                 isAuthenticated
-                  ? "bg-slate-200 text-slate-700"
-                  : "bg-slate-900 text-white"
+                  ? "bg-slate-200 text-slate-700 hover:bg-slate-300"
+                  : "bg-slate-900 text-white hover:bg-slate-800"
               }`}
             >
-              {isAuthenticated ? "退出" : "登录"}
+              {isAuthenticated ? "退出" : "学员登录"}
             </button>
           </div>
         </div>
       </div>
 
+      {/* Community Rules Notice */}
       <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl grid md:grid-cols-3 gap-3 text-xs text-slate-600">
         <div className="flex items-center gap-2">
           <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
-          严禁违规交易、保录诱导及隐私原件展示
+          <span>严禁商业招揽、虚假保录及非授权个人隐私文件展示</span>
         </div>
         <div className="flex items-center gap-2">
-          <Lock className="w-4 h-4 text-slate-700 shrink-0" />
-          全文仅对认证用户可见，禁止外部爬虫
+          <Lock className="w-4 h-4 text-slate-600 shrink-0" />
+          <span>深度研判实录仅对注册认证用户开放全文查阅</span>
         </div>
         <div className="flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-          特邀在读与官方帖均有显性认证徽章
+          <span>特邀在读学长与博导官方帖均附带学术认证标记</span>
         </div>
       </div>
 
+      {/* Category Tabs */}
       <div className="flex flex-wrap gap-2 text-xs">
         {CATEGORIES.map((c) => (
           <button
             key={c}
             type="button"
             onClick={() => setActiveCategory(c)}
-            className={`px-3 py-1.5 rounded-lg ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer border ${
               activeCategory === c
-                ? "bg-slate-900 text-white font-semibold"
-                : "bg-slate-100 text-slate-800 hover:bg-slate-200"
+                ? "bg-slate-900 text-white border-slate-900 shadow-xs"
+                : "bg-slate-100 text-slate-700 border-transparent hover:bg-slate-200 hover:text-slate-900"
             }`}
           >
             {c === "all" ? "全部话题" : c}
@@ -117,20 +120,22 @@ export default function CommunityPage() {
         ))}
       </div>
 
+      {/* Topics Feed */}
       <div className="grid gap-4">
         {filtered.map((topic) => (
           <button
             key={topic.id}
             type="button"
             onClick={() => setSelectedTopic(topic)}
-            className="text-left bg-white border border-slate-200 rounded-2xl p-5 hover:border-slate-300 hover:shadow-sm transition-all"
+            className="text-left bg-white border border-slate-200 rounded-2xl p-6 hover:border-slate-300 hover:shadow-xs transition-all cursor-pointer group"
           >
-            <div className="flex flex-wrap items-center gap-2 text-[11px] mb-2">
-              <span className="font-semibold text-blue-900 bg-blue-50 px-2 py-0.5 rounded-lg border border-blue-100">
-                {topic.authorBadge}
-              </span>
-              <span className="text-slate-500">{topic.category}</span>
-              <span className="text-slate-400 ml-auto flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-2.5">
+              <span className="font-semibold text-slate-900">{topic.authorBadge}</span>
+              <span aria-hidden="true" className="text-slate-300">·</span>
+              <span>{topic.category}</span>
+              <span aria-hidden="true" className="text-slate-300">·</span>
+              <span>{topic.author} ({topic.authorUniversity})</span>
+              <span className="text-slate-400 ml-auto flex items-center gap-4 tabular-nums">
                 <span className="flex items-center gap-1">
                   <Eye className="w-3.5 h-3.5" />
                   {topic.viewCount}
@@ -141,22 +146,22 @@ export default function CommunityPage() {
                 </span>
               </span>
             </div>
-            <h2 className="text-base font-bold text-slate-900 font-editorial-title leading-snug">
+
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-900 transition-colors font-editorial-title leading-snug">
               {topic.title}
             </h2>
-            <p className="text-xs text-slate-500 mt-1">
-              {topic.author} · {topic.authorUniversity}
-            </p>
-            <p className="text-xs text-slate-600 mt-3 leading-relaxed line-clamp-2">
+
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed line-clamp-2">
               {topic.previewSnippet}
             </p>
-            <div className="flex flex-wrap gap-1.5 mt-3">
+
+            <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-slate-100">
               {topic.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-0.5 bg-slate-50 border border-slate-200 rounded-lg text-[10px] text-slate-500"
+                  className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[11px] rounded-md"
                 >
-                  {tag}
+                  #{tag}
                 </span>
               ))}
             </div>
@@ -164,66 +169,81 @@ export default function CommunityPage() {
         ))}
       </div>
 
-      <div className="bg-slate-900 text-slate-300 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-bold text-white font-editorial-title">想参与深度讨论？</h2>
-          <p className="text-sm text-slate-400 mt-1">认证后可读全文；也可先预约导师 1对1 诊断。</p>
+      {/* Call to Action */}
+      <div className="bg-slate-900 text-white rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-slate-800 shadow-sm">
+        <div className="space-y-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-white font-editorial-title">
+            想向名校学长与博导深度提问？
+          </h2>
+          <p className="text-sm text-slate-400">
+            免费预约 1对1 学术初诊，由同专业海归博导为您全面答疑解惑。
+          </p>
         </div>
         <Link
           href="/book"
-          className="px-5 py-2.5 bg-amber-400 !text-slate-950 text-sm font-bold rounded-xl inline-flex items-center gap-1"
+          className="px-6 py-3 bg-amber-400 hover:bg-amber-300 !text-slate-950 text-xs font-bold rounded-xl shrink-0 transition-colors shadow-sm inline-flex items-center gap-1.5"
         >
-          预约评估 <ArrowRight className="w-4 h-4" />
+          <span>预约免费初诊</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
 
+      {/* Topic Detail Modal */}
       {selectedTopic && (
         <div
           className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4"
           onClick={() => setSelectedTopic(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-4"
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-4 border border-slate-200 shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[10px] font-semibold text-blue-900 bg-blue-50 px-2 py-0.5 rounded-lg">
-                  {selectedTopic.authorBadge}
-                </span>
-                <h3 className="text-xl font-bold text-slate-900 font-editorial-title mt-2">
+                <div className="flex items-center gap-2 text-xs text-slate-500 mb-1">
+                  <span className="font-semibold text-slate-900">{selectedTopic.authorBadge}</span>
+                  <span aria-hidden="true" className="text-slate-300">·</span>
+                  <span>{selectedTopic.category}</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 font-editorial-title mt-1">
                   {selectedTopic.title}
                 </h3>
                 <p className="text-xs text-slate-500 mt-1">
-                  {selectedTopic.author} · {selectedTopic.authorUniversity}
+                  作者：{selectedTopic.author} · {selectedTopic.authorUniversity}
                 </p>
               </div>
               <button
                 type="button"
-                className="text-slate-400 hover:text-slate-800 text-sm font-semibold"
+                className="p-1.5 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-lg cursor-pointer"
                 onClick={() => setSelectedTopic(null)}
+                aria-label="关闭"
               >
-                关闭
+                <X className="w-5 h-5" />
               </button>
             </div>
-            <p className="text-sm text-slate-600 leading-relaxed">
+
+            <p className="text-xs text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
               {selectedTopic.previewSnippet}
             </p>
+
             {isAuthenticated || !selectedTopic.requiresAuthToReadFull ? (
-              <div className="text-sm text-slate-700 leading-relaxed bg-slate-50 border border-slate-200 rounded-xl p-4">
-                {selectedTopic.fullBody}
+              <div className="text-xs text-slate-700 leading-relaxed bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+                <p>{selectedTopic.fullBody}</p>
               </div>
             ) : (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-900 space-y-3">
-                <p className="flex items-center gap-2 font-semibold">
-                  <Lock className="w-4 h-4" />
-                  全文需登录后可见（L1）
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-xs text-slate-800 space-y-3">
+                <p className="flex items-center gap-2 font-semibold text-slate-900">
+                  <Lock className="w-4 h-4 text-amber-600" />
+                  全文及学员讨论区需登录后可见
+                </p>
+                <p className="text-slate-500 text-[11px]">
+                  为防止内容被未授权采集并保护学长学术经验分享，请先完成学员登录或微信手机号注册。
                 </p>
                 <Link
                   href="/login?returnUrl=/community"
-                  className="inline-flex px-4 py-2 bg-slate-900 text-white rounded-lg font-semibold"
+                  className="inline-flex px-4 py-2 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-colors"
                 >
-                  登录后阅读全文
+                  立即登录查阅完整讨论
                 </Link>
               </div>
             )}

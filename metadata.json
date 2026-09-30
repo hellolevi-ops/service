@@ -1,0 +1,8 @@
+{
+  "name": "青藤国际",
+  "description": "青藤国际留学服务平台，专注英美港新等名校申请规划、海外名校导师1对1带教、真实录取案卷库及申请决策工具箱。",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

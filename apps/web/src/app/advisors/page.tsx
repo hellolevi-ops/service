@@ -1,59 +1,71 @@
 import Link from "next/link";
-import { ShieldCheck, Users, Award } from "lucide-react";
+import { ShieldCheck, Users, Award, ArrowRight } from "lucide-react";
 import { ADVISORS } from "@/data/catalog";
 import { AdvisorCard } from "@/components/catalog/AdvisorCard";
 
-export const metadata = { title: "导师团队" };
+export const metadata = {
+  title: "学术导师团队",
+  description: "汇聚牛津、剑桥、常春藤、港前三及新加坡公立名校海归博士团队，坚持学科对口1对1带教。",
+};
 
 export default function AdvisorsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
-      <div className="pb-6 border-b academic-hairline">
-        <span className="text-xs font-semibold text-[#78350F] uppercase tracking-wider block mb-1">
-          ADVISORS · 海外名校学术导师
+      {/* Editorial Header */}
+      <div className="pb-6 border-b border-slate-200">
+        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider block mb-1">
+          GLOBAL FACULTY & ADVISORS · 海外名校学术导师团队
         </span>
-        <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-[#1C1917] tracking-tight">
-          由学者带教，而非流水线顾问填表
+        <h1 className="text-2xl sm:text-4xl font-serif-title font-bold text-slate-900 tracking-tight">
+          全球顶尖名校海归硕博导师团队
         </h1>
-        <p className="text-sm text-[#57534E] mt-2 max-w-3xl leading-relaxed">
-          青藤国际导师均具备海外顶尖高校博士/博士后或对口学科深度履历。可浏览、可指定初诊；接评说明与家长同步方式公开。
+        <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
+          青藤国际导师团队均拥有英国G5、美国常春藤、港前三或海外对口顶尖院校硕博学位与一线学术研究资历。坚持专业对口、年限带教，拒绝流水线销售转包。
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-3 gap-4 text-xs">
+      {/* 3 Core Principles */}
+      <div className="grid sm:grid-cols-3 gap-5 text-xs">
         <Principle
-          icon={<Award className="w-5 h-5 text-[#D97706]" />}
-          title="学科对口带教"
-          body="按赛道匹配导师，不做「万能顾问」包办所有国家。"
+          icon={<Award className="w-5 h-5 text-amber-600" />}
+          title="学科对口 1对1 带教"
+          body="严格根据学员申请院系与学科匹配同专业海归导师，不做跨专业拼凑，确保学术深度与专业把关。"
         />
         <Principle
-          icon={<Users className="w-5 h-5 text-[#059669]" />}
-          title="家长可同步"
-          body="双周备忘录 / 三方会，进度与决策节点对家庭透明。"
+          icon={<Users className="w-5 h-5 text-emerald-600" />}
+          title="家长全程透明协同"
+          body="定期双周进度备忘录与三方沟通研讨，申请进展与阶段性决策关键节点向学员及家庭全透明开放。"
         />
         <Principle
-          icon={<ShieldCheck className="w-5 h-5 text-[#3B82F6]" />}
-          title="可更换可投诉"
-          body="服务对象可申请更换导师；监督邮箱公开可查。"
+          icon={<ShieldCheck className="w-5 h-5 text-blue-600" />}
+          title="保障机制与督导监管"
+          body="完备的服务考核与学术督导巡检制度，支持依据服务合同约定申请更换导师，保障申请无忧。"
         />
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {/* Advisors Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {ADVISORS.map((a) => (
           <AdvisorCard key={a.id} advisor={a} />
         ))}
       </div>
 
-      <div className="bg-[#1C1917] text-[#EDE7DC] rounded-sm p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-serif-title font-bold text-white">不确定该选哪位导师？</h2>
-          <p className="text-sm text-[#A8A29E] mt-1">提交背景后，学术督导 15 分钟内为您匹配。</p>
+      {/* Bottom CTA Block */}
+      <div className="bg-slate-900 text-white rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-slate-800 shadow-sm">
+        <div className="space-y-1">
+          <h2 className="text-xl sm:text-2xl font-serif-title font-bold text-white">
+            不确定该匹配哪位导师？
+          </h2>
+          <p className="text-sm text-slate-400">
+            填写您的学术背景与目标院校，学术督导将在 15 分钟内为您精准引荐对口专业导师。
+          </p>
         </div>
         <Link
           href="/book"
-          className="px-5 py-2.5 bg-[#92400E] hover:bg-[#78350F] text-white text-sm font-semibold rounded-xs shrink-0"
+          className="px-6 py-3 bg-amber-400 hover:bg-amber-300 !text-slate-950 text-xs font-bold rounded-xl shrink-0 transition-colors shadow-sm flex items-center gap-2"
         >
-          预约免费匹配
+          <span>预约免费智能匹配</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
     </div>
@@ -70,11 +82,11 @@ function Principle({
   body: string;
 }) {
   return (
-    <div className="bg-white border academic-hairline rounded-sm p-4 flex items-start gap-3">
+    <div className="bg-white border border-slate-200 rounded-xl p-5 flex items-start gap-3 shadow-xs">
       <div className="shrink-0 mt-0.5">{icon}</div>
-      <div>
-        <strong className="text-[#1C1917] block mb-1">{title}</strong>
-        <span className="text-[#78716C]">{body}</span>
+      <div className="space-y-1">
+        <strong className="text-slate-900 block font-semibold text-sm">{title}</strong>
+        <p className="text-slate-600 leading-relaxed">{body}</p>
       </div>
     </div>
   );
