@@ -35,72 +35,69 @@ export default async function AdvisorDetailPage({
   );
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
-      {/* Header & Breadcrumb */}
-      <div className="pb-6 border-b border-slate-200">
-        <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-3">
-          <Link href="/advisors" className="hover:text-slate-900 transition-colors">
-            学术导师团队
-          </Link>
-          <ChevronRight className="w-3 h-3 text-slate-400" />
-          <span className="text-slate-900 font-medium">{advisor.name}</span>
-        </div>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8 sm:space-y-10">
+      <p className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+        <Link href="/advisors" className="hover:text-slate-900 transition-colors">
+          学术导师团队
+        </Link>
+        <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
+        <span className="text-slate-900 font-medium">{advisor.name}</span>
+      </p>
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-2">
-          <div className="flex items-start gap-4">
-            <ScholarPortrait name={advisor.name} title={advisor.title} className="w-16 h-16 sm:w-20 sm:h-20" />
-            <div>
-              <div className="flex items-center gap-2.5 flex-wrap">
-                <h1 className="text-2xl sm:text-3xl font-serif-title font-bold text-slate-900">
-                  {advisor.name}
-                </h1>
-                {advisor.acceptingAppointments ? (
-                  <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded font-medium">
-                    接受预约初诊
-                  </span>
-                ) : (
-                  <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded font-medium">
-                    本期满额
-                  </span>
-                )}
-              </div>
-              <p className="text-sm font-semibold text-slate-700 mt-1">{advisor.title}</p>
-              <p className="text-xs text-slate-400 mt-1 tabular-nums">
-                {advisor.experienceYears} 年从研与名校规划指导资历
-              </p>
+      <div className="page-banner">
+        <span className="page-banner__chip">海外名校学术导师</span>
+        <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
+          <ScholarPortrait
+            name={advisor.name}
+            title={advisor.title}
+            className="w-16 h-16 sm:w-20 sm:h-20 shrink-0"
+          />
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
+              {advisor.acceptingAppointments ? (
+                <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded font-medium">
+                  接受预约初诊
+                </span>
+              ) : (
+                <span className="text-xs text-slate-500 bg-white/80 border border-slate-200 px-2 py-0.5 rounded font-medium">
+                  本期满额
+                </span>
+              )}
             </div>
+            <h1>{advisor.name}</h1>
+            <p>
+              {advisor.title} · {advisor.experienceYears} 年从研与名校规划指导资历
+            </p>
           </div>
-
-          {advisor.acceptingAppointments ? (
+        </div>
+        {advisor.acceptingAppointments ? (
+          <div className="mt-4">
             <Link
               href={`/book?advisor=${advisor.id}`}
-              className="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl inline-flex items-center justify-center gap-2 shrink-0 transition-colors shadow-xs"
+              className="btn btn--cta btn--cta-sm w-full sm:w-auto inline-flex items-center justify-center gap-2"
             >
               <span>指定该导师进行初诊</span>
-              <ArrowRight className="w-3.5 h-3.5 text-white" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
       </div>
 
-      {/* Academic Background Card */}
-      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-xs sm:text-sm space-y-2">
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6 text-xs sm:text-sm space-y-2">
         <div className="flex items-start gap-2.5">
           <Award className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
           <span className="text-slate-900 font-semibold">{advisor.academicBackground}</span>
         </div>
-        <p className="text-xs text-slate-600 pl-6.5">
+        <p className="text-xs text-slate-600 pl-0 sm:pl-6.5">
           <strong className="text-slate-700">主要研究领域与学术方向：</strong>
           {advisor.researchFocus}
         </p>
       </div>
 
-      {/* Philosophy Quote */}
       <blockquote className="border-l-2 border-amber-400 pl-4 py-1 text-sm font-serif italic text-slate-700 leading-relaxed">
         &ldquo;{advisor.consultationPhilosophy}&rdquo;
       </blockquote>
 
-      {/* Admit Highlights */}
       <section className="space-y-3">
         <h2 className="text-base font-bold text-slate-900 font-editorial-title">
           代表录取与辅导亮点
@@ -118,7 +115,6 @@ export default async function AdvisorDetailPage({
         </ul>
       </section>
 
-      {/* Honorary Titles */}
       {advisor.honoraryTitles.length > 0 && (
         <section className="space-y-3">
           <h2 className="text-base font-bold text-slate-900 font-editorial-title">
@@ -137,27 +133,28 @@ export default async function AdvisorDetailPage({
         </section>
       )}
 
-      {/* Parent Collaboration */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 text-xs flex items-start gap-3 shadow-xs">
+      <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 text-xs flex items-start gap-3 shadow-xs">
         <Users className="w-4 h-4 text-slate-600 shrink-0 mt-0.5" />
-        <div className="space-y-1">
+        <div className="space-y-1 min-w-0">
           <strong className="text-slate-900 block text-sm font-semibold">家长同步与协同机制</strong>
           <span className="text-slate-600 leading-relaxed block">{advisor.parentSyncMethod}</span>
         </div>
       </div>
 
-      {/* Representative Cases */}
       {cases.length > 0 && (
         <section className="space-y-4">
-          <div className="flex items-end justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
             <h2 className="text-lg font-bold text-slate-900 font-editorial-title">
               该导师代表案卷精选
             </h2>
-            <Link href="/cases" className="text-xs text-slate-900 hover:text-blue-900 font-semibold flex items-center gap-1">
+            <Link
+              href="/cases"
+              className="text-xs text-slate-900 hover:text-blue-900 font-semibold inline-flex items-center gap-1"
+            >
               查阅全部案卷 <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {cases.map((c) => (
               <CaseStudyCard key={c.id} item={c} />
             ))}
@@ -165,13 +162,15 @@ export default async function AdvisorDetailPage({
         </section>
       )}
 
-      {/* Trust & Reassurance */}
-      <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-500 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-emerald-600" />
+      <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-500 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="flex items-start sm:items-center gap-2 min-w-0">
+          <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5 sm:mt-0" />
           <span>青藤国际严格执行导师限额带教制度；支持依合同约定申请更换导师。</span>
         </div>
-        <Link href="/about/trust" className="text-slate-900 hover:underline font-semibold shrink-0">
+        <Link
+          href="/about/trust"
+          className="text-slate-900 hover:underline font-semibold shrink-0"
+        >
           合规与监督条款 →
         </Link>
       </div>

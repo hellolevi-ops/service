@@ -147,7 +147,7 @@ export default function AccountPage() {
 
   if (loading || !user) {
     return (
-      <div className="max-w-2xl mx-auto px-4 py-16 text-sm text-slate-500 text-center">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16 text-sm text-slate-500 text-center">
         加载中…
       </div>
     );
@@ -156,32 +156,25 @@ export default function AccountPage() {
   const hasPending = requests.some((r) => r.status === "pending");
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-12 space-y-8">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900 font-editorial-title">我的账号</h1>
-          <p className="text-xs text-slate-500 mt-1">
-            {ROLE_LABEL[user.role_tag] || user.role_tag} · {level}
-            {level === "L2" ? " 在读认证" : ""}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Link
-            href="/community"
-            className="px-3 py-2 bg-slate-900 text-white text-xs font-bold rounded-xl"
-          >
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-6 sm:space-y-8">
+      <div className="page-banner">
+        <span className="page-banner__chip">个人中心</span>
+        <h1>我的账号</h1>
+        <p>
+          {ROLE_LABEL[user.role_tag] || user.role_tag} · {level}
+          {level === "L2" ? " 在读认证" : ""}
+        </p>
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <Link href="/community" className="btn btn--outline btn--cta-sm justify-center">
             社区
           </Link>
-          <Link
-            href="/book"
-            className="px-3 py-2 bg-amber-400 !text-slate-950 text-xs font-bold rounded-xl"
-          >
+          <Link href="/book" className="btn btn--cta btn--cta-sm justify-center">
             免费评估
           </Link>
           <button
             type="button"
             onClick={() => void logout()}
-            className="px-3 py-2 border border-slate-200 text-xs font-semibold rounded-xl"
+            className="btn btn--outline btn--cta-sm justify-center"
           >
             退出
           </button>
@@ -223,7 +216,7 @@ export default function AccountPage() {
           </label>
           <button
             type="submit"
-            className="px-4 py-2 bg-slate-900 text-white text-xs font-bold rounded-xl"
+            className="btn btn--cta btn--cta-sm"
           >
             保存资料
           </button>
@@ -338,7 +331,7 @@ export default function AccountPage() {
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-slate-900 text-white text-xs font-bold rounded-xl"
+                  className="btn btn--cta btn--cta-sm w-full sm:w-auto"
                 >
                   提交认证申请
                 </button>

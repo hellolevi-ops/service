@@ -86,23 +86,17 @@ function LoginForm() {
   }
 
   return (
-    <main className="min-h-[70vh] bg-slate-50 flex items-center justify-center px-4 py-12">
+    <main className="max-w-lg mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-6">
+      <div className="page-banner">
+        <span className="page-banner__chip">{SITE.brand}</span>
+        <h1>登录 / 注册</h1>
+        <p>手机号验证码一键登录；首次验证即完成注册。咨询评估可直接预约，登录后可保存记录。</p>
+      </div>
+
       <form
         onSubmit={onSubmit}
-        className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm"
+        className="w-full bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 space-y-4 shadow-sm"
       >
-        <div>
-          <p className="text-xs font-semibold text-amber-800 tracking-wider mb-1">
-            {SITE.brandEn}
-          </p>
-          <h1 className="text-xl font-bold text-slate-900 font-editorial-title">
-            登录 / 注册
-          </h1>
-          <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-            手机号验证码一键登录；首次验证即完成注册。咨询评估可直接预约，登录后可保存记录。
-          </p>
-        </div>
-
         {DEV_HINT ? (
           <p className="text-xs text-amber-900 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
             {DEV_HINT}
@@ -122,8 +116,8 @@ function LoginForm() {
           />
         </label>
 
-        <div className="flex gap-2 items-end">
-          <label className="flex-1 block text-xs font-semibold text-slate-700">
+        <div className="flex flex-col sm:flex-row gap-2 sm:items-end">
+          <label className="flex-1 block text-xs font-semibold text-slate-700 min-w-0">
             验证码
             <input
               type="text"
@@ -139,7 +133,7 @@ function LoginForm() {
             type="button"
             disabled={busy || cooldown > 0 || mobile.length !== 11}
             onClick={() => void sendCode()}
-            className="shrink-0 px-3 py-2.5 text-xs font-semibold border border-slate-200 rounded-xl disabled:opacity-50"
+            className="w-full sm:w-auto shrink-0 min-h-[44px] px-4 py-2.5 text-xs font-semibold border border-slate-200 rounded-xl disabled:opacity-50"
           >
             {cooldown > 0 ? `${cooldown}s` : sent ? "重新获取" : "获取验证码"}
           </button>
@@ -188,7 +182,7 @@ function LoginForm() {
         <button
           type="submit"
           disabled={busy || !consent}
-          className="w-full py-3 bg-slate-900 text-white text-sm font-bold rounded-xl disabled:opacity-50"
+          className="btn btn--cta btn--block disabled:opacity-50"
         >
           {busy ? "处理中…" : "登录"}
         </button>
@@ -207,7 +201,13 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="p-10 text-center text-sm text-slate-500">加载中…</div>}>
+    <Suspense
+      fallback={
+        <div className="max-w-lg mx-auto px-4 py-16 text-center text-sm text-slate-500">
+          加载中…
+        </div>
+      }
+    >
       <LoginForm />
     </Suspense>
   );

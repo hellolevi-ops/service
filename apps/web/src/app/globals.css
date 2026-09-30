@@ -1872,6 +1872,20 @@ html, body { overflow-x: clip; }
 .page-banner h1 { font-size: clamp(1.9rem, 3.4vw, 2.75rem); line-height: 1.25; font-weight: 800; color: var(--deep); letter-spacing: 0; }
 .page-banner p { font-size: 1.0625rem; line-height: 1.85; color: #35524E; max-width: 46rem; }
 
+@media (max-width: 640px) {
+  .page-banner {
+    padding-bottom: 1.25rem;
+  }
+  .page-banner h1 {
+    font-size: clamp(1.55rem, 6.5vw, 2rem);
+    word-break: break-word;
+  }
+  .page-banner p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
 .bg-slate-900 { background-color: var(--brand); }
 .hover\:bg-slate-800:hover { background-color: var(--brand-hover); }
 .text-xs { font-size: 0.8125rem; line-height: 1.6; }
