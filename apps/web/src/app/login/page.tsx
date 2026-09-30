@@ -86,22 +86,15 @@ function LoginForm() {
   }
 
   return (
-    <main className="max-w-lg mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-6">
-      <div className="page-banner">
-        <span className="page-banner__chip">{SITE.brand}</span>
-        <h1>登录 / 注册</h1>
-        <p>手机号验证码一键登录；首次验证即完成注册。咨询评估可直接预约，登录后可保存记录。</p>
-      </div>
-
-      <form
-        onSubmit={onSubmit}
-        className="w-full bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 space-y-4 shadow-sm"
-      >
-        {DEV_HINT ? (
-          <p className="text-xs text-amber-900 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
-            {DEV_HINT}
-          </p>
-        ) : null}
+    <form
+      onSubmit={onSubmit}
+      className="w-full bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 space-y-4 shadow-sm"
+    >
+      {DEV_HINT ? (
+        <p className="text-xs text-amber-900 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
+          {DEV_HINT}
+        </p>
+      ) : null}
 
         <label className="block text-xs font-semibold text-slate-700">
           手机号
@@ -195,20 +188,26 @@ function LoginForm() {
           ，即可直接使用。
         </p>
       </form>
-    </main>
   );
 }
 
 export default function LoginPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="max-w-lg mx-auto px-4 py-16 text-center text-sm text-slate-500">
-          加载中…
-        </div>
-      }
-    >
-      <LoginForm />
-    </Suspense>
+    <main className="max-w-lg mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-6">
+      <div className="page-banner">
+        <span className="page-banner__chip">{SITE.brand}</span>
+        <h1>登录 / 注册</h1>
+        <p>手机号验证码一键登录；首次验证即完成注册。咨询评估可直接预约，登录后可保存记录。</p>
+      </div>
+      <Suspense
+        fallback={
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-sm text-slate-500">
+            加载中…
+          </div>
+        }
+      >
+        <LoginForm />
+      </Suspense>
+    </main>
   );
 }

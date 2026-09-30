@@ -147,8 +147,12 @@ export default function AccountPage() {
 
   if (loading || !user) {
     return (
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16 text-sm text-slate-500 text-center">
-        加载中…
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-6">
+        <div className="page-banner">
+          <span className="page-banner__chip">个人中心</span>
+          <h1>我的账号</h1>
+          <p>加载中…</p>
+        </div>
       </div>
     );
   }
