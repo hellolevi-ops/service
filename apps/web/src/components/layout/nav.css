@@ -1,0 +1,56 @@
+.desktop-nav {
+  display: none;
+  gap: 1rem;
+  align-items: center;
+  flex: 1;
+  margin-left: 1.5rem;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-flyout {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 10rem;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-line);
+  z-index: 50;
+}
+
+.nav-flyout a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+}
+
+.nav-item:hover .nav-flyout,
+.nav-item:focus-within .nav-flyout {
+  display: flex;
+}
+
+.mobile-menu-btn {
+  display: inline-flex;
+}
+
+.mobile-dock {
+  display: grid;
+}
+
+@media (min-width: 900px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .mobile-dock {
+    display: none !important;
+  }
+}

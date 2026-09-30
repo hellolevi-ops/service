@@ -1,0 +1,630 @@
+import type {
+  Advisor,
+  Article,
+  CaseStudy,
+  EventItem,
+  Playbook,
+  Track,
+} from "./types";
+
+/** Seed disaster-recovery / local-dev catalog. Not the production CMS SoT. */
+export const SEED_VERSION = "2026.09.28";
+export const SEED_UPDATED_AT = "2026-09-28T00:00:00+08:00";
+
+export const tracks: Track[] = [
+  {
+    slug: "us-ug",
+    name: "美本",
+    heroClaim: "用活动叙事与选校分层，把「像我」说清楚",
+    answerBlock:
+      "美本申请不是堆活动数量，而是用可核对的背景叙事对齐目标校画像。我们帮助家庭建立时间轴、活动优先级与文书主线，并标明哪些决策必须顾问介入。",
+    audienceFit: ["高一至高三在读", "意向美本或英美双申", "愿意做长期背景规划"],
+    audienceUnfit: ["只求「内部名额」或包录承诺", "拒绝提供真实成绩与活动信息"],
+    timeline: [
+      { title: "定位与差距", detail: "目标层级与现状对照", when: "T-18～T-15 月" },
+      { title: "背景提升", detail: "活动优先级与证据链", when: "T-15～T-9 月" },
+      { title: "选校与文书", detail: "名单分层与主线故事", when: "T-9～T-5 月" },
+      { title: "递交与补充", detail: "材料核对与面试准备", when: "T-5～T-2 月" },
+      { title: "决策与签证", detail: "录取对比与出行准备", when: "T-2～入学" },
+    ],
+    feeFramework:
+      "服务费按阶段或全流程报价；学费/生活费按目标校区间另列（标注年份）。不含：代考、签证加急特批、第三方活动报名费。",
+    methods: [
+      "先定目标校画像，再倒推活动与课程",
+      "文书主线一句话可复述给家长",
+      "每节点交付可核对清单，而非口号",
+    ],
+    faq: [
+      {
+        q: "美本一定要早鸟吗？",
+        a: "早规划有优势，但关键是证据链完整与选校匹配；我们会按年级给出可执行最小路径。",
+      },
+      {
+        q: "会不会保证录取？",
+        a: "不会。任何「包录」都不在服务范围；我们交付的是可核对的路径与材料质量。",
+      },
+    ],
+    parentBlock:
+      "家长可读：费用分服务费与就读成本；每阶段有同步纪要；可更换顾问机制见「关于·信任」。",
+  },
+  {
+    slug: "uk-pg",
+    name: "英研",
+    heroClaim: "双非与均分现实下的选校分层与材料节奏",
+    answerBlock:
+      "英研申请核心是均分/背景与专业匹配的分层名单，再配合文书与推荐信时间表。我们先给可自检的分层框架，再进入个性化方案。",
+    audienceFit: ["本科在读或应届", "目标英国授课型硕士", "成绩与专业方向基本明确"],
+    audienceUnfit: ["要求伪造成绩或包装无关经历", "只比较「最低均分」而无专业逻辑"],
+    timeline: [
+      { title: "方向确认", detail: "专业与城市偏好", when: "T-12～T-10 月" },
+      { title: "名单分层", detail: "冲刺/稳妥/保底", when: "T-10～T-8 月" },
+      { title: "材料准备", detail: "文书、成绩、推荐信", when: "T-8～T-5 月" },
+      { title: "递交与跟进", detail: "补件与面试", when: "T-5～T-2 月" },
+      { title: "签证行前", detail: "CAS 与住宿", when: "录取后" },
+    ],
+    feeFramework:
+      "按申请院校数量档位或全包阶段报价；学费按院校官网当年区间展示。不含：语言班学费、住宿定金、第三方公证邮寄。",
+    methods: [
+      "用均分区间+专业相关度做分层，而非只看排名",
+      "文书回答「为何这个专业/这所学校」",
+      "推荐信与成绩单节点提前锁定",
+    ],
+    faq: [
+      {
+        q: "双非还能申什么层级？",
+        a: "取决于均分、课程匹配与实习/科研证据；我们用分层名单说明，不给虚假概率。",
+      },
+    ],
+    parentBlock: "家长可读：报价含申请轮次说明；不含项列表公开；工作日 15 分钟内首触。",
+  },
+  {
+    slug: "hk-sg",
+    name: "港新",
+    heroClaim: "授课型港硕/新硕的时间线与材料最小集",
+    answerBlock:
+      "港新授课型项目节奏紧、材料门槛清晰。先对齐均分、语言与专业匹配，再排面试与奖学金节点。",
+    audienceFit: ["目标香港或新加坡授课型硕士", "可接受高强度面试准备"],
+    audienceUnfit: ["期望跳过语言或成绩门槛的捷径承诺"],
+    timeline: [
+      { title: "项目筛选", detail: "港/新与专业对照", when: "T-10～T-8 月" },
+      { title: "材料齐套", detail: "成绩、语言、简历", when: "T-8～T-6 月" },
+      { title: "文书与推荐", detail: "主文书与推荐信", when: "T-6～T-4 月" },
+      { title: "面试", detail: "模拟与反馈", when: "T-4～录取" },
+      { title: "签证入学", detail: "证件与住宿", when: "录取后" },
+    ],
+    feeFramework:
+      "服务费按项目数或方向包报价；学费生活费按城市年份区间。不含：语言考试报名、机票、押金。",
+    methods: ["名单先匹配再冲名校", "面试当作第二轮文书", "家长同步节点固定"],
+    faq: [
+      {
+        q: "港硕和英研如何选？",
+        a: "看职业地域、学制与预算；可用 Lab 时间轴与费用粗算先自检，再预约评估。",
+      },
+    ],
+    parentBlock: "家长可读：总花费按城市年份标注；服务边界与投诉入口在页脚。",
+  },
+  {
+    slug: "k12",
+    name: "低龄",
+    heroClaim: "监护、安全与费用总账先说清楚",
+    answerBlock:
+      "低龄留学首先对齐监护安排、学校类型与家庭预算总账，再进入选校与文书。我们拒绝用恐吓倒计时推动签约。",
+    audienceFit: ["中学阶段意向出国", "家长主导决策并需要总账透明"],
+    audienceUnfit: ["希望绕过监护与合规要求"],
+    timeline: [
+      { title: "家庭目标", detail: "国家/学制/预算", when: "启动月" },
+      { title: "学校画像", detail: "类型与录取逻辑", when: "+1～2 月" },
+      { title: "材料与考试", detail: "语言与成绩路径", when: "+2～6 月" },
+      { title: "申请与面试", detail: "递交与探校", when: "申请季" },
+      { title: "签证监护", detail: "合规落地", when: "录取后" },
+    ],
+    feeFramework:
+      "服务费与就读成本分列；监护/住宿为高敏感项单独说明。不含：探校机票、校服与个人消费。",
+    methods: ["先总账后选校", "监护方案可核对", "每阶段家长纪要"],
+    faq: [
+      {
+        q: "一定要中介吗？",
+        a: "监护与合规节点复杂时建议专业介入；Lab 提供自检清单，复杂决策再预约。",
+      },
+    ],
+    parentBlock: "家长三件套：费用总账、服务边界、同步与投诉入口本页齐全。",
+  },
+  {
+    slug: "arts",
+    name: "艺术",
+    heroClaim: "作品集叙事与院校匹配并重",
+    answerBlock:
+      "艺术申请的核心是作品集完成度与院校调性匹配，而非只看排名。我们协助规划作品节奏，并标明代做作品集不在服务范围。",
+    audienceFit: ["设计/艺术方向", "愿意投入作品集周期"],
+    audienceUnfit: ["要求代做或购买作品集"],
+    timeline: [
+      { title: "方向定位", detail: "专业与媒介", when: "T-14～T-12 月" },
+      { title: "作品规划", detail: "项目选题与节奏", when: "T-12～T-6 月" },
+      { title: "院校名单", detail: "调性匹配", when: "T-8～T-5 月" },
+      { title: "文书面试", detail: "陈述与作品解说", when: "T-5～T-2 月" },
+      { title: "录取决策", detail: "作品与奖学金", when: "录取季" },
+    ],
+    feeFramework:
+      "作品集辅导与申请服务可分项；材料耗材自理。不含：代做作品、版权购买、第三方竞赛报名。",
+    methods: ["先作品完成度再冲刺名单", "陈述与作品一致", "家长可见节点交付物"],
+    faq: [
+      {
+        q: "可以代做作品集吗？",
+        a: "不可以。我们只做辅导与评审边界内的支持。",
+      },
+    ],
+    parentBlock: "家长可读：服务不含代做；费用分项；进度可同步。",
+  },
+];
+
+export const advisors: Advisor[] = [
+  {
+    slug: "lin-yue",
+    name: "林悦",
+    years: 8,
+    tracks: ["uk-pg", "hk-sg"],
+    methodOneLiner: "用分层名单把双非现实说清楚，再谈冲刺。",
+    acceptBooking: true,
+    parentSyncNote: "每周一次文字纪要，关键节点电话同步家长。",
+    bio: "专注英研与港新授课型项目，擅长均分与专业匹配的选校分层。",
+    caseSlugs: ["uk-pg-shuangfei-finance", "hk-pg-cs-cross"],
+  },
+  {
+    slug: "zhou-kai",
+    name: "周凯",
+    years: 10,
+    tracks: ["us-ug", "arts"],
+    methodOneLiner: "活动叙事要能被招生官一句话记住。",
+    acceptBooking: true,
+    parentSyncNote: "月度家长会 + 节点清单；可指定更换顾问。",
+    bio: "美本与艺术交叉背景，强调证据链与文书主线一致性。",
+    caseSlugs: ["us-ug-activity-narrative", "arts-design-portfolio"],
+  },
+  {
+    slug: "chen-min",
+    name: "陈敏",
+    years: 7,
+    tracks: ["k12", "hk-sg"],
+    methodOneLiner: "低龄先对齐监护与总账，再谈学校品牌。",
+    acceptBooking: true,
+    parentSyncNote: "家长为第一联系人；重大决策双确认。",
+    bio: "低龄与港新路径，重视合规与家庭沟通。",
+    caseSlugs: ["k12-uk-boarding", "hk-pg-cs-cross"],
+  },
+];
+
+export const cases: CaseStudy[] = [
+  {
+    slug: "uk-pg-shuangfei-finance",
+    track: "uk-pg",
+    title: "双非财经均分 82：英研分层名单与材料节奏（示例）",
+    backgroundTier: "双非 · 均分 80–85",
+    backgroundSummary: "国内双非财经本科，均分 82，一段相关实习，语言达标。",
+    difficulty: "目标校均分卡线；专业相关度需用课程与实习补强；时间窗口紧。",
+    strategy: "冲刺/稳妥/保底三类名单；文书聚焦量化实习成果与课程匹配。",
+    execution: "8 周完成文书三稿与推荐信；按轮次递交并准备补件。",
+    result: "获得稳妥档与保底档录取（示例脱敏，不代表概率）。",
+    resultLevel: "稳妥档录取",
+    advisorSlug: "lin-yue",
+    authorized: true,
+    status: "published",
+  },
+  {
+    slug: "hk-pg-cs-cross",
+    track: "hk-sg",
+    title: "跨专业转 CS：港硕材料补强路径（示例）",
+    backgroundTier: "双非 · 跨专业",
+    backgroundSummary: "非科班，有项目经历与补修课程。",
+    difficulty: "专业门槛与面试深度；需证明可修读能力。",
+    strategy: "补课证明 + 项目作品说明 + 面试题库专项。",
+    execution: "12 周补修与作品整理；三轮模拟面试。",
+    result: "获得授课型项目录取（示例）。",
+    resultLevel: "目标档录取",
+    advisorSlug: "lin-yue",
+    authorized: true,
+    status: "published",
+  },
+  {
+    slug: "us-ug-activity-narrative",
+    track: "us-ug",
+    title: "活动从「多」到「深」：美本文书主线重塑（示例）",
+    backgroundTier: "普高 · 活动分散",
+    backgroundSummary: "活动多但叙事散，标化中等。",
+    difficulty: "缺乏主线；家长期望与学生兴趣不一致。",
+    strategy: "收敛三条证据链；用社区影响替代堆砌。",
+    execution: "一学期深耕主项目；文书与活动列表对齐。",
+    result: "ED/RD 分层结果中获得匹配档录取（示例）。",
+    resultLevel: "匹配档",
+    advisorSlug: "zhou-kai",
+    authorized: true,
+    status: "published",
+  },
+  {
+    slug: "arts-design-portfolio",
+    track: "arts",
+    title: "设计作品集：从课程作业到叙事项目（示例）",
+    backgroundTier: "艺术高中",
+    backgroundSummary: "技法尚可，项目叙事弱。",
+    difficulty: "作品同质化；陈述无法解释决策过程。",
+    strategy: "重构 3 个深度项目；过程图与反思并重。",
+    execution: "16 周作品迭代 + 模拟面试。",
+    result: "获得目标艺术院校录取（示例）。",
+    resultLevel: "目标档",
+    advisorSlug: "zhou-kai",
+    authorized: true,
+    status: "published",
+  },
+  {
+    slug: "k12-uk-boarding",
+    track: "k12",
+    title: "英高寄宿：监护与费用总账先行（示例）",
+    backgroundTier: "初三 · 家庭首次出海",
+    backgroundSummary: "学术中上，家长最关心安全与总花费。",
+    difficulty: "监护安排不清；预算低估隐性成本。",
+    strategy: "先总账与监护方案，再缩小学校类型。",
+    execution: "探校清单 + 监护合同核对 + 申请时间表。",
+    result: "确认学校类型并完成申请路径（示例）。",
+    resultLevel: "路径确认",
+    advisorSlug: "chen-min",
+    authorized: true,
+    status: "published",
+  },
+  {
+    slug: "uk-pg-stem-gpa",
+    track: "uk-pg",
+    title: "理工均分波动：用课程权重解释成绩（示例）",
+    backgroundTier: "双非理工 · 均分波动",
+    backgroundSummary: "核心课强、公选弱，表面均分被拉低。",
+    difficulty: "成绩单叙事不足；选校易高估。",
+    strategy: "成绩单注释 + 相关科研/项目证明匹配度。",
+    execution: "成绩解释信与项目摘要同步文书。",
+    result: "稳妥档录取（示例）。",
+    resultLevel: "稳妥档",
+    advisorSlug: "lin-yue",
+    authorized: true,
+    status: "published",
+  },
+  {
+    slug: "us-ug-transfer-prep",
+    track: "us-ug",
+    title: "国际课程转轨美本：时间表压缩方案（示例）",
+    backgroundTier: "国际课程 · 转轨",
+    backgroundSummary: "高二转轨，时间紧。",
+    difficulty: "标化与活动窗口重叠。",
+    strategy: "最小必要路径：标化节点 + 两条深度活动。",
+    execution: "甘特图周更；家长双周同步。",
+    result: "按期完成申请递交（示例）。",
+    resultLevel: "按期递交",
+    advisorSlug: "zhou-kai",
+    authorized: true,
+    status: "published",
+  },
+  {
+    slug: "hk-sg-business",
+    track: "hk-sg",
+    title: "商科港新双申：面试与奖学金节点（示例）",
+    backgroundTier: "均分 85+ · 商科",
+    backgroundSummary: "目标港校与新校商科授课型。",
+    difficulty: "面试同质化问答；奖学金材料晚。",
+    strategy: "面试故事库 + 奖学金材料并行。",
+    execution: "四周高强度模拟与材料齐套。",
+    result: "获得录取并进入奖学金评审（示例）。",
+    resultLevel: "录取+奖学金评审",
+    advisorSlug: "chen-min",
+    authorized: true,
+    status: "published",
+  },
+];
+
+export const articles: Article[] = [
+  {
+    slug: "uk-pg-cost-2026",
+    category: "费用",
+    title: "2026 英研一年花费怎么估？（示例指南）",
+    summary: "学费+生活费框架，附不含项提醒。",
+    answerBlock:
+      "英研一年总成本 = 学费（按院校官网）+ 生活费（城市区间）+ 保险与杂费；服务费另计。先用区间估算，再预约核对个性化方案。",
+    body: [
+      "先查目标校学费页，记下学年制与是否含语言班。",
+      "生活费按伦敦 / 非伦敦分两档区间（需标注年份来源）。",
+      "服务费与就读成本分列，避免「打包价」无法核对。",
+    ],
+    faq: [
+      {
+        q: "生活费官方参考哪来？",
+        a: "可参考英国签证生活费指引与学校国际生页面，并标注访问年份。",
+      },
+    ],
+    nextStops: [
+      {
+        href: "/tracks/uk-pg",
+        title: "英研垂直页",
+        reason: "看选校分层与服务边界",
+      },
+      {
+        href: "/lab/tools/assessment",
+        title: "背景评估",
+        reason: "先自检再约顾问",
+      },
+    ],
+    publishedAt: "2026-09-01",
+    socialHooks: "英研费用框架可转发家长",
+  },
+  {
+    slug: "us-ug-activity-priority",
+    category: "美本",
+    title: "美本活动优先级：深度优于数量",
+    summary: "如何从活动清单收敛到三条证据链。",
+    answerBlock:
+      "招生官更关心可验证的影响与持续投入。把活动收敛到 2–3 条证据链，并与文书主线一致，比堆砌 15 项更有效。",
+    body: [
+      "列出全部活动，标注时长、角色、可验证结果。",
+      "删掉无法证明影响的条目，留下能支撑主线的。",
+      "用 Lab 清单工具生成材料待办。",
+    ],
+    faq: [],
+    nextStops: [
+      { href: "/tracks/us-ug", title: "美本方向", reason: "看完整时间轴" },
+      { href: "/cases", title: "案例库", reason: "找「像我」的难点" },
+    ],
+    publishedAt: "2026-08-20",
+  },
+  {
+    slug: "hk-pg-timeline",
+    category: "港新",
+    title: "港硕申请时间轴最小集",
+    summary: "从选项目到面试的节点表。",
+    answerBlock:
+      "港硕节奏紧：提前锁定语言与成绩单，面试当作第二轮评估。用时间轴工具生成个人节点，再决定是否需要顾问。",
+    body: ["确认开营与轮次", "材料齐套清单", "面试题库准备"],
+    faq: [],
+    nextStops: [
+      { href: "/tracks/hk-sg", title: "港新方向", reason: "费用与方法" },
+      { href: "/lab/tools/timeline", title: "时间轴工具", reason: "生成节点" },
+    ],
+    publishedAt: "2026-08-12",
+  },
+  {
+    slug: "k12-guardian-basics",
+    category: "低龄",
+    title: "低龄留学监护：家长先问的五个问题",
+    summary: "监护、安全与总账。",
+    answerBlock:
+      "低龄路径先回答监护人是谁、费用总账含哪些、学校类型是否匹配孩子节奏，再进入选校品牌讨论。",
+    body: ["监护法律要求", "住宿类型", "隐性费用", "探校安排", "投诉与监督渠道"],
+    faq: [],
+    nextStops: [
+      { href: "/tracks/k12", title: "低龄方向", reason: "家长三件套" },
+      { href: "/process-fees", title: "流程与费用", reason: "不含项" },
+    ],
+    publishedAt: "2026-07-30",
+  },
+  {
+    slug: "arts-portfolio-ethics",
+    category: "艺术",
+    title: "作品集辅导边界：什么能做、什么不能做",
+    summary: "杜绝代做，明确辅导范围。",
+    answerBlock:
+      "合法辅导包括选题讨论、过程评审与陈述训练；代做、购买作品集不在服务范围，也不应出现在任何承诺里。",
+    body: ["辅导边界清单", "过程文档保留", "面试解说训练"],
+    faq: [],
+    nextStops: [
+      { href: "/tracks/arts", title: "艺术方向", reason: "方法论" },
+      { href: "/book", title: "预约评估", reason: "作品阶段诊断" },
+    ],
+    publishedAt: "2026-07-18",
+  },
+  {
+    slug: "how-to-read-case",
+    category: "方法",
+    title: "如何阅读案例：看难点而不是只看结果",
+    summary: "案例页使用指南。",
+    answerBlock:
+      "有效案例阅读顺序是背景→难点→策略→执行→结果。结果标签不能外推为成功率；关注与自己相似的约束条件。",
+    body: ["对照背景层级", "记录难点是否同类", "再决定是否指定顾问"],
+    faq: [],
+    nextStops: [
+      { href: "/cases", title: "案例列表", reason: "筛选像我" },
+      { href: "/advisors", title: "顾问", reason: "指定评估" },
+    ],
+    publishedAt: "2026-07-01",
+  },
+  {
+    slug: "parent-fee-questions",
+    category: "家长",
+    title: "家长问费用时，应该要哪些单据式说明",
+    summary: "服务费与就读成本分列。",
+    answerBlock:
+      "向服务方索取：计费逻辑或区间、不含项、退费原则摘要、阶段交付物。拒绝只给「详询顾问」而无逻辑的报价。",
+    body: ["服务费", "就读成本", "不含项", "同步方式"],
+    faq: [],
+    nextStops: [
+      { href: "/process-fees", title: "流程与费用", reason: "三件套" },
+      { href: "/about/trust", title: "信任与投诉", reason: "监督入口" },
+    ],
+    publishedAt: "2026-06-20",
+  },
+  {
+    slug: "wechat-first-contact",
+    category: "转化",
+    title: "加企微之后会发生什么？",
+    summary: "15 分钟首触预期。",
+    answerBlock:
+      "工作时段内我们目标 15 分钟内首触：确认方向、预约评估或解答边界问题。不会用恐吓倒计时或包录话术。",
+    body: ["加好友备注意向方向", "收到确认与可选时段", "评估前后材料清单"],
+    faq: [],
+    nextStops: [
+      { href: "/book", title: "预约评估", reason: "表单通道" },
+      { href: "/lab", title: "Lab", reason: "先自检" },
+    ],
+    publishedAt: "2026-06-10",
+  },
+  {
+    slug: "compare-premium-full",
+    category: "服务",
+    title: "精品咨询和全流程怎么选？",
+    summary: "适合信号对照。",
+    answerBlock:
+      "精品适合节点诊断与文书/选校攻坚；全流程适合需要全程项目管理与家长同步的家庭。可用对比页勾选信号后预约「帮我选」。",
+    body: ["密度差异", "同步频率", "价格逻辑"],
+    faq: [],
+    nextStops: [
+      { href: "/services/compare", title: "服务对比", reason: "一眼看懂" },
+      { href: "/book", title: "帮我选", reason: "评估入口" },
+    ],
+    publishedAt: "2026-05-28",
+  },
+  {
+    slug: "diy-ceiling",
+    category: "Lab",
+    title: "DIY 申请的天花板在哪里？",
+    summary: "自助与顾问的分界。",
+    answerBlock:
+      "清单、时间轴、费用粗算可以自助；个性化选校博弈、文书策略风险、监护合规争议建议顾问介入。Lab 每页写明天花板。",
+    body: ["可自助清单", "建议介入信号", "如何预约解读"],
+    faq: [],
+    nextStops: [
+      { href: "/lab/when-to-ask", title: "何时需要顾问", reason: "决策树" },
+      { href: "/lab/tools/assessment", title: "背景评估", reason: "开始自检" },
+    ],
+    publishedAt: "2026-05-15",
+  },
+  {
+    slug: "utm-and-privacy",
+    category: "合规",
+    title: "我们如何使用来源信息与隐私同意",
+    summary: "UTM 与同意版本说明。",
+    answerBlock:
+      "表单会记录页面来源与 UTM 以便服务分配，不会出售给第三方。提交前需勾选隐私政策版本；可申请删除。",
+    body: ["同意版本", "字段用途", "撤回方式"],
+    faq: [],
+    nextStops: [
+      { href: "/privacy", title: "隐私政策", reason: "全文" },
+      { href: "/book", title: "预约", reason: "体验表单" },
+    ],
+    publishedAt: "2026-05-01",
+  },
+  {
+    slug: "faq-no-guarantee",
+    category: "FAQ",
+    title: "为什么我们不做「包录」承诺？",
+    summary: "合规与信任。",
+    answerBlock:
+      "录取由院校决定。包录承诺无法审计且伤害家庭决策。我们提供可核对路径、难点案例与费用边界，用执行透明建立信任。",
+    body: ["红线说明", "我们交付什么", "如何投诉"],
+    faq: [],
+    nextStops: [
+      { href: "/about/trust", title: "信任页", reason: "监督入口" },
+      { href: "/cases", title: "案例", reason: "看难点结构" },
+    ],
+    publishedAt: "2026-04-20",
+  },
+];
+
+export const events: EventItem[] = [
+  {
+    slug: "ama-uk-pg-2026q4",
+    title: "英研选校分层 AMA（示例场次）",
+    startAt: "2026-10-18T19:30:00+08:00",
+    format: "线上直播 · 约 60 分钟",
+    tracks: ["uk-pg"],
+    agenda: "分层逻辑讲解 + 问答；无恐吓倒计时名额话术。",
+    status: "upcoming",
+  },
+];
+
+export const playbooks: Playbook[] = [
+  {
+    slug: "uk-pg-shuangfei-tiering",
+    track: "uk-pg",
+    title: "双非均分 80–85 的英研选校分层实践",
+    fit: "双非本科、均分区间明确、目标授课型硕士",
+    unfit: "要求伪造材料或包录",
+    steps: ["确认均分口径", "专业相关度打分", "三档名单", "文书主问题", "递交节奏"],
+    diyCeiling: "个性化风险校博弈与推荐信策略建议顾问介入。",
+    pitfalls: ["只看排名", "忽略课程匹配", "推荐信过晚"],
+    ctaTool: "assessment",
+  },
+  {
+    slug: "hk-pg-min-set",
+    track: "hk-sg",
+    title: "授课型港硕材料最小集",
+    fit: "目标港校授课型",
+    unfit: "跳过语言硬门槛",
+    steps: ["项目筛选", "语言成绩", "成绩单", "简历", "面试准备"],
+    diyCeiling: "面试临场策略与奖学金叙事需个案判断。",
+    pitfalls: ["材料不齐就海投", "忽视面试"],
+    ctaTool: "checklist",
+  },
+  {
+    slug: "us-ug-activity",
+    track: "us-ug",
+    title: "美本活动叙事优先级实践",
+    fit: "高中在读、活动清单过长",
+    unfit: "寻求购买活动经历",
+    steps: ["盘点", "收敛证据链", "对齐文书", "时间表"],
+    diyCeiling: "目标校画像微调与文书风险需顾问。",
+    pitfalls: ["堆数量", "家长叙事取代学生"],
+    ctaTool: "assessment",
+  },
+  {
+    slug: "k12-cost-ledger",
+    track: "k12",
+    title: "低龄费用总账实践",
+    fit: "家长主导、首次出海",
+    unfit: "绕过监护合规",
+    steps: ["列出就读成本", "监护住宿", "服务费", "应急金"],
+    diyCeiling: "合同条款与监护法律细节需专业核对。",
+    pitfalls: ["低估隐性费用"],
+    ctaTool: "cost",
+  },
+  {
+    slug: "arts-portfolio-pace",
+    track: "arts",
+    title: "作品集十六周节奏",
+    fit: "设计/艺术方向有基础",
+    unfit: "要求代做",
+    steps: ["选题", "过程记录", "三轮评审", "陈述"],
+    diyCeiling: "院校调性匹配需作品评审经验。",
+    pitfalls: ["临近申请才开始"],
+    ctaTool: "timeline",
+  },
+  {
+    slug: "general-when-to-ask",
+    track: "undecided",
+    title: "通用：何时该停下 DIY",
+    fit: "所有方向",
+    unfit: "无",
+    steps: ["完成自检工具", "对照介入信号", "预约解读或继续 DIY"],
+    diyCeiling: "出现合规/成绩争议/家庭重大分歧时停止纯 DIY。",
+    pitfalls: ["结果前被锁表单的伪工具"],
+    ctaTool: "assessment",
+  },
+];
+
+export const countries = [
+  {
+    slug: "uk",
+    name: "英国",
+    summary: "授课型硕士学制短，费用与签证生活费需按年份核对。",
+    relatedTracks: ["uk-pg", "k12"] as const,
+  },
+  {
+    slug: "us",
+    name: "美国",
+    summary: "本科申请周期长，活动与文书主线权重大。",
+    relatedTracks: ["us-ug", "arts"] as const,
+  },
+  {
+    slug: "hk",
+    name: "香港",
+    summary: "授课型项目节奏紧，面试常见。",
+    relatedTracks: ["hk-sg"] as const,
+  },
+  {
+    slug: "sg",
+    name: "新加坡",
+    summary: "项目竞争度高，材料与面试并重。",
+    relatedTracks: ["hk-sg"] as const,
+  },
+];

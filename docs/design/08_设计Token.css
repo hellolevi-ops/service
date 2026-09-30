@@ -1,0 +1,112 @@
+/**
+ * 留学工作室官网 — Design Tokens
+ * 推荐主风格：A「书院研判」(data-theme="academy")
+ * 季节皮肤：B studio-day / C lab 见文末注释块
+ * 日期：2026-09-28
+ */
+
+:root,
+:root[data-theme="academy"] {
+  /* Color */
+  --color-bg: #f3f1ec;
+  --color-bg-elevated: #fffdf8;
+  --color-ink: #1c2421;
+  --color-ink-muted: #5c6560;
+  --color-brand: #1f4d3a;
+  --color-brand-hover: #163829;
+  --color-accent: #9a6b2f;
+  --color-line: #d9d3c7;
+  --color-success: #2f6b4f;
+  --color-danger: #8f2f2f;
+  --color-focus: #1f4d3a;
+  --color-overlay: rgba(28, 36, 33, 0.48);
+
+  /* Typography */
+  --font-display: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-hero: clamp(2rem, 5vw, 3rem);
+  --leading-body: 1.7;
+  --leading-tight: 1.35;
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-section: clamp(3rem, 8vw, 5rem);
+
+  /* Radius / elevation */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-none: none;
+  --shadow-soft: 0 1px 0 rgba(28, 36, 33, 0.06);
+
+  /* Layout */
+  --container: 72rem;
+  --gutter: 1.25rem;
+  --dock-height: 3.5rem;
+  --tap-min: 44px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 480ms;
+}
+
+/* B「赛道工作室」日间 — 垂直着陆切换 html[data-theme="studio-day"] */
+:root[data-theme="studio-day"] {
+  --color-bg: #f4f7f8;
+  --color-bg-elevated: #ffffff;
+  --color-ink: #122026;
+  --color-ink-muted: #5a6a70;
+  --color-brand: #0f6e62;
+  --color-brand-hover: #0c5a50;
+  --color-accent: #c45c26;
+  --color-line: #d2dce0;
+  --color-focus: #0f6e62;
+  --font-display: "Alibaba PuHuiTi 2.0", "Smiley Sans", "Source Han Sans SC", sans-serif;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+}
+
+/* C「工具实验室」— 建议仅包在 .lab-surface 或 lab 布局 */
+:root[data-theme="lab"],
+.lab-surface {
+  --color-bg: #e9eef2;
+  --color-bg-elevated: #f7fafc;
+  --color-ink: #1a2330;
+  --color-ink-muted: #5b6777;
+  --color-brand: #245b8a;
+  --color-brand-hover: #1b476c;
+  --color-accent: #d97706;
+  --color-line: #c5d0da;
+  --color-focus: #245b8a;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+  --radius-md: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0.01ms;
+    --dur-2: 0.01ms;
+    --dur-3: 0.01ms;
+    --dur-4: 0.01ms;
+  }
+}

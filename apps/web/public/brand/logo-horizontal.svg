@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" role="img" aria-label="R��E Ivy Global Education">
+  <g transform="translate(4 4)">
+    <g fill="#0F172A" fill-rule="evenodd">
+      <path d="M32 2c2.2 8.6 7.4 14.8 14.8 18.2-4.6 1.8-8.2 5.6-10.2 10.8C34.8 21.6 29.6 14.8 32 2z"/>
+      <path d="M32 2c-2.2 8.6-7.4 14.8-14.8 18.2 4.6 1.8 8.2 5.6 10.2 10.8C29.2 21.6 34.4 14.8 32 2z"/>
+      <path d="M32 54c-1.4-10.4-5.8-17.6-12.8-21.2 5.2-2.8 9.6-8.2 11.4-15.2 1.8 7 6.2 12.4 11.4 15.2C37.8 36.4 33.4 43.6 32 54z"/>
+    </g>
+    <path stroke="#D97706" stroke-width="2" stroke-linecap="round" d="M32 14v34"/>
+  </g>
+  <!-- Wordmark: use system Chinese fallback; production should swap for outlined Noto Serif paths if needed -->
+  <text x="78" y="38" font-family="Noto Serif SC, Source Han Serif SC, Songti SC, serif" font-size="28" font-weight="700" fill="#0F172A">R��E</text>
+  <text x="80" y="58" font-family="Cinzel, Georgia, serif" font-size="9" font-weight="600" letter-spacing="2.2" fill="#64748B">IVY GLOBAL EDUCATION</text>
+</svg>
