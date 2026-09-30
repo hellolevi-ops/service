@@ -5,9 +5,9 @@ import {
   CASE_STUDIES,
   VERTICAL_TRACKS,
   type TrackItem,
-} from "@/data/boyan";
-import { CaseStudyCard } from "@/components/boyan/CaseStudyCard";
-import { AdvisorCard } from "@/components/boyan/AdvisorCard";
+} from "@/data/catalog";
+import { CaseStudyCard } from "@/components/catalog/CaseStudyCard";
+import { AdvisorCard } from "@/components/catalog/AdvisorCard";
 import { CheckCircle2, ArrowRight, AlertTriangle } from "lucide-react";
 import type { Metadata } from "next";
 

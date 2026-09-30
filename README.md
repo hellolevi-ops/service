@@ -1,4 +1,4 @@
-# 青藤国际 / Ivy Global Education
+# 青藤国际
 
 留学服务官网与运营后台（P0）。
 

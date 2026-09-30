@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
-import { SERVICE_LINES } from "@/data/boyan";
+import { SERVICE_LINES } from "@/data/catalog";
 import { LeadForm } from "@/components/domain/LeadForm";
 import { WeComDock } from "@/components/domain/WeComDock";
 

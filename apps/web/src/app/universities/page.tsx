@@ -14,7 +14,7 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react";
-import { GLOBAL_UNIVERSITIES, type UniversityItem } from "@/data/boyan";
+import { GLOBAL_UNIVERSITIES, type UniversityItem } from "@/data/catalog";
 
 const COUNTRIES = ["全部", "英国", "美国", "中国香港", "新加坡"];
 const RANK_TIERS = ["全部", "全球前10", "全球前30", "全球前50"];

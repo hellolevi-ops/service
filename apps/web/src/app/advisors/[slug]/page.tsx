@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ADVISORS, CASE_STUDIES } from "@/data/boyan";
-import { CaseStudyCard } from "@/components/boyan/CaseStudyCard";
+import { ADVISORS, CASE_STUDIES } from "@/data/catalog";
+import { CaseStudyCard } from "@/components/catalog/CaseStudyCard";
 import { ArrowRight, Award, CheckCircle2, Users } from "lucide-react";
 import type { Metadata } from "next";
 

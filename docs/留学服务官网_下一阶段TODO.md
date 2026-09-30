@@ -42,7 +42,7 @@
 
 ### 3.1 确认正式品牌和经营主体
 
-- [ ] 确认正式品牌名称：`研迹留学` 或 `青藤国际`。（**待业务书面确认**；代码与前台已统一展示为「青藤国际」）
+- [ ] 正式品牌名称：**青藤国际**（已确认；代码与前台统一）。
 - [ ] 确认中英文品牌名、Logo、主色、Slogan 和一句话定位。（待业务定稿资产包）
 - [ ] 确认网站经营主体、办公地址、联系电话、投诉邮箱和对公信息。（`site.ts` 有占位，ICP/对公待替换）
 - [x] 更新 `src/lib/site.ts`、页头、页脚、Metadata、结构化数据、隐私政策、服务条款和 `llms.txt`。（已按青藤国际贯通；主体备案号仍为占位）
@@ -126,7 +126,7 @@
 
 ### 5.1 收敛内容数据源
 
-- [x] 盘点 `src/data/boyan.ts`、`src/data/portalData.ts`、`src/content/seed.ts` 和 Directus 中的重复实体。（见 `docs/内容数据源盘点.md`）
+- [x] 盘点 `src/data/catalog.ts`、`src/data/portalData.ts`、`src/content/seed.ts` 和 Directus 中的重复实体。（见 `docs/内容数据源盘点.md`）
 - [x] 明确文章、案例、顾问、活动、垂直方向、院校和 Playbook 的唯一数据源。（目标表已写入盘点文档）
 - [x] 将本地 seed 定位为开发/灾备数据，并标记版本与更新时间。（`SEED_VERSION` / `SEED_UPDATED_AT`）
 - [ ] 让页面、推荐模块、sitemap 和 `llms.txt` 读取同一内容服务层。（sitemap/content 层已统一文章等；页面仍部分读 boyan）

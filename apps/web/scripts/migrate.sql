@@ -109,7 +109,7 @@ INSERT INTO settings (key, value) VALUES
   ('privacy_version', '2026-09-28'),
   ('brand_name', '青藤国际'),
   ('phone', '400-820-1926'),
-  ('wechat_id', 'ivy-global-edu')
+  ('wechat_id', 'qingteng-edu')
 ON CONFLICT (key) DO NOTHING;
 
 UPDATE settings SET value = '青藤国际', updated_at = now() WHERE key = 'brand_name' AND value = '研迹留学';

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { LeadForm } from "@/components/domain/LeadForm";
 import { WeComDock } from "@/components/domain/WeComDock";
-import { ADVISORS } from "@/data/boyan";
+import { ADVISORS } from "@/data/catalog";
 import { SITE, type TrackSlug, TRACK_OPTIONS } from "@/lib/site";
 import { ShieldCheck } from "lucide-react";
 

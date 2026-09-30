@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ADVISORS, CASE_STUDIES } from "@/data/boyan";
+import { ADVISORS, CASE_STUDIES } from "@/data/catalog";
 import { ArrowRight, CheckCircle2, Quote, ShieldAlert } from "lucide-react";
 import type { Metadata } from "next";
 import { FavoriteButton } from "@/components/domain/FavoriteButton";

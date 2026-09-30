@@ -120,7 +120,7 @@ export const NewsInsightsSection: React.FC<NewsInsightsSectionProps> = ({
               免费索取《2026 中国留学生全球名校录取大数据年度白皮书》（PDF 电子版）
             </h4>
             <p className="text-slate-600 text-xs mt-0.5">
-              新东方/青藤核心数据沉淀：涵盖英美港新各专业录取均分、跨专业要求与院校内部名单
+              新东方/青藤国际核心数据沉淀：涵盖英美港新各专业录取均分、跨专业要求与院校内部名单
             </p>
           </div>
         </div>

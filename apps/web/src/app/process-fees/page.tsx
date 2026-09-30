@@ -106,7 +106,7 @@ export default function ProcessFeesPage() {
             href="/services/compare"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#F59E0B]"
           >
-            青藤 vs 传统中介对比
+            青藤国际 vs 传统中介对比
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

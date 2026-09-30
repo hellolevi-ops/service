@@ -30,7 +30,7 @@
 
 ## 3. 24 小时下架流程
 
-1. 收到撤回/投诉（邮件 `supervision@ivyglobal.com` 或企微）→ 15 分钟内确认工单。
+1. 收到撤回/投诉（邮件 `supervision@qingteng.com` 或企微）→ 15 分钟内确认工单。
 2. Directus 将对应 case `status=archived` 或 `authorized=false`，触发 revalidate。
 3. 同步下架社媒转载；站内 24 小时内不可再被搜索/sitemap 收录。
 4. 工单关闭条件：前台 404/隐藏 + 备份库备注撤回时间。

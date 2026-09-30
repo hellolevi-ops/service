@@ -11,7 +11,7 @@ import {
   ShieldAlert,
   Unlock,
 } from "lucide-react";
-import { COMMUNITY_TOPICS, type CommunityTopic } from "@/data/boyan";
+import { COMMUNITY_TOPICS, type CommunityTopic } from "@/data/catalog";
 
 const CATEGORIES = ["all", "选校与定位", "文书与面试", "真实在读体验", "避坑与申诉"] as const;
 

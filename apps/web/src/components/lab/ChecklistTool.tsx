@@ -27,7 +27,7 @@ export const ChecklistTool: React.FC = () => {
 
   const [checkedIds, setCheckedIds] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('ivyglobal_checklist_state');
+      const saved = localStorage.getItem('qingteng_checklist_state');
       return saved ? JSON.parse(saved) : ['c1', 'c4'];
     } catch {
       return ['c1', 'c4'];
@@ -38,7 +38,7 @@ export const ChecklistTool: React.FC = () => {
 
   useEffect(() => {
     try {
-      localStorage.setItem('ivyglobal_checklist_state', JSON.stringify(checkedIds));
+      localStorage.setItem('qingteng_checklist_state', JSON.stringify(checkedIds));
     } catch (e) {
       console.error(e);
     }

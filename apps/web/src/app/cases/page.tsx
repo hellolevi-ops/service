@@ -2,8 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { CASE_STUDIES } from "@/data/boyan";
-import { CaseStudyCard } from "@/components/boyan/CaseStudyCard";
+import { CASE_STUDIES } from "@/data/catalog";
+import { CaseStudyCard } from "@/components/catalog/CaseStudyCard";
 
 const TRACKS = ["全部", ...Array.from(new Set(CASE_STUDIES.map((c) => c.trackName)))];
 const GRADES = ["全部", "985/211", "双非本科", "美本/海本", "国际高中/K12", "艺术跨学科"];

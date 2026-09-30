@@ -54,7 +54,7 @@ export default function AboutPage() {
         </li>
         <li>
           <Link href="/services/compare" className="text-[#92400E] font-semibold inline-flex items-center gap-1">
-            青藤 vs 传统中介 <ArrowRight className="w-3.5 h-3.5" />
+            青藤国际 vs 传统中介 <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </li>
       </ul>

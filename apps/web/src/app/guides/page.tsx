@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Clock, User } from "lucide-react";
-import { GUIDES_ARTICLES } from "@/data/boyan";
+import { GUIDES_ARTICLES } from "@/data/catalog";
 
 export default function GuidesPage() {
   const [activeSlug, setActiveSlug] = useState(GUIDES_ARTICLES[0]?.slug ?? "");

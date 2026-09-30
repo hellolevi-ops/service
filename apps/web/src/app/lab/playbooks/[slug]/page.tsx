@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { PRACTICE_PLAYBOOKS } from "@/data/boyan";
+import { PRACTICE_PLAYBOOKS } from "@/data/catalog";
 import { ArrowRight, CheckCircle2, AlertTriangle } from "lucide-react";
 import type { Metadata } from "next";
 

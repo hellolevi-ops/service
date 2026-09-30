@@ -11,12 +11,12 @@ import {
   ADVISORS,
   CASE_STUDIES,
   SERVICE_LINES,
-} from "@/data/boyan";
-import { CaseStudyCard } from "@/components/boyan/CaseStudyCard";
-import { AdvisorCard } from "@/components/boyan/AdvisorCard";
-import { QuickIntentMatcher } from "@/components/ivy/QuickIntentMatcher";
-import { RecentAdmitsTicker } from "@/components/ivy/RecentAdmitsTicker";
-import { NewsInsightsSection } from "@/components/ivy/NewsInsightsSection";
+} from "@/data/catalog";
+import { CaseStudyCard } from "@/components/catalog/CaseStudyCard";
+import { AdvisorCard } from "@/components/catalog/AdvisorCard";
+import { QuickIntentMatcher } from "@/components/home/QuickIntentMatcher";
+import { RecentAdmitsTicker } from "@/components/home/RecentAdmitsTicker";
+import { NewsInsightsSection } from "@/components/home/NewsInsightsSection";
 import { WeComDock } from "@/components/domain/WeComDock";
 import {
   OxfordVisual,
@@ -25,7 +25,7 @@ import {
   AusCanVisual,
   ArtsStudioVisual,
   PhdLabVisual,
-} from "@/components/ivy/VisualAssets";
+} from "@/components/home/VisualAssets";
 
 const DESTINATIONS = [
   {

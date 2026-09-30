@@ -16,7 +16,7 @@ async function hashPassword(password) {
 }
 
 async function seedStaff(client) {
-  const email = (process.env.STAFF_ADMIN_EMAIL || "admin@ivyglobal.local").toLowerCase();
+  const email = (process.env.STAFF_ADMIN_EMAIL || "admin@qingteng.local").toLowerCase();
   const password = process.env.STAFF_ADMIN_PASSWORD || "ChangeMe_Ops_2026!";
   const existing = await client.query(
     `SELECT id FROM staff_users WHERE email = $1`,

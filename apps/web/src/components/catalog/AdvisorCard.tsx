@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Award, Users } from "lucide-react";
-import type { AdvisorItem } from "@/data/boyan";
+import type { AdvisorItem } from "@/data/catalog";
 
 export function AdvisorCard({ advisor }: { advisor: AdvisorItem }) {
   return (

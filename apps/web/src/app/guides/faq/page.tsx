@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GUIDES_ARTICLES } from "@/data/boyan";
+import { GUIDES_ARTICLES } from "@/data/catalog";
 
 export const metadata = { title: "常见问题 FAQ" };
 

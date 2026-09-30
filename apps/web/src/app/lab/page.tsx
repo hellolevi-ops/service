@@ -7,7 +7,7 @@ import {
   HelpCircle,
   BookOpen,
 } from "lucide-react";
-import { PRACTICE_PLAYBOOKS } from "@/data/boyan";
+import { PRACTICE_PLAYBOOKS } from "@/data/catalog";
 
 export const metadata = { title: "免费决策工具箱" };
 

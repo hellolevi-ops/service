@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
-import { SERVICE_LINES } from "@/data/boyan";
+import { SERVICE_LINES } from "@/data/catalog";
 import { LeadForm } from "@/components/domain/LeadForm";
 
 export const metadata = { title: "精品战略咨询" };

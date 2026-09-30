@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import { VERTICAL_TRACKS } from "@/data/boyan";
+import { VERTICAL_TRACKS } from "@/data/catalog";
 
 export const metadata = { title: "留学国家与赛道" };
 

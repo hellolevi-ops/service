@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ShieldCheck, Users, Award } from "lucide-react";
-import { ADVISORS } from "@/data/boyan";
-import { AdvisorCard } from "@/components/boyan/AdvisorCard";
+import { ADVISORS } from "@/data/catalog";
+import { AdvisorCard } from "@/components/catalog/AdvisorCard";
 
 export const metadata = { title: "导师团队" };
 

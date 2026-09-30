@@ -11,7 +11,7 @@ export default function ComparePage() {
           DECISION MATRIX · 服务选型
         </span>
         <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 font-editorial-title tracking-tight">
-          青藤三线服务对照 · 如何选择
+          青藤国际三线服务对照 · 如何选择
         </h1>
         <p className="text-sm text-slate-500 mt-2 max-w-3xl">
           移动端可左右滑动查看完整列。签约前充分知情，评估后再决定产品线。

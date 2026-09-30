@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, BookOpen, ShieldAlert } from "lucide-react";
-import type { CaseStudyItem } from "@/data/boyan";
+import type { CaseStudyItem } from "@/data/catalog";
 
 export function CaseStudyCard({ item }: { item: CaseStudyItem }) {
   return (

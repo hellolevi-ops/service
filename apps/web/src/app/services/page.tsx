@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, XCircle } from "lucide-react";
-import { SERVICE_LINES } from "@/data/boyan";
+import { SERVICE_LINES } from "@/data/catalog";
 
 export default function ServicesPage() {
   const [tab, setTab] = useState("all");

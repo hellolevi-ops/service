@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="zh-CN"
-      data-theme="ivy"
+      data-theme="qingteng"
       className={`${jakarta.variable} ${cormorant.variable} ${cinzel.variable} ${notoSans.variable} ${notoSerif.variable}`}
     >
       <body

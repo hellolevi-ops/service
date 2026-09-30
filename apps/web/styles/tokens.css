@@ -1,9 +1,8 @@
 /**
- * 青藤国际 — Ivy Global 深蓝/slate 机构风 Token
+ * 青藤国际 — 深蓝/slate 机构风 Token
  */
 :root,
-:root[data-theme="ivy"],
-:root[data-theme="boyan"] {
+:root[data-theme="qingteng"] {
   --color-bg: #f8fafc;
   --color-bg-elevated: #ffffff;
   --color-bg-band: #f1f5f9;

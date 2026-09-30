@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PRACTICE_PLAYBOOKS } from "@/data/boyan";
+import { PRACTICE_PLAYBOOKS } from "@/data/catalog";
 import { AlertTriangle, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata = { title: "何时需要找顾问" };

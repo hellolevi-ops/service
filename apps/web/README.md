@@ -1,4 +1,4 @@
-# 研迹留学官网（Next.js）
+# 青藤国际官网（Next.js）
 
 香港服务器路径：`/data/studyabroad/apps/web`
 
