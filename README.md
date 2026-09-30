@@ -8,7 +8,8 @@
 |---|---|
 | `apps/web` | Next.js 15 站点（客户站 + `/ops` 员工台） |
 | `docs` | 产品 / 设计 / 账号权限文档 |
-| `_gemini_design` | 早期 Gemini 视觉原型（Vite，仅参考） |
+
+早期 Gemini / Vite 视觉原型已归档到分支 [`archive/gemini-vite`](https://github.com/hellolevi-ops/service/tree/archive/gemini-vite)，不再随 `main` 维护。
 
 ## 本地启动
 
